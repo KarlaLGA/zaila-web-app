@@ -1,5 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
+
+import Artwork from './views/Artwork';
 
 function App() {
 
@@ -8,6 +10,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>{artwork.test}</p>
+        <Artwork/>
       </header>
     </div>
   );
