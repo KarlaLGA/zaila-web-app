@@ -13,7 +13,7 @@ function App() {
       <main className="app">
         <Route exact path="/" component={ Home }/>
         <Route path="/artworks" component={ ListArtworks }/>
-        <Route path ="/artworks/create" component={ Create }/>
+        <Route path ="/createArtwork" component={ Create }/>
       </main>
 
     </BrowserRouter>

@@ -1,6 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
+import {useSelector, useDispatch} from 'react-redux';
 
 import Translate from './Translate';
 
@@ -19,6 +18,10 @@ const CreateArtwork = () => {
 
     return (
         <div>
+
+            <label htmlFor="name"> Name of Artwork
+                <input type="text" name="name" id="name"/>
+            </label>
 
             <textarea
                 name="description"
