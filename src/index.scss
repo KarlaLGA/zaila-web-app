@@ -12,13 +12,9 @@ code {
     monospace;
 }
 
-/*Test sass integration*/
+@import "./scss/CreateArtwork.scss"
 
-header { 
-  background-color: salmon;
-  text-align: center;
+// =====================================
+// =            Variables              =
+// =====================================
 
-  p {
-    color: white;
-  }
-}
