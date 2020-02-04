@@ -1,14 +1,16 @@
 import React from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+//import {useSelector, useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux'
 
 import Translate from './Translate';
+import Translation from './Translation'
 
 const CreateArtwork = () => {
 
     const dispatch = useDispatch();
 
     //let description = useSelector(state => state.artwork.description);
-    let translation = useSelector(state => state.artwork.translationFr);
+    // let translation = useSelector(state => state.artwork.translationFr);
 
     const handleDescription = (e) => {
         let inputDescription = e.target.value;
@@ -31,7 +33,11 @@ const CreateArtwork = () => {
                 onChange={handleDescription}></textarea>
 
             <Translate/>
-            <p>{translation}</p>
+
+            <Translation/>
+
+            {/* <p>{translation}</p>
+            <button>Edit translation</button> */}
 
         </div>
     )
