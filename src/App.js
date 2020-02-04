@@ -1,18 +1,23 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { BrowserRouter, Route } from 'react-router-dom'
 
-import Artwork from './views/Artwork';
+import Home from './views/Home';
+import ListArtworks from './views/Artworks/ListArtworks';
+import Create from './views/Artworks/Create';
 
 function App() {
 
-  const artwork = useSelector(state => state.artwork);
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>{artwork.test}</p>
-        <Artwork/>
-      </header>
-    </div>
+
+    <BrowserRouter>
+      <main className="app">
+        <Route exact path="/" component={ Home }/>
+        <Route path="/artworks" component={ ListArtworks }/>
+        <Route path ="/artworks/create" component={ Create }/>
+      </main>
+
+    </BrowserRouter>
+      
   );
 }
 

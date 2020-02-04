@@ -1,9 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import Translate from '../components/Artwork/Translate'
 
-const Artwork = () => {
+import Translate from './Translate';
+
+const CreateArtwork = () => {
 
     const dispatch = useDispatch();
 
@@ -17,17 +18,20 @@ const Artwork = () => {
     }
 
     return (
-        <div className="artwork view">
+        <div>
 
-
-            <textarea name="description" id="description" cols="30" rows="10" onChange={handleDescription}></textarea>
+            <textarea
+                name="description"
+                id="description"
+                cols="30"
+                rows="10"
+                onChange={handleDescription}></textarea>
 
             <Translate/>
             <p>{translation}</p>
-            
-            
+
         </div>
     )
 }
 
-export default Artwork;
+export default CreateArtwork
