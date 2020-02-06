@@ -3,14 +3,14 @@ import {useSelector, useDispatch} from 'react-redux';
 //import {useDispatch} from 'react-redux'
 
 import Translate from '../../../components/Artwork/Translate';
-import Translation from '../../../components/Artwork/Translation';
+import ListTranslation from '../../../components/Artwork/ListTranslation';
 
 // MOVE FORM TO ITS OWN COMPONENT
-// CREATEARTWORK SCREEN ONLY CALLS ITS CHILD COMPONENTS
+// CREATE ARTWORK SCREEN ONLY CALLS ITS CHILD COMPONENTS
 
 const CreateArtwork = () => {
 
-    const {description, translationFr} = useSelector(state => state.artwork);
+    const {description, translationFr, translationEs, translationCh } = useSelector(state => state.artwork);
 
     const newArtwork = {
         name: "",
@@ -19,7 +19,9 @@ const CreateArtwork = () => {
         date: "",
         image: "",
         description: "",
-        translationFr: ""
+        translationFr: "",
+        translationEs: "",
+        translationCh: ""
     }
 
     const [artwork,
@@ -55,10 +57,13 @@ const CreateArtwork = () => {
         setArtwork({
             ...artwork,
             description: description,
-            translationFr: translationFr
+            translationFr: translationFr,
+            translationEs: translationEs,
+            translationCh: translationCh
+
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [description, translationFr]);
+    }, [description, translationFr, translationEs, translationCh]);
 
     return (
         <div>
@@ -133,7 +138,7 @@ const CreateArtwork = () => {
 
             <Translate/>
 
-            <Translation/>
+            <ListTranslation/>
 
             <button onClick={handleArtwork}>Save Artwork</button>
 
