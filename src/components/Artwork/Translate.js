@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import he from 'he';
 
-import config from './config';
-
 const Translate = () => {
 
     const dispatch = useDispatch();
@@ -23,7 +21,7 @@ const Translate = () => {
 
     //let encodeDescription = encodeURI(description);
 
-    const { API_KEY } = config;
+    const  API_KEY  = process.env.REACT_APP_TRANSLATE_API_KEY;
 
     let urlFrench = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}&q=${description}&source=${sourceLang}&target=${targetLang}`;
 
@@ -31,7 +29,9 @@ const Translate = () => {
 
     let urlChinese = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}&q=${description}&source=${sourceLang}&target=${targetLang3}`;
 
+    
     const handleTranslation = () => {
+
             axios.get(urlFrench)
             .then(data => {
                 let translation = he.decode(data.data.data.translations[0].translatedText);
