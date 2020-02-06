@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, {useState, useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 //import {useDispatch} from 'react-redux'
 
-import Translate from './Translate';
-import Translation from './Translation'
+import Translate from '../../../components/Artwork/Translate';
+import Translation from '../../../components/Artwork/Translation';
+
+// MOVE FORM TO ITS OWN COMPONENT
+// CREATEARTWORK SCREEN ONLY CALLS ITS CHILD COMPONENTS
 
 const CreateArtwork = () => {
 
@@ -19,12 +22,8 @@ const CreateArtwork = () => {
         translationFr: ""
     }
 
-    
-
     const [artwork,
         setArtwork] = useState(newArtwork);
-
-    
 
     const dispatch = useDispatch();
 
@@ -33,15 +32,33 @@ const CreateArtwork = () => {
 
     const handleDescription = (e) => {
         let inputDescription = e.target.value;
-        dispatch({type: "DESCRIPTION", payload: inputDescription});
+        dispatch({type: "SET_DESCRIPTION", payload: inputDescription});
         //console.log(description);
+    }
+
+    const handleUploadImage = async (e) => {
+        const file = e.target.files[0];
+        const formData = new FormData();
+        formData.append('file', file);
+        console.log(formData.get('file'));
+
+        // send formData object in axios POST
+        // axios.post('api url', formData, {
+
+        //})
+
     }
 
     const handleArtwork = () => {}
 
     useEffect(() => {
-        setArtwork({...artwork, description: description, translationFr: translationFr});
-}, [description, translationFr]);
+        setArtwork({
+            ...artwork,
+            description: description,
+            translationFr: translationFr
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [description, translationFr]);
 
     return (
         <div>
@@ -96,15 +113,13 @@ const CreateArtwork = () => {
             </label>
 
             <label htmlFor="image">
-                Submit an picture of the image
+                Submit an picture of the artwork
                 <input
                     type="file"
                     name="image"
                     id="image"
-                    onChange={(e) => setArtwork({
-                    ...artwork,
-                    image: e.target.value
-                })}/>
+                    placeholder="submit picture"
+                    onChange={ handleUploadImage }/>
             </label>
 
             <label htmlFor="description"/>
