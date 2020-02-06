@@ -12,21 +12,58 @@ const Translate = () => {
     let description = useSelector(state => state.artwork.description);
 
     let sourceLang = "en";
+
+    // ONE BUTTON TO TRANSLATE TO FOUR LANGUAGES
+
     let targetLang = "fr";
-    let encodeDescription = encodeURI(description);
+
+    let targetLang2 = "es";
+
+    let targetLang3 = 'zh';
+
+    //let encodeDescription = encodeURI(description);
 
     const { API_KEY } = config;
 
-    let url = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}&q=${encodeDescription}&source=${sourceLang}&target=${targetLang}`;
+    let urlFrench = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}&q=${description}&source=${sourceLang}&target=${targetLang}`;
+
+    let urlSpanish = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}&q=${description}&source=${sourceLang}&target=${targetLang2}`;
+
+    let urlChinese = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}&q=${description}&source=${sourceLang}&target=${targetLang3}`;
 
     const handleTranslation = () => {
-            axios.get(url)
+            axios.get(urlFrench)
             .then(data => {
                 let translation = he.decode(data.data.data.translations[0].translatedText);
+                //console.log(data);
                 //translation = translation.text();
                 
-                console.log(translation);
-                dispatch({type: "TRANS_FR", payload: translation});
+                //console.log(translation);
+                dispatch({type: "SET_TRANS_FR", payload: translation});
+            })
+            .catch(error => {
+                console.log(error)
+            })
+            axios.get(urlSpanish)
+            .then(data => {
+                let translation = he.decode(data.data.data.translations[0].translatedText);
+                //console.log(data);
+                //translation = translation.text();
+                
+                //console.log(translation);
+                dispatch({type: "SET_TRANS_ES", payload: translation});
+            })
+            .catch(error => {
+                console.log(error)
+            })
+            axios.get(urlChinese)
+            .then(data => {
+                let translation = he.decode(data.data.data.translations[0].translatedText);
+                //console.log(data);
+                //translation = translation.text();
+                
+                //console.log(translation);
+                dispatch({type: "SET_TRANS_CH", payload: translation});
             })
             .catch(error => {
                 console.log(error)
@@ -36,7 +73,7 @@ const Translate = () => {
     return (
         <div>
 
-            <button onClick={handleTranslation}>Translate to French</button>
+            <button onClick={handleTranslation}>Translate to French, Chinese and Spanish!</button>
             
         </div>
     )

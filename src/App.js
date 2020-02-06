@@ -1,24 +1,43 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
-import Home from './views/Home';
-import ListArtworks from './views/Artworks/ListArtworks';
-import Create from './views/Artworks/Create';
+import Nav from './components/Home/Nav';
+import HomeView from './views/HomeView';
+import ArtworkView from './views/ArtworkView';
+import SensorView from './views/SensorView';
+import ReportView from './views/ReportView';
 
 function App() {
 
-  return (
+    return (
 
-    <BrowserRouter>
-      <main className="app">
-        <Route exact path="/" component={ Home }/>
-        <Route path="/artworks" component={ ListArtworks }/>
-        <Route path ="/createArtwork" component={ Create }/>
-      </main>
+        <BrowserRouter>
+            <main className="app">
 
-    </BrowserRouter>
-      
-  );
+                <Nav/>
+
+                <hr/>
+
+                <Switch>
+                    <Route exact path="/">
+                        <HomeView/>
+                    </Route>
+                    <Route path="/artworks">
+                        <ArtworkView/>
+                    </Route>
+                    <Route path="/sensors">
+                        <SensorView/>
+                    </Route>
+                    <Route path="/reports">
+                        <ReportView/>
+                    </Route>
+                </Switch>
+
+            </main>
+
+        </BrowserRouter>
+
+    );
 }
 
 export default App;

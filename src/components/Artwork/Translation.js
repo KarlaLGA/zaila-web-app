@@ -9,6 +9,8 @@ const Translation = () => {
     const [edit, setEdit] = useState(false);
 
     let translation = useSelector(state => state.artwork.translationFr);
+    let translation2 = useSelector(state => state.artwork.translationEs);
+    let translation3 = useSelector(state => state.artwork.translationCh);
 
     useEffect(() => {
         if (translation !== "") {
@@ -34,7 +36,11 @@ const Translation = () => {
         <div>
 
             {!edit ? (
+                <div>
                 <p>{translation}</p>
+                <p>{translation2}</p>
+                <p>{translation3}</p>
+                </div>
                 
             ) : (
                 <textarea name="editTranslate" id="editTranslate" cols="30" rows="10" className={!edit ? " hidden" : ""} value={translation}onChange={ handleNewTranslation }></textarea>
