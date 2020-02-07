@@ -4,6 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import UploadImage from './UploadImage';
 import Translate from './Translate';
 import ListTranslation from './ListTranslation';
+import ArtworkQRCode from './ArtworkQRCode';
 
 
 const ArtworkForm = () => {
@@ -24,6 +25,7 @@ const ArtworkForm = () => {
     const [artwork,
         setArtwork] = useState(newArtwork);
 
+    const [qrCode, setQrCode] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -61,7 +63,10 @@ const ArtworkForm = () => {
     const handleArtwork = () => {
         console.log(artwork);
 
-        // axios.post
+        // axios.post artwork
+
+        setQrCode(true);
+
     }
 
     return (
@@ -165,6 +170,17 @@ const ArtworkForm = () => {
             <ListTranslation/>
 
             <button onClick={handleArtwork}>Save Artwork</button>
+
+            {qrCode ? (
+
+                <ArtworkQRCode sensorId={artwork.sensorId}/>
+
+            ) : (
+                <div/>
+            )}
+
+            
+
 
         </div>
     )
