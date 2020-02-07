@@ -62,6 +62,12 @@ const artworkReducer = (state = initState, action) => {
                 artworkList: action.payload
             }
 
+        case "SET_SELECTED_ARTWORK":
+            return {
+                ...state,
+                selectedArtwork: action.payload
+            }
+
         default:
             return state
     }

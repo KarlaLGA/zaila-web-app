@@ -1,12 +1,16 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 const SingleArtwork = (props) => {
+
+    const dispatch = useDispatch();
 
     let artworkId = parseInt(props.match.params.artworkId);
     let listArtworks = useSelector(state => state.artwork.artworkList);
 
     let singleArtwork = listArtworks.find(artwork => artwork.artwork.artworkId === artworkId);
+
+    dispatch({type: "SET_SELECTED_ARTWORK", payload: singleArtwork});
 
     let { title, artistName, media, year, imageURL, exhibitionId, sensorId, artworkDetailsArray } = singleArtwork.artwork;
     return (
