@@ -69,7 +69,7 @@ const SingleArtwork = (props) => {
 
             </div>
             ) : (
-                <ArtworkForm artwork={ singleArtwork }/>
+                <ArtworkForm method="edit" artwork={ singleArtwork }/>
             )}
 
             

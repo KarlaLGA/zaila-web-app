@@ -9,6 +9,9 @@ import ArtworkQRCode from './ArtworkQRCode';
 
 const ArtworkForm = (props) => {
 
+    //Check the form method is create new or edit existing one
+    const method = props.method;
+
     const { image, description, translationFr, translationEs, translationCh } = useSelector(state => state.artwork);
 
     const singleArtwork = useSelector(state => state.artwork.selectedArtwork.artwork);
@@ -40,36 +43,51 @@ const ArtworkForm = (props) => {
         dispatch({type: "SET_DESCRIPTION", payload: inputDescription});
     }
 
-    useEffect(() => {
+    useEffect(()=>{
+        switch(method)
+        {
+            case 'create':
+            console.log('Create artwork!')
+            break;
 
-        (props !== "") ? setIsCreate(true) : setIsCreate(false);
-        dispatch({type: "SET_SELECTED_ARTWORK", payload: artwork});
-        // setArtwork({
-        //     ...artwork,
-        //     image: image,
-        //     artworkDetails: [
-        //         {
-        //             description: description,
-        //             languageCode: "en-CA"
-        //         },
-        //         {
-        //             description: translationFr,
-        //             languageCode: "fr-CA"
-        //         },
-        //         {
-        //             description: translationEs,
-        //             languageCode: "es-ES"
-        //         },
-        //         {
-        //             description: translationCh,
-        //             languageCode: "zh-CN"
-        //         }
-        //     ]
-        // });
+            case 'edit':
+            console.log('Edit');
+            break;
+
+            default:
+        }
+    },[])
+
+    // useEffect(() => {
+
+    //     (props !== "") ? setIsCreate(true) : setIsCreate(false);
+    //     dispatch({type: "SET_SELECTED_ARTWORK", payload: artwork});
+    //     // setArtwork({
+    //     //     ...artwork,
+    //     //     image: image,
+    //     //     artworkDetails: [
+    //     //         {
+    //     //             description: description,
+    //     //             languageCode: "en-CA"
+    //     //         },
+    //     //         {
+    //     //             description: translationFr,
+    //     //             languageCode: "fr-CA"
+    //     //         },
+    //     //         {
+    //     //             description: translationEs,
+    //     //             languageCode: "es-ES"
+    //     //         },
+    //     //         {
+    //     //             description: translationCh,
+    //     //             languageCode: "zh-CN"
+    //     //         }
+    //     //     ]
+    //     // });
 
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [image, description, translationFr, translationEs, translationCh]);
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [image, description, translationFr, translationEs, translationCh]);
 
     const handleArtwork = () => {
         console.log(artwork);
@@ -84,7 +102,7 @@ const ArtworkForm = (props) => {
         <div className="artwork-form">
 
             <h2>Create Artwork</h2>
-
+{/* 
             <label htmlFor="title">
                 Name of Artwork
                 {!isCreate ? (
@@ -107,7 +125,7 @@ const ArtworkForm = (props) => {
                     title: e.target.value
                 })}/>
                 )}
-            </label>
+            </label> */}
 
             <label htmlFor="artistName">
                 Artist

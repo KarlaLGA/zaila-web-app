@@ -7,7 +7,7 @@ const CreateArtwork = () => {
 
     return (
         <div className="create-artwork">
-            <ArtworkForm/>
+            <ArtworkForm method="create"/>
         </div>
     )
 }
