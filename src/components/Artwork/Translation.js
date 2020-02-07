@@ -10,7 +10,7 @@ const Translation = (props) => {
     const [isVisible, setIsVisible] = useState(false);   
     const [edit, setEdit] = useState(false);
 
-    let { text, language} = props.translation;
+    let { text, language } = props.translation;
 
     useEffect(() => {
         if (text !== "") {
@@ -20,7 +20,6 @@ const Translation = (props) => {
     
     const handleEditTranslation = () => {
         setEdit(true);
-
     }
 
     const handleNewTranslation = (e) => {

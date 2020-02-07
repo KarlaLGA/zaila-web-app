@@ -11,15 +11,11 @@ const Translate = () => {
 
     let sourceLang = "en";
 
-    // ONE BUTTON TO TRANSLATE TO FOUR LANGUAGES
-
     let targetLang = "fr";
 
     let targetLang2 = "es";
 
     let targetLang3 = 'zh';
-
-    //let encodeDescription = encodeURI(description);
 
     const  API_KEY  = process.env.REACT_APP_TRANSLATE_API_KEY;
 

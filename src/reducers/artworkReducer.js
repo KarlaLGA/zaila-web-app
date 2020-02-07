@@ -1,77 +1,61 @@
 const initState = {
-    test: "I am an artwork found inside my reducer!",
-    name: "",
-    artist: "",
-    medium: "",
-    date: "",
+    newArtwork: {},
+
+    selectedArtwork: {},
+
+    image: {},
     description: "",
     translationFr: "",
     translationEs: "",
-    translationCh: ""
-}
+    translationCh: "",
 
-// test: "I am an artwork found inside my reducer!",
-//     title: "",
-//      imageURL: "",
-//     artistName: "",
-//     media: "",
-//     year: "",
-//      exhibitionId: "",
-//      sensorId: "", optional
-//     artworkDetails: [
-//         {
-//             description: "",
-//             languageCode: ""
-//         },
-//         {
-//             description: "",
-//             languageCode: ""
-//         }
-//     ]
+    artworkList: []
+}
 
 const artworkReducer = (state = initState, action) => {
     switch (action.type) {
-        // move individual cases to one called add_form, which contains the title, artist, ...
-        case "SET_NAME":
+        case "ADD_NEW_ARTWORK":
             return {
                 ...state,
-                name: action.payload
+                newArtwork: action.payload
             }
-        case "SET_ARTIST":
+
+        case "SET_IMAGE":
             return {
                 ...state,
-                artist: action.payload
+                image: action.payload
             }
-        case "SET_MEDIUM":
+
+        case "SET_SELECTED_LANGUAGE":
             return {
                 ...state,
-                medium: action.payload
+                selectedArtwork: action.payload
             }
-        case "SET_DATE":
-            return {
-                ...state,
-                date: action.payload
-            }
+
         case "SET_DESCRIPTION":
             return {
                 ...state,
                 description: action.payload
             }
+
         case "SET_TRANS_FR":
             return {
                 ...state,
                 translationFr: action.payload
             }
+
         case "SET_TRANS_ES":
             return {
                 ...state,
                 translationEs: action.payload
             }
+
         case "SET_TRANS_CH":
             return {
                 ...state,
                 translationCh: action.payload
             }
+
         default:
             return state
     }
