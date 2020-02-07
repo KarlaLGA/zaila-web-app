@@ -7,31 +7,25 @@ import ListTranslation from './ListTranslation';
 import ArtworkQRCode from './ArtworkQRCode';
 
 
-const ArtworkForm = (props) => {
+const EditArtworkForm = (props) => {
 
-    const { image, description, translationFr, translationEs, translationCh } = useSelector(state => state.artwork);
+    const { title, image, artistName, media, year, exhibitionId, sensorId, artworkDetails } = props.artwork.artwork;
 
-    const singleArtwork = useSelector(state => state.artwork.selectedArtwork.artwork);
-
-    // const newArtwork = {
-    //     title: "",
-    //     image: {},
-    //     artistName: "",
-    //     media: "",
-    //     year: "",
-    //     exhibitionId: 123,
-    //     sensorId: 234,
-    //     artworkDetails: []
-    // }
+    const newArtwork = {
+        title: title,
+        image: image,
+        artistName: artistName,
+        media: media,
+        year: year,
+        exhibitionId: exhibitionId,
+        sensorId: sensorId,
+        artworkDetails: artworkDetails
+    }
 
     const [artwork,
-        setArtwork] = useState(singleArtwork);
-
-        console.log(artwork);
+        setArtwork] = useState(newArtwork);
 
     const [qrCode, setQrCode] = useState(false);
-
-    const [isCreate, setIsCreate] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -41,35 +35,8 @@ const ArtworkForm = (props) => {
     }
 
     useEffect(() => {
-
-        (props !== "") ? setIsCreate(true) : setIsCreate(false);
-        dispatch({type: "SET_SELECTED_ARTWORK", payload: artwork});
-        // setArtwork({
-        //     ...artwork,
-        //     image: image,
-        //     artworkDetails: [
-        //         {
-        //             description: description,
-        //             languageCode: "en-CA"
-        //         },
-        //         {
-        //             description: translationFr,
-        //             languageCode: "fr-CA"
-        //         },
-        //         {
-        //             description: translationEs,
-        //             languageCode: "es-ES"
-        //         },
-        //         {
-        //             description: translationCh,
-        //             languageCode: "zh-CN"
-        //         }
-        //     ]
-        // });
-
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [image, description, translationFr, translationEs, translationCh]);
+        
+    }, []);
 
     const handleArtwork = () => {
         console.log(artwork);
@@ -87,9 +54,8 @@ const ArtworkForm = (props) => {
 
             <label htmlFor="title">
                 Name of Artwork
-                {!isCreate ? (
-                    <input
-                    value={singleArtwork.title}
+                <input
+                    value={title}
                     type="text"
                     name="title"
                     id="title"
@@ -97,16 +63,6 @@ const ArtworkForm = (props) => {
                     ...artwork,
                     title: e.target.value
                 })}/>
-                ) : (
-                    <input
-                    type="text"
-                    name="title"
-                    id="title"
-                    onChange={(e) => setArtwork({
-                    ...artwork,
-                    title: e.target.value
-                })}/>
-                )}
             </label>
 
             <label htmlFor="artistName">
@@ -209,4 +165,4 @@ const ArtworkForm = (props) => {
     )
 }
 
-export default ArtworkForm
+export default EditArtworkForm

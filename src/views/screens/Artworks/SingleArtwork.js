@@ -1,5 +1,8 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, {useState} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+
+import ArtworkForm from '../../../components/Artwork/ArtworkForm';
+// import EditArtworkForm from '../../../components/Artwork/EditArtworkForm';
 
 const SingleArtwork = (props) => {
 
@@ -8,29 +11,69 @@ const SingleArtwork = (props) => {
     let artworkId = parseInt(props.match.params.artworkId);
     let listArtworks = useSelector(state => state.artwork.artworkList);
 
+    const [artworkEdit,
+        setArtworkEdit] = useState(false);
+
     let singleArtwork = listArtworks.find(artwork => artwork.artwork.artworkId === artworkId);
 
     dispatch({type: "SET_SELECTED_ARTWORK", payload: singleArtwork});
 
-    let { title, artistName, media, year, imageURL, exhibitionId, sensorId, artworkDetailsArray } = singleArtwork.artwork;
+    let {
+        title,
+        artistName,
+        media,
+        year,
+        imageURL,
+        exhibitionId,
+        sensorId,
+        artworkDetailsArray
+    } = singleArtwork.artwork;
+
+    const handleEdit = () => {
+        setArtworkEdit(true);
+    }
     return (
         <div>
-            <p>Single artwork</p>
 
-            <h2>Artwork: { title }</h2>
+            {!artworkEdit ? (
 
-            <img src={ imageURL } alt="artwork" style={{width: "200px"}}/>
+                <div>
 
-            <h3> Artist: { artistName }</h3>
+                <p>Single artwork</p>
 
-            <p>Exhibition: { exhibitionId }</p>
-            <p>Sensor: { sensorId }</p>
-            <p>Media: { media }</p>
-            <p>Year: { year }</p>
+                <h2>Artwork: {title}</h2>
 
-            {artworkDetailsArray.map(artworkDetail => (<p key={artworkDetail.artworkDetails.description}>Description: { artworkDetail.artworkDetails.description} <span>Language: { artworkDetail.artworkDetails.languageCode} </span></p>))}
+                <img
+                    src={imageURL}
+                    alt="artwork"
+                    style={{
+                    width: "200px"
+                }}/>
+
+                <h3>
+                    Artist: {artistName}</h3>
+
+                <p>Exhibition: {exhibitionId}</p>
+                <p>Sensor: {sensorId}</p>
+                <p>Media: {media}</p>
+                <p>Year: {year}</p>
+
+                {artworkDetailsArray.map(artworkDetail => (
+                    <p key={artworkDetail.artworkDetails.description}>Description: {artworkDetail.artworkDetails.description}
+                        <span>Language: {artworkDetail.artworkDetails.languageCode}
+                        </span>
+                    </p>
+                ))}
+
+                <button onClick={handleEdit}>Edit</button>
+
+            </div>
+            ) : (
+                <ArtworkForm artwork={ singleArtwork }/>
+            )}
 
             
+
         </div>
     )
 }
