@@ -1,13 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom'
 
 const ArtworkItem = (props) => {
 
-    let { title, artistName, imageURL, artworkDetailsArray, exhibitionId, sensorId } = props.artwork;
+    let { title, artistName, imageURL, exhibitionId, sensorId } = props.artwork;
+    let artwork = props.artwork;
 
-    console.log(artworkDetailsArray);
+    //console.log(artworkDetailsArray);
 
     return (
         <div className="artwork-item">
+
+            <Link to={'/artworks/'+  artwork.artworkId}>
 
             <h2>Artwork: { title }</h2>
 
@@ -20,6 +24,8 @@ const ArtworkItem = (props) => {
 
             {/* {artworkDetailsArray.map(artworkDetail => (<p key={artworkDetail.artworkDetails.description}>{ artworkDetail.artworkDetails.description} <span>{ artworkDetail.artworkDetails.languageCode} </span></p>))} */}
 
+            
+            </Link>
             
         </div>
     )

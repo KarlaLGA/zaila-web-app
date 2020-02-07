@@ -56,6 +56,12 @@ const artworkReducer = (state = initState, action) => {
                 translationCh: action.payload
             }
 
+        case "SET_ARTWORK_LIST":
+            return {
+                ...state,
+                artworkList: action.payload
+            }
+
         default:
             return state
     }

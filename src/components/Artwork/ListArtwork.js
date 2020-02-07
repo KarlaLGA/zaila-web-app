@@ -1,8 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import ArtworkItem from './ArtworkItem';
 
 const ListArtwork = () => {
+
+    const dispatch = useDispatch();
 
     // TODO: REPLACE THIS MOCKING DATA WITH THE API CALL
 
@@ -60,7 +63,9 @@ const ListArtwork = () => {
                 ]
             }
         }
-    ]
+    ];
+
+    dispatch({type: "SET_ARTWORK_LIST", payload: data});
 
 
 return (
