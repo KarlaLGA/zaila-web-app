@@ -1,111 +1,88 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { getNfcSensors } from "../../../api/sensor";
 
 const ListOf = () => {
   /*=========================
-      DECLARATIONS
+      STATES
   ===========================*/
   const [nfcSensors, setNfcSensors] = useState([]);
-  // const [btSensors, setBtSensors] = useState([]);
+  const [filter, setFilter] = useState("all");
 
   /*=========================
-      STYLES
+      CONSTANTS
   ===========================*/
-  const styles = {
-    list: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between"
+  const filters = [
+    {
+      code: "all",
+      text: "Show All"
     },
-    available: {
-      color: "green"
+    {
+      code: "att",
+      text: "Attached"
     },
-    linked: {
-      color: "lightgrey"
+    {
+      code: "det",
+      text: "Detached"
     }
-  };
+  ];
 
   /*=========================
       LIFECYCLE METHODS
   ===========================*/
   useEffect(() => {
-    // Call API to get the list of all Bluetooth sensors
-    // const btSensorsResponse = [
-    //   { sensorId: "123", status: "available" },
-    //   { sensorId: "456", status: "linked" },
-    //   { sensorId: "789", status: "available" }
-    // ];
-    // setBtSensors(btSensorsResponse);
-
-    // Call API to get the list of all NFC sensors
-    const nfcSensorsResponse = [
-      { sensorId: "123", status: "available" },
-      { sensorId: "456", status: "linked" },
-      { sensorId: "789", status: "available" }
-    ];
-    setNfcSensors(nfcSensorsResponse);
+    getNfcSensors()
+      .then(data => {
+        setNfcSensors(data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }, []);
 
   /*=========================
       CUSTOM METHODS
   ===========================*/
-  // const handleRemoveNfc = sensorId => {
-  //   // Call API and pass the sensor ID for removal
-  //   setNfcSensors(
-  //     nfcSensors.filter(nfcSensor => nfcSensor.sensorId !== sensorId)
-  //   );
-
-  //   // Should the getNfcSensors API be called again after removing it?
-  //   // Or is it okay to simply remove it from the component state?
-  // };
-  // Prettier is such a hypocrite. It'll indent the above block into multiple lines,
-  // but will let the below line stay as it is
-  // const handleRemoveBt = sensorId => {
-  //   // Call API and pass the sensor ID for removal
-  //   setBtSensors(btSensors.filter(btSensor => btSensor.sensorId !== sensorId));
-
-  //   // Should the getBtSensors API be called again after removing it?
-  //   // Or is it okay to simply remove it from the component state?
-  // };
-
+  const handleDetachNfc = nfcSensorId => {
+    // Call API to detach the sensor from it's linked artwork
+  };
   /*=========================
       JSX (Duh.)
   ===========================*/
   return (
     <div>
-      {/* <h1>Sensors</h1> */}
-      {/* <Link to="/sensors/create">Create a new Sensor</Link> */}
-
-      <h2>NFC Sensors</h2>
-      {nfcSensors.map(nfcSensor => (
-        <div style={styles.list} key={nfcSensor.sensorId}>
-          <Link to={`/sensor/${nfcSensor.sensorId}`}>
-            <h3>{nfcSensor.sensorId}</h3>
-          </Link>
-          <h3 style={styles[nfcSensor.status]}>{nfcSensor.status}</h3>
-          {/* <button onClick={() => handleRemoveNfc(nfcSensor.sensorId)}>
-            Remove
-          </button> */}
+      <div className="section-header">
+        <h2 className="section-title">NFC Sensors</h2>
+        <div>
+          {filters.map((currFilter, id) => (
+            <span
+              onClick={() => setFilter(currFilter.code)}
+              key={currFilter.code}
+              className={currFilter.code === filter ? "active" : ""}
+            >
+              {currFilter.text}
+              {id !== filters.length - 1 && " / "}
+            </span>
+          ))}
         </div>
-      ))}
-      {/* Just wondering, can these two be rendered by a single loop?
-      Depends on the structure of the API call
-      I mean, if there are two separate API calls for both sensors, it has to be done this way
-      Else, the API can provide two objects, one for Bluetooth and one for NFC each containing an array of it's sensors
-      That'd make it easy to render this list through one single loop */}
-      {/* <h2>Bluetooth Sensors (for Quests)</h2>
-      {btSensors.map(btSensor => (
-        // Dont worry, I'll replace this with a React router link
-        <div style={styles.list} key={btSensor.sensorId}>
-          <Link to={`/sensor/${btSensor.sensorId}`}>
-            <h3>{btSensor.sensorId}</h3>
-          </Link>
-          <h3 style={styles[btSensor.status]}>{btSensor.status}</h3>
-          <button onClick={() => handleRemoveBt(btSensor.sensorId)}>
-            Remove
-          </button>
-        </div>
-      ))} */}
+      </div>
+      <div id="sensors">
+        {/* TODO Filter sensors based on the selected filter: all/attached/detached */}
+        {/* Waiting for the API to be updated with the filter status */}
+        {nfcSensors.map(nfcSensor => (
+          <div className="sensor" key={nfcSensor.nfcSensorId}>
+            <div>Sensor ID: {nfcSensor.nfcSensorId}</div>
+            <div>Artwork Name: {nfcSensor.artworkName}</div>
+            <div>Exhibition Name: {nfcSensor.exhibitionName}</div>
+            {nfcSensor.status === "available" && (
+              <div className="btn-wrapper">
+                <button onClick={() => handleDetachNfc(nfcSensor.nfcSensorId)}>
+                  Detach
+                </button>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
