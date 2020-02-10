@@ -3,7 +3,7 @@ import { Route, Switch, useRouteMatch } from 'react-router-dom';
 
 import ListOf from './screens/Artworks/ListOf';
 import CreateArtwork from './screens/Artworks/CreateArtwork';
-import SingleArtwork from './screens/Artworks/SingleArtwork';
+import Artwork from './screens/Artworks/Artwork';
 
 export default function ArtworkView() {
 
@@ -19,9 +19,9 @@ export default function ArtworkView() {
                     {/* <Route exact path={ path }>
                         <ListOf artwork={artworkList}/>
                     </Route> */}
-                    <Route exact path={ path } component={ListOf}/>
-                    <Route exact path={`${ path }/create`} component={CreateArtwork}/>
-                    <Route path={`${ path }/:artworkId`} component={SingleArtwork}/>
+                    <Route exact path={ path } component={ ListOf }/>
+                    <Route exact path={`${ path }/create`} component={ CreateArtwork }/>
+                    <Route path={`${ path }/:artworkId`} component={ Artwork }/>
             </Switch>
 
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import ListArtwork from '../../../components/Artwork/ListArtwork';
+import ListArtwork from '../../../components/Artwork/ListArtworks/ListArtwork';
 
 
 const ListOf = () => {

@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
-import EditArtworkForm from '../../../components/Artwork/EditArtworkForm';
-import ArtworkQRCode from '../../../components/Artwork/ArtworkQRCode';
-import DeleteArtwork from '../../../components/Artwork/DeleteArtwork/DeleteArtwork';
+import EditArtworkForm from './EditArtworkForm';
+import ArtworkQRCode from './ArtworkQRCode';
+import DeleteArtwork from './DeleteArtwork/DeleteArtwork';
 
 
 const SingleArtwork = (props) => {
 
     const dispatch = useDispatch();
 
-    let artworkId = parseInt(props.match.params.artworkId);
+    let artworkId = props.artworkId;
     let listArtworks = useSelector(state => state.artwork.artworkList);
 
     const [artworkEdit,

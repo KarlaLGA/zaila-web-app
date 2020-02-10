@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
 import UploadImage from './UploadImage';
-import Translate from './Translate';
-import ListTranslation from './ListTranslation';
+import Translate from './TranslateArtwork/Translate';
+import ListTranslation from './TranslateArtwork/ListTranslation';
 import ArtworkQRCode from './ArtworkQRCode';
 
 

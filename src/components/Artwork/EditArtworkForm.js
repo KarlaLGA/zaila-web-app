@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 
 import UploadImage from './UploadImage';
-import Translate from './Translate';
-import ListTranslation from './ListTranslation';
+import Translate from './TranslateArtwork/Translate';
+import ListTranslation from './TranslateArtwork/ListTranslation';
 import ArtworkQRCode from './ArtworkQRCode';
 
 // TO UPDATE THE IMAGE, SHOW THE CURRENT IMAGE AND ADD A BUTTON TO UPDATE/ REWRITE THE FILE
