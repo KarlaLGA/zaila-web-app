@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { useHistory } from 'react-router-dom';
 
 import UploadImage from './UploadImage';
 import Translate from './Translate';
@@ -9,8 +8,6 @@ import ArtworkQRCode from './ArtworkQRCode';
 
 
 const ArtworkForm = () => {
-
-    const history = useHistory();
 
     const { image, artworkDetails } = useSelector(state => state.artwork);
 

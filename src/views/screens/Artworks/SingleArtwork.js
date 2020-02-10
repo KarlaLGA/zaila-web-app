@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 
 import EditArtworkForm from '../../../components/Artwork/EditArtworkForm';
 import ArtworkQRCode from '../../../components/Artwork/ArtworkQRCode';
+import DeleteArtwork from '../../../components/Artwork/DeleteArtwork/DeleteArtwork';
 
 
 const SingleArtwork = (props) => {
@@ -77,7 +78,7 @@ const SingleArtwork = (props) => {
                 <EditArtworkForm method="edit" artwork={ singleArtwork }/>
             )}
 
-            
+            <DeleteArtwork/>
 
         </div>
     )
