@@ -16,7 +16,7 @@ const ListTranslation = () => {
         translations.push(artworkDetails[i])
     }
 
-    console.log(translations);
+    //console.log(translations);
     return (
         <div className="translations-list">
 

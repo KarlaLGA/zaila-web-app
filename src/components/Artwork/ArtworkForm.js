@@ -52,7 +52,7 @@ const ArtworkForm = () => {
 
     }
 
-    console.log(artworkDetails);
+    //console.log(artworkDetails);
 
     return (
         <div className="artwork-form">

@@ -18,7 +18,7 @@ const EditArtworkForm = (props) => {
 
     const artworkDetailsTranslated = useSelector(state => state.artwork.artworkDetails);
 
-    console.log(artworkDetailsTranslated);
+    //console.log(artworkDetailsTranslated);
 
     const description = artworkDetails[0].description;
 
@@ -86,7 +86,7 @@ const EditArtworkForm = (props) => {
 
     const sensorListFiltered = sensorList.filter(sensor => sensor.status === "available");
 
-    console.log(description);
+    //console.log(description);
 
 
     const renderExhibitionList = exhibitionList.map(exhibition => {

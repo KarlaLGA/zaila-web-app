@@ -59,6 +59,7 @@ const ListArtwork = () => {
     };
 
     dispatch({type: "SET_ARTWORK_LIST", payload: data.artworks});
+    dispatch({type: "EMPTY_ARTWORK_DETAILS"});
 
     return (
         <div>
