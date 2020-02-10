@@ -1,13 +1,13 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import he from 'he';
 
-const Translate = () => {
+const Translate = (props) => {
 
     const dispatch = useDispatch();
 
-    let description = useSelector(state => state.artwork.description);
+    let description = props.description;
 
     let sourceLang = "en";
 
@@ -59,7 +59,7 @@ const Translate = () => {
                 //translation = translation.text();
                 
                 //console.log(translation);
-                dispatch({type: "SET_TRANS_CH", payload: translation});
+                dispatch({type: "SET_TRANS_ZH", payload: translation});
             })
             .catch(error => {
                 console.log(error)

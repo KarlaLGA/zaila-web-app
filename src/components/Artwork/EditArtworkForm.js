@@ -1,51 +1,101 @@
-import React, {useState, useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
 
 import UploadImage from './UploadImage';
 import Translate from './Translate';
 import ListTranslation from './ListTranslation';
 import ArtworkQRCode from './ArtworkQRCode';
 
-
+// TO UPDATE THE IMAGE, SHOW THE CURRENT IMAGE AND ADD A BUTTON TO UPDATE/ REWRITE THE FILE
 const EditArtworkForm = (props) => {
 
-    const { title, image, artistName, media, year, exhibitionId, sensorId, artworkDetails } = props.artwork.artwork;
+    const dispatch = useDispatch();
 
-    const newArtwork = {
-        title: title,
-        image: image,
-        artistName: artistName,
-        media: media,
-        year: year,
-        exhibitionId: exhibitionId,
-        sensorId: sensorId,
-        artworkDetails: artworkDetails
-    }
+    const [editArtwork, setEditArtwork] = useState(props.artwork);
 
-    const [artwork,
-        setArtwork] = useState(newArtwork);
+    const { title, image, artistName, media, year, exhibitionId, sensorId, artworkDetails } = editArtwork;
+
+    const artworkDetailsTranslated = useSelector(state => state.artwork.artworkDetails);
+
+    console.log(artworkDetailsTranslated);
+
+    const description = artworkDetails[0].description;
 
     const [qrCode, setQrCode] = useState(false);
-
-    const dispatch = useDispatch();
 
     const handleDescription = (e) => {
         let inputDescription = e.target.value;
         dispatch({type: "SET_DESCRIPTION", payload: inputDescription});
-    }
+    };
 
     useEffect(() => {
-        
-    }, []);
+
+        if (artworkDetailsTranslated.length !== 0){
+
+            setEditArtwork({
+                ...editArtwork,
+                image: image,
+                artworkDetails: artworkDetailsTranslated
+            });
+
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [image, artworkDetailsTranslated]);
 
     const handleArtwork = () => {
-        console.log(artwork);
+        console.log(editArtwork);
 
         // axios.post artwork
 
         setQrCode(true);
-
     }
+
+    const exhibitionList = [
+
+        // REPLACE WITH API CALL
+        
+        {exhibitionId: 123,
+        exhibitionName: "Egypt"},
+        {exhibitionId: 124,
+        exhibitionName: "Renaissance"},
+        {exhibitionId: 125,
+        exhibitionName: "Americana"},
+        {exhibitionId: 126,
+        exhibitionName: "Latin"}
+    ]
+
+    const dataSensors = [
+
+        // REPLACE WITH API CALL
+
+        {sensorId: "n123",
+        status: "available"},
+        {sensorId: "n124",
+        status: "available"},
+        {sensorId: "n125",
+        status: "linked"},
+        {sensorId: "n126",
+        status: "available"}
+    ]
+
+    const sensorList = dataSensors.map((sensor, index) => {
+        sensor.sensorName = `Sensor ${index + 1}`;
+        return sensor
+    })
+
+    const sensorListFiltered = sensorList.filter(sensor => sensor.status === "available");
+
+    console.log(description);
+
+
+    const renderExhibitionList = exhibitionList.map(exhibition => {
+        return (<option  value={exhibition.exhibitionId} key={exhibition.exhibitionId}>{exhibition.exhibitionName}</option>)
+    });
+    
+    const renderSensorList = sensorListFiltered.map(sensor => {
+        return (<option  value={sensor.sensorId} key={sensor.sensorId}>{sensor.sensorName}</option>)
+    });
 
     return (
         <div className="artwork-form">
@@ -55,12 +105,12 @@ const EditArtworkForm = (props) => {
             <label htmlFor="title">
                 Name of Artwork
                 <input
-                    value={title}
+                    value={ title }
                     type="text"
                     name="title"
                     id="title"
-                    onChange={(e) => setArtwork({
-                    ...artwork,
+                    onChange={(e) => setEditArtwork({
+                    ...editArtwork,
                     title: e.target.value
                 })}/>
             </label>
@@ -68,11 +118,12 @@ const EditArtworkForm = (props) => {
             <label htmlFor="artistName">
                 Artist
                 <input
+                    value={ artistName }
                     type="text"
                     name="artistName"
                     id="artistName"
-                    onChange={(e) => setArtwork({
-                    ...artwork,
+                    onChange={(e) => setEditArtwork({
+                    ...editArtwork,
                     artistName: e.target.value
                 })}/>
             </label>
@@ -80,11 +131,12 @@ const EditArtworkForm = (props) => {
             <label htmlFor="media">
                 Media
                 <input
+                    value={ media }
                     type="text"
                     name="media"
                     id="media"
-                    onChange={(e) => setArtwork({
-                    ...artwork,
+                    onChange={(e) => setEditArtwork({
+                    ...editArtwork,
                     media: e.target.value
                 })}/>
             </label>
@@ -92,11 +144,12 @@ const EditArtworkForm = (props) => {
             <label htmlFor="year">
                 Year finished
                 <input
+                    value={ year }
                     type="text"
                     name="year"
                     id="year"
-                    onChange={(e) => setArtwork({
-                    ...artwork,
+                    onChange={(e) => setEditArtwork({
+                    ...editArtwork,
                     year: e.target.value
                 })}/>
             </label>
@@ -106,14 +159,12 @@ const EditArtworkForm = (props) => {
                 <select
                     name="exhibition"
                     id="exhibition"
-                    onChange={(e) => setArtwork({
-                    ...artwork,
+                    value={ exhibitionId }
+                    onChange={(e) => setEditArtwork({
+                    ...editArtwork,
                     exhibitionId: e.target.value
                 })}>
-                    <option value="123">Egypt</option>
-                    <option value="124">Renaissance</option>
-                    <option value="125">Americana</option>
-                    <option value="126">Latin</option>
+                    { renderExhibitionList }
                 </select>
             </label>
 
@@ -122,14 +173,12 @@ const EditArtworkForm = (props) => {
                 <select
                     name="sensor"
                     id="sensor"
-                    onChange={(e) => setArtwork({
-                    ...artwork,
+                    value={ sensorId }
+                    onChange={(e) => setEditArtwork({
+                    ...editArtwork,
                     sensorId: e.target.value
                 })}>
-                    <option value="234">Sensor 1</option>
-                    <option value="235">Sensor 2</option>
-                    <option value="236">Sensor 3</option>
-                    <option value="237">Sensor 4</option>
+                    { renderSensorList }
                 </select>
             </label>
 
@@ -138,13 +187,14 @@ const EditArtworkForm = (props) => {
             <label htmlFor="description"/>
             Description of Artwork
             <textarea
+                value={ description }
                 name="description"
                 id="description"
                 cols="30"
                 rows="10"
                 onChange={handleDescription}></textarea>
 
-            <Translate/>
+            <Translate description={ description }/>
 
             <ListTranslation/>
 
@@ -152,7 +202,7 @@ const EditArtworkForm = (props) => {
 
             {qrCode ? (
 
-                <ArtworkQRCode sensorId={artwork.sensorId}/>
+                <ArtworkQRCode sensorId={editArtwork.sensorId}/>
 
             ) : (
                 <div/>

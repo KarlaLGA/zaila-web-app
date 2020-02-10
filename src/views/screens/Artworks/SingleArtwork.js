@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
-import ArtworkForm from '../../../components/Artwork/ArtworkForm';
-// import EditArtworkForm from '../../../components/Artwork/EditArtworkForm';
+import EditArtworkForm from '../../../components/Artwork/EditArtworkForm';
+import ArtworkQRCode from '../../../components/Artwork/ArtworkQRCode';
+
 
 const SingleArtwork = (props) => {
 
@@ -14,7 +15,7 @@ const SingleArtwork = (props) => {
     const [artworkEdit,
         setArtworkEdit] = useState(false);
 
-    let singleArtwork = listArtworks.find(artwork => artwork.artwork.artworkId === artworkId);
+    let singleArtwork = listArtworks.find(artwork => artwork.artworkId === artworkId);
 
     dispatch({type: "SET_SELECTED_ARTWORK", payload: singleArtwork});
 
@@ -26,8 +27,10 @@ const SingleArtwork = (props) => {
         imageURL,
         exhibitionId,
         sensorId,
-        artworkDetailsArray
-    } = singleArtwork.artwork;
+        artworkDetails
+    } = singleArtwork;
+
+    //console.log(singleArtwork);
 
     const handleEdit = () => {
         setArtworkEdit(true);
@@ -58,18 +61,20 @@ const SingleArtwork = (props) => {
                 <p>Media: {media}</p>
                 <p>Year: {year}</p>
 
-                {artworkDetailsArray.map(artworkDetail => (
-                    <p key={artworkDetail.artworkDetails.description}>Description: {artworkDetail.artworkDetails.description}
-                        <span>Language: {artworkDetail.artworkDetails.languageCode}
+                {artworkDetails.map(artworkDetail => (
+                    <p key={artworkDetail.description}>Description: {artworkDetail.description}
+                        <span>Language: {artworkDetail.languageCode}
                         </span>
                     </p>
                 ))}
+
+                <ArtworkQRCode sensorId={ sensorId }/>
 
                 <button onClick={handleEdit}>Edit</button>
 
             </div>
             ) : (
-                <ArtworkForm method="edit" artwork={ singleArtwork }/>
+                <EditArtworkForm method="edit" artwork={ singleArtwork }/>
             )}
 
             

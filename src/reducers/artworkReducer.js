@@ -1,9 +1,9 @@
 const initState = {
-    newArtwork: {},
-
     selectedArtwork: {},
 
     image: {},
+
+    artworkDetails: [],
     description: "",
     translationFr: "",
     translationEs: "",
@@ -14,11 +14,7 @@ const initState = {
 
 const artworkReducer = (state = initState, action) => {
     switch (action.type) {
-        case "ADD_NEW_ARTWORK":
-            return {
-                ...state,
-                newArtwork: action.payload
-            }
+
 
         case "SET_IMAGE":
             return {
@@ -32,28 +28,49 @@ const artworkReducer = (state = initState, action) => {
                 selectedArtwork: action.payload
             }
 
+        case "SET_ARTWORK_DETAILS":
+            return {
+                ...state,
+                artworkDetails: action.payload
+            }
+
         case "SET_DESCRIPTION":
             return {
                 ...state,
-                description: action.payload
+                artworkDetails: [
+                    {description: action.payload,
+                    languageCode: "en-US"}
+                ]
             }
 
         case "SET_TRANS_FR":
             return {
                 ...state,
-                translationFr: action.payload
+                artworkDetails: [
+                    ...state.artworkDetails,
+                    {description: action.payload,
+                    languageCode: "fr-CA"}
+                ]
             }
 
         case "SET_TRANS_ES":
             return {
                 ...state,
-                translationEs: action.payload
+                artworkDetails: [
+                    ...state.artworkDetails,
+                    {description: action.payload,
+                    languageCode: "es-ES"}
+                ]
             }
 
-        case "SET_TRANS_CH":
+        case "SET_TRANS_ZH":
             return {
                 ...state,
-                translationCh: action.payload
+                artworkDetails: [
+                    ...state.artworkDetails,
+                    {description: action.payload,
+                    languageCode: "zh-CN"}
+                ]
             }
 
         case "SET_ARTWORK_LIST":
@@ -66,6 +83,12 @@ const artworkReducer = (state = initState, action) => {
             return {
                 ...state,
                 selectedArtwork: action.payload
+            }
+
+        case "EMPTY_ARTWORK_DETAILS":
+            return {
+                ...state,
+                artworkDetails: []
             }
 
         default:

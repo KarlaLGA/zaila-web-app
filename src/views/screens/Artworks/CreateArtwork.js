@@ -2,7 +2,6 @@ import React from 'react';
 
 import ArtworkForm from '../../../components/Artwork/ArtworkForm'
 
-
 const CreateArtwork = () => {
 
     return (

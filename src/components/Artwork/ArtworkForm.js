@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import UploadImage from './UploadImage';
 import Translate from './Translate';
@@ -7,34 +8,27 @@ import ListTranslation from './ListTranslation';
 import ArtworkQRCode from './ArtworkQRCode';
 
 
-const ArtworkForm = (props) => {
+const ArtworkForm = () => {
 
-    //Check the form method is create new or edit existing one
-    const method = props.method;
+    const history = useHistory();
 
-    const { image, description, translationFr, translationEs, translationCh } = useSelector(state => state.artwork);
+    const { image, artworkDetails } = useSelector(state => state.artwork);
 
-    const singleArtwork = useSelector(state => state.artwork.selectedArtwork.artwork);
-
-    // const newArtwork = {
-    //     title: "",
-    //     image: {},
-    //     artistName: "",
-    //     media: "",
-    //     year: "",
-    //     exhibitionId: 123,
-    //     sensorId: 234,
-    //     artworkDetails: []
-    // }
+    const newArtwork = {
+        title: "",
+        image: {},
+        artistName: "",
+        media: "",
+        year: "",
+        exhibitionId: 123,
+        sensorId: 234,
+        artworkDetails: []
+    }
 
     const [artwork,
-        setArtwork] = useState(singleArtwork);
-
-        console.log(artwork);
+        setArtwork] = useState(newArtwork);
 
     const [qrCode, setQrCode] = useState(false);
-
-    const [isCreate, setIsCreate] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -43,51 +37,14 @@ const ArtworkForm = (props) => {
         dispatch({type: "SET_DESCRIPTION", payload: inputDescription});
     }
 
-    useEffect(()=>{
-        switch(method)
-        {
-            case 'create':
-            console.log('Create artwork!')
-            break;
-
-            case 'edit':
-            console.log('Edit');
-            break;
-
-            default:
-        }
-    },[])
-
-    // useEffect(() => {
-
-    //     (props !== "") ? setIsCreate(true) : setIsCreate(false);
-    //     dispatch({type: "SET_SELECTED_ARTWORK", payload: artwork});
-    //     // setArtwork({
-    //     //     ...artwork,
-    //     //     image: image,
-    //     //     artworkDetails: [
-    //     //         {
-    //     //             description: description,
-    //     //             languageCode: "en-CA"
-    //     //         },
-    //     //         {
-    //     //             description: translationFr,
-    //     //             languageCode: "fr-CA"
-    //     //         },
-    //     //         {
-    //     //             description: translationEs,
-    //     //             languageCode: "es-ES"
-    //     //         },
-    //     //         {
-    //     //             description: translationCh,
-    //     //             languageCode: "zh-CN"
-    //     //         }
-    //     //     ]
-    //     // });
-
-
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [image, description, translationFr, translationEs, translationCh]);
+    useEffect(() => {
+        setArtwork({
+            ...artwork,
+            image: image,
+            artworkDetails: artworkDetails
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [image, artworkDetails]);
 
     const handleArtwork = () => {
         console.log(artwork);
@@ -98,16 +55,16 @@ const ArtworkForm = (props) => {
 
     }
 
+    console.log(artworkDetails);
+
     return (
         <div className="artwork-form">
 
             <h2>Create Artwork</h2>
-{/* 
+
             <label htmlFor="title">
                 Name of Artwork
-                {!isCreate ? (
-                    <input
-                    value={singleArtwork.title}
+                <input
                     type="text"
                     name="title"
                     id="title"
@@ -115,17 +72,7 @@ const ArtworkForm = (props) => {
                     ...artwork,
                     title: e.target.value
                 })}/>
-                ) : (
-                    <input
-                    type="text"
-                    name="title"
-                    id="title"
-                    onChange={(e) => setArtwork({
-                    ...artwork,
-                    title: e.target.value
-                })}/>
-                )}
-            </label> */}
+            </label>
 
             <label htmlFor="artistName">
                 Artist
@@ -188,10 +135,10 @@ const ArtworkForm = (props) => {
                     ...artwork,
                     sensorId: e.target.value
                 })}>
-                    <option value="234">Sensor 1</option>
-                    <option value="235">Sensor 2</option>
-                    <option value="236">Sensor 3</option>
-                    <option value="237">Sensor 4</option>
+                    <option value="n123">Sensor 1</option>
+                    <option value="n124">Sensor 2</option>
+                    <option value="n125">Sensor 3</option>
+                    <option value="n126">Sensor 4</option>
                 </select>
             </label>
 
@@ -206,9 +153,15 @@ const ArtworkForm = (props) => {
                 rows="10"
                 onChange={handleDescription}></textarea>
 
-            <Translate/>
-
-            <ListTranslation/>
+            {(artworkDetails.length >= 1) ? (
+                <div>
+                    <Translate description={ artworkDetails[0].description}/>
+                    <ListTranslation/>
+                </div>
+                
+            ) : (
+                <div></div>
+            )}
 
             <button onClick={handleArtwork}>Save Artwork</button>
 

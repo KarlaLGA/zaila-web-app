@@ -8,28 +8,19 @@ import Translation from './Translation';
 
 const ListTranslation = () => {
 
-    let translationFr = useSelector(state => state.artwork.translationFr);
-    let translationEs = useSelector(state => state.artwork.translationEs);
-    let translationCh = useSelector(state => state.artwork.translationCh);
+    const artworkDetails = useSelector(state => state.artwork.artworkDetails);
 
-    const translations = [
-        {
-            text: translationFr,
-            language: "FR"
-        },
-        {
-            text: translationEs,
-            language: "ES"
-        },
-        {
-            text: translationCh,
-            language: "CH"
-        }
-    ]
+    const translations = [];
+
+    for(let i = 1; i < artworkDetails.length; i++){
+        translations.push(artworkDetails[i])
+    }
+
+    console.log(translations);
     return (
         <div className="translations-list">
 
-            {translations.map(translation => (<Translation key={translation.language} translation={translation}/>))}
+            {translations.map(translation => (<Translation key={translation.languageCode} translation={translation}/>))}
         
             
         </div>

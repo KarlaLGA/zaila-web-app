@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import {useDispatch} from 'react-redux';
 
 import ArtworkItem from './ArtworkItem';
 
@@ -9,35 +9,31 @@ const ListArtwork = () => {
 
     // TODO: REPLACE THIS MOCKING DATA WITH THE API CALL
 
-    const data = [
-        {
-            artwork: {
+    const data = {
+
+        artworks: [
+            {
                 artworkId: 1,
-                exhibitionId: 123,
+                exhibitionId: 125,
                 sensorId: "n123",
                 title: "The Pharao",
                 imageURL: "https://i.picsum.photos/id/1025/4951/3301.jpg",
                 artistName: "Cleopatra",
                 media: "PNG",
                 year: "2020",
-                artworkDetailsArray: [
+                artworkDetails: [
                     {
-                        artworkDetails: {
-                            artworkId: 1,
-                            languageCode: "en-US",
-                            description: "dog"
-                        }
+                        "artworkDetailsId": 2333,
+                        "description": "This is a famous paiting",
+                        "languageCode": "en-CA"
                     }, {
-                        artworkDetails: {
-                            artworkId: 1,
-                            languageCode: "fr-CA",
-                            description: "chien"
-                        }
+                        "artworkDetailsId": 2334,
+                        "description": "Cest une portrait",
+                        "languageCode": "fr-CA"
                     }
                 ]
-            }
-        }, {
-            artwork: {
+
+            }, {
                 artworkId: 2,
                 exhibitionId: 123,
                 sensorId: "n124",
@@ -46,32 +42,29 @@ const ListArtwork = () => {
                 artistName: "Ramses",
                 media: "PNG",
                 year: "2020",
-                artworkDetailsArray: [
+                artworkDetails: [
                     {
-                        artworkDetails: {
-                            artworkId: 2,
-                            languageCode: "en-US",
-                            description: "Cat"
-                        }
+                        "artworkDetailsId": 2333,
+                        "description": "This is a famous paiting",
+                        "languageCode": "en-CA"
                     }, {
-                        artworkDetails: {
-                            artworkId: 2,
-                            languageCode: "fr-CA",
-                            description: "Chat"
-                        }
+                        "artworkDetailsId": 2334,
+                        "description": "Cest une portrait",
+                        "languageCode": "fr-CA"
                     }
                 ]
             }
-        }
-    ];
 
-    dispatch({type: "SET_ARTWORK_LIST", payload: data});
+        ]
+    };
 
+    dispatch({type: "SET_ARTWORK_LIST", payload: data.artworks});
 
-return (
-    <div>
-        {data.map(artwork => (<ArtworkItem key={ artwork.artwork.artworkId } artwork= { artwork.artwork }/>))}
-    </div>
-)}
+    return (
+        <div>
+            {data.artworks.map(artwork => (<ArtworkItem key={artwork.artworkId} artwork={artwork}/>))}
+        </div>
+    )
+}
 
 export default ListArtwork;
