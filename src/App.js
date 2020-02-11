@@ -6,6 +6,8 @@ import HomeView from "./views/HomeView";
 import ArtworkView from "./views/ArtworkView";
 import SensorView from "./views/SensorView";
 import ReportView from "./views/ReportView";
+import ExhibitionView from './views/ExhibitionView';
+import QuestView from './views/QuestView';
 
 function App() {
   return (
@@ -27,6 +29,12 @@ function App() {
           </Route>
           <Route path="/reports">
             <ReportView />
+          </Route>
+          <Route path="/exhibitions">
+            <ExhibitionView />
+          </Route>
+          <Route path="/quests">
+            <QuestView />
           </Route>
         </Switch>
       </main>

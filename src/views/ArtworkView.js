@@ -13,7 +13,7 @@ export default function ArtworkView() {
     // USE USESTATE TO SET THE DATA
 
     return (
-        <div>
+        <div className="artwork-view view">
 
             <Switch>
                     {/* <Route exact path={ path }>
