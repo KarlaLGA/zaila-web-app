@@ -75,7 +75,7 @@ const SingleArtwork = (props) => {
 
             </div>
             ) : (
-                <EditArtworkForm method="edit" artwork={ singleArtwork }/>
+                <EditArtworkForm artwork={ singleArtwork }/>
             )}
 
             <DeleteArtwork/>

@@ -100,7 +100,7 @@ const EditArtworkForm = (props) => {
     return (
         <div className="artwork-form">
 
-            <h2>Create Artwork</h2>
+            <h2>Edit Artwork</h2>
 
             <label htmlFor="title">
                 Name of Artwork
@@ -115,13 +115,13 @@ const EditArtworkForm = (props) => {
                 })}/>
             </label>
 
-            <label htmlFor="artistName">
+            <label htmlFor="artist-name">
                 Artist
                 <input
                     value={ artistName }
                     type="text"
-                    name="artistName"
-                    id="artistName"
+                    name="artist-name"
+                    id="artist-name"
                     onChange={(e) => setEditArtwork({
                     ...editArtwork,
                     artistName: e.target.value

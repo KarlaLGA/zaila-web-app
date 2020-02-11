@@ -1,12 +1,12 @@
 import React from 'react';
 
-import ArtworkForm from '../../../components/Artwork/ArtworkForm'
+import CreateArtworkForm from '../../../components/Artwork/CreateArtworkForm'
 
 const CreateArtwork = () => {
 
     return (
         <div className="create-artwork">
-            <ArtworkForm method="create"/>
+            <CreateArtworkForm/>
         </div>
     )
 }
