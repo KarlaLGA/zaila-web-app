@@ -1,77 +1,96 @@
 const initState = {
-    test: "I am an artwork found inside my reducer!",
-    name: "",
-    artist: "",
-    medium: "",
-    date: "",
+    selectedArtwork: {},
+
+    image: {},
+
+    artworkDetails: [],
     description: "",
     translationFr: "",
     translationEs: "",
-    translationCh: ""
-}
+    translationCh: "",
 
-// test: "I am an artwork found inside my reducer!",
-//     title: "",
-//      imageURL: "",
-//     artistName: "",
-//     media: "",
-//     year: "",
-//      exhibitionId: "",
-//      sensorId: "", optional
-//     artworkDetails: [
-//         {
-//             description: "",
-//             languageCode: ""
-//         },
-//         {
-//             description: "",
-//             languageCode: ""
-//         }
-//     ]
+    artworkList: []
+}
 
 const artworkReducer = (state = initState, action) => {
     switch (action.type) {
-        // move individual cases to one called add_form, which contains the title, artist, ...
-        case "SET_NAME":
+
+
+        case "SET_IMAGE":
             return {
                 ...state,
-                name: action.payload
+                image: action.payload
             }
-        case "SET_ARTIST":
+
+        case "SET_SELECTED_LANGUAGE":
             return {
                 ...state,
-                artist: action.payload
+                selectedArtwork: action.payload
             }
-        case "SET_MEDIUM":
+
+        case "SET_ARTWORK_DETAILS":
             return {
                 ...state,
-                medium: action.payload
+                artworkDetails: action.payload
             }
-        case "SET_DATE":
-            return {
-                ...state,
-                date: action.payload
-            }
+
         case "SET_DESCRIPTION":
             return {
                 ...state,
-                description: action.payload
+                artworkDetails: [
+                    {description: action.payload,
+                    languageCode: "en-US"}
+                ]
             }
+
         case "SET_TRANS_FR":
             return {
                 ...state,
-                translationFr: action.payload
+                artworkDetails: [
+                    ...state.artworkDetails,
+                    {description: action.payload,
+                    languageCode: "fr-CA"}
+                ]
             }
+
         case "SET_TRANS_ES":
             return {
                 ...state,
-                translationEs: action.payload
+                artworkDetails: [
+                    ...state.artworkDetails,
+                    {description: action.payload,
+                    languageCode: "es-ES"}
+                ]
             }
-        case "SET_TRANS_CH":
+
+        case "SET_TRANS_ZH":
             return {
                 ...state,
-                translationCh: action.payload
+                artworkDetails: [
+                    ...state.artworkDetails,
+                    {description: action.payload,
+                    languageCode: "zh-CN"}
+                ]
             }
+
+        case "SET_ARTWORK_LIST":
+            return {
+                ...state,
+                artworkList: action.payload
+            }
+
+        case "SET_SELECTED_ARTWORK":
+            return {
+                ...state,
+                selectedArtwork: action.payload
+            }
+
+        case "EMPTY_ARTWORK_DETAILS":
+            return {
+                ...state,
+                artworkDetails: []
+            }
+
         default:
             return state
     }
