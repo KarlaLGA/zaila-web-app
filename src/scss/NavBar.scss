@@ -1,0 +1,28 @@
+.navigation-bar {
+    background-color: rgb(150, 150, 150);
+    color: white;
+    display: grid;
+    grid-template-rows: 10% 70% 20%;
+    height: 100vh;
+    text-align: center;
+    
+    .logo,
+    .main-navigation,
+    .secondary-navigation {
+        padding: 10px;
+    }
+    a {
+        color: white;
+    }
+
+    ul {
+        list-style-type: none;
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .secondary-navigation {
+        background-color: rgb(197, 197, 197);
+        margin: 0;
+    }
+}
