@@ -1,31 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+// import React, { useState, useEffect } from 'react';
+// import { useSelector, useDispatch } from 'react-redux';
 
-const Translation = () => {
+const Translation = (props) => {
+
+    // SHOW TEXTAREA BY DEFAULT FOR THE TRANSLATIONS, REMOVE EDIT BUTTON
 
     const dispatch = useDispatch();
 
     const [isVisible, setIsVisible] = useState(false);   
     const [edit, setEdit] = useState(false);
 
-    let translation = useSelector(state => state.artwork.translationFr);
-    let translation2 = useSelector(state => state.artwork.translationEs);
-    let translation3 = useSelector(state => state.artwork.translationCh);
+    let { description, languageCode } = props.translation;
+
+    let language = (languageCode.substr(0, 2)).toUpperCase();
 
     useEffect(() => {
-        if (translation !== "") {
+        if (description !== "") {
             setIsVisible(true);
         }
-    }, [translation]);
+    }, [description]);
     
     const handleEditTranslation = () => {
         setEdit(true);
-
     }
 
     const handleNewTranslation = (e) => {
         let inputDescription = e.target.value;
-        dispatch({type: "TRANS_FR", payload: inputDescription});
+        dispatch({type: `SET_TRANS_${language}`, payload: inputDescription});
     }
 
     const handleSaveTranslation = () => {
@@ -36,14 +39,10 @@ const Translation = () => {
         <div>
 
             {!edit ? (
-                <div>
-                <p>{translation}</p>
-                <p>{translation2}</p>
-                <p>{translation3}</p>
-                </div>
+                <p>{description}</p>
                 
             ) : (
-                <textarea name="editTranslate" id="editTranslate" cols="30" rows="10" className={!edit ? " hidden" : ""} value={translation}onChange={ handleNewTranslation }></textarea>
+                <textarea name="editTranslate" id="editTranslate" cols="30" rows="10" className={!edit ? " hidden" : ""} value={description}onChange={ handleNewTranslation }></textarea>
             )}
 
             

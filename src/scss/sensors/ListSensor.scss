@@ -1,0 +1,46 @@
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0.5rem;
+
+  div {
+    span {
+      color: grey;
+      cursor: pointer;
+
+      &.active {
+        color: black;
+      }
+    }
+  }
+}
+
+#sensors {
+  display: flex;
+  flex-wrap: wrap;
+
+  .sensor {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    padding: 1rem;
+    border: 1px solid lightgrey;
+    box-sizing: border-box;
+    flex-basis: calc(33.33% - 1rem);
+
+    .btn-wrapper {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        padding: 0.5rem;
+        color: white;
+        background: coral;
+        border-width: 0;
+        font-weight: bold;
+        border-radius: 0.75rem;
+      }
+    }
+  }
+}
