@@ -71,12 +71,12 @@ const ArtworkForm = () => {
                 })}/>
             </label>
 
-            <label htmlFor="artistName">
+            <label htmlFor="artist-name">
                 Artist
                 <input
                     type="text"
-                    name="artistName"
-                    id="artistName"
+                    name="artist-name"
+                    id="artist-name"
                     onChange={(e) => setArtwork({
                     ...artwork,
                     artistName: e.target.value
