@@ -2,6 +2,8 @@ import React from 'react';
 import {useDispatch} from 'react-redux';
 
 import ArtworkItem from './ArtworkItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const ListArtwork = () => {
 
@@ -63,7 +65,20 @@ const ListArtwork = () => {
 
     return (
         <div>
-            {data.artworks.map(artwork => (<ArtworkItem key={artwork.artworkId} artwork={artwork}/>))}
+            <div className="search-bar">
+                <label htmlFor="search-artwork">
+                    <input
+                        type="text"
+                        name="search-artwork"
+                        id="search-artwork"
+                        placeholder="search by title or artist name"/>
+                </label>
+                <button><FontAwesomeIcon icon={faSearch}/></button>
+
+            </div>
+            {data
+                .artworks
+                .map(artwork => (<ArtworkItem key={artwork.artworkId} artwork={artwork}/>))}
         </div>
     )
 }
