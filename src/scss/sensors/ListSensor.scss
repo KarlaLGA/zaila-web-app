@@ -1,9 +1,12 @@
+// Contains the section title eg. "NFC Sensors" and the filters
 .section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 0.5rem;
 
+  // Styling for the filters depending on whether they're selected or not
+  // Selected filters are colored black, while unselected filters are colored grey
   div {
     span {
       color: grey;
@@ -16,23 +19,25 @@
   }
 }
 
+// The container that displays all the sensors
 #sensors {
   display: flex;
   flex-wrap: wrap;
 
   .sensor {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; // For the content (Sensor ID, Artwork name, Exhibition name) inside a sensor
     margin: 0.5rem;
     padding: 1rem;
     border: 1px solid lightgrey;
     box-sizing: border-box;
-    flex-basis: calc(33.33% - 1rem);
+    flex-basis: calc(33.33% - 1rem); // 3 sensors in every row
 
     .btn-wrapper {
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-end; // Push the button to the right of the container
 
+      // Basic styles for the button to make it look decent for the time being
       button {
         padding: 0.5rem;
         color: white;

@@ -1,14 +1,14 @@
 import axios from "axios";
 
-const getNfcSensors = () => {
+const get = endpoint => {
   return axios
-    .get(`sensor`)
+    .get(endpoint)
     .then(res => {
-      return res.data;
+      return res.data.data;
     })
     .catch(err => {
       console.log(err);
     });
 };
 
-export { getNfcSensors };
+export { get };
