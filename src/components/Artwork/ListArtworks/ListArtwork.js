@@ -1,5 +1,5 @@
-import React from 'react';
-import {useDispatch} from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import ArtworkItem from './ArtworkItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,6 +8,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 const ListArtwork = () => {
 
     const dispatch = useDispatch();
+    const [artworks, setArtworks] = useState([]);
 
     // TODO: REPLACE THIS MOCKING DATA WITH THE API CALL
 
@@ -60,8 +61,20 @@ const ListArtwork = () => {
         ]
     };
 
-    dispatch({type: "SET_ARTWORK_LIST", payload: data.artworks});
-    dispatch({type: "EMPTY_ARTWORK_DETAILS"});
+    useEffect(() => {
+        // TODO: ADD API CALL FOR ARTWORK LIST
+        
+        setArtworks(data.artworks);
+        dispatch({type: "SET_ARTWORK_LIST", payload: data.artworks});
+        dispatch({type: "EMPTY_ARTWORK_DETAILS"});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    const handleSearch = () => {
+        const search = (document.getElementById("search-artwork")).value;
+        console.log(search);
+        // TODO: ADD API CALL FOR SEARCH ARTWORK
+    }
 
     return (
         <div>
@@ -73,11 +86,10 @@ const ListArtwork = () => {
                         id="search-artwork"
                         placeholder="search by title or artist name"/>
                 </label>
-                <button><FontAwesomeIcon icon={faSearch}/></button>
+                <button onClick={handleSearch}><FontAwesomeIcon icon={faSearch}/></button>
 
             </div>
-            {data
-                .artworks
+            {artworks
                 .map(artwork => (<ArtworkItem key={artwork.artworkId} artwork={artwork}/>))}
         </div>
     )
