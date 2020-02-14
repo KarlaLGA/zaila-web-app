@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { get } from "services/zaila-api";
 import SensorItem from "components/Sensor/ListSensors/SensorItem";
 
 const ListSensor = props => {
   /*=========================
-      RECEIVE VALUES FROM 
-      REDUX STORE
+      RECEIVE VALUES FROM REDUX STORE 
+      AND LOCAL STATE(S)
   ===========================*/
   // sensorObjs will contain data about the sensor itelf,
   // plus the entity (artwork/quest) as well as the exhibition to which they belong
-  const { sensors: sensorObjs, filter: appliedFilter } = useSelector(
-    state => state.sensor
-  );
+  const { filter: appliedFilter } = useSelector(state => state.sensor);
+  const [sensorObjs, setSensorObjs] = useState([]);
+
+  /*=========================
+      LIFECYCLE METHODS
+  ===========================*/
+  useEffect(() => {
+    get("sensor")
+      .then(data => {
+        setSensorObjs(data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
 
   /*=========================
       JSX (Duh.)

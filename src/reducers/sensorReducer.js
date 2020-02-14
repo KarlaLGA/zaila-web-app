@@ -5,12 +5,6 @@ const initState = {
 
 const sensorReducer = (state = initState, action) => {
   switch (action.type) {
-    case "SET_SENSORS":
-      return {
-        ...state,
-        sensors: action.payload
-      };
-
     case "SET_SENSORS_FILTER":
       return {
         ...state,
