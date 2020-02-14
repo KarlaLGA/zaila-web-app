@@ -1,12 +1,25 @@
 const initState = {
-
-}
+  sensors: [],
+  filter: "all"
+};
 
 const sensorReducer = (state = initState, action) => {
-    switch (action.type) {
-        default:
-            return state
-    }
-}
+  switch (action.type) {
+    case "SET_SENSORS":
+      return {
+        ...state,
+        sensors: action.payload
+      };
 
-export default sensorReducer
+    case "SET_SENSORS_FILTER":
+      return {
+        ...state,
+        filter: action.payload
+      };
+
+    default:
+      return state;
+  }
+};
+
+export default sensorReducer;
