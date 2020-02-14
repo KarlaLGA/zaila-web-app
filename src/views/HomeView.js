@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function HomeView() {
     return (
-        <div>
+        <div className="home-view view">
 
             <p>Home!</p>
             
