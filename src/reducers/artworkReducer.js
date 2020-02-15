@@ -1,7 +1,7 @@
 const initState = {
     selectedArtwork: {},
 
-    image: {},
+    image: "",
 
     artworkDetails: [],
     description: "",
