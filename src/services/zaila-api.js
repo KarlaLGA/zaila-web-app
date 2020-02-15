@@ -11,4 +11,26 @@ const get = endpoint => {
     });
 };
 
-export { get };
+const create = (endpoint, data) => {
+  return axios
+    .post(endpoint, data)
+    .then(res => {
+      return res.data;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+const update = (endpoint, data) => {
+  return axios
+    .put(endpoint, data)
+    .then(res => {
+      return res.data;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export { get, create, update };
