@@ -11,11 +11,11 @@ const ArtworkForm = () => {
 
   const newArtwork = {
     title: "",
-    image: {},
+    imageURL: {},
     artistName: "",
     media: "",
     year: "",
-    exhibitionId: 123,
+    exhibitionId: "123",
     sensorId: "n133",
     artworkDetails: []
   };
@@ -36,7 +36,7 @@ const ArtworkForm = () => {
   useEffect(() => {
     setArtwork({
       ...artwork,
-      image: image,
+      imageURL: image,
       artworkDetails: artworkDetails
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -55,7 +55,7 @@ const ArtworkForm = () => {
   const handleArtwork = () => {
     console.log(artwork);
 
-    create("artwork", artwork)
+    create("artwork", { artwork: artwork })
       .then(data => {
         console.log(data);
       })

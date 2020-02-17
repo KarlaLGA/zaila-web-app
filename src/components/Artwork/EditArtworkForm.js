@@ -14,7 +14,7 @@ const EditArtworkForm = props => {
 
   const {
     title,
-    image,
+    imageURL,
     artistName,
     media,
     year,
@@ -26,6 +26,8 @@ const EditArtworkForm = props => {
   const artworkDetailsTranslated = useSelector(
     state => state.artwork.artworkDetails
   );
+
+  let image = useSelector(state => state.artwork.image) || imageURL;
 
   //console.log(artworkDetailsTranslated);
 
@@ -54,17 +56,21 @@ const EditArtworkForm = props => {
     if (artworkDetailsTranslated.length !== 0) {
       setEditArtwork({
         ...editArtwork,
-        image: image,
         artworkDetails: artworkDetailsTranslated
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [image, artworkDetailsTranslated]);
+  }, [artworkDetailsTranslated]);
+
+  useEffect(() => {
+    setEditArtwork({
+      ...editArtwork,
+      imageURL: image
+    });
+  }, [image]);
 
   const handleArtwork = () => {
-    console.log(editArtwork);
-
-    update("artwork", editArtwork)
+    update(`artwork/${editArtwork.artworkId}`, { artwork: editArtwork })
       .then(data => {
         console.log(data);
       })
