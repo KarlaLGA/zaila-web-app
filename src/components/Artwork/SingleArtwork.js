@@ -1,87 +1,80 @@
-import React, {useState} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-import EditArtworkForm from './EditArtworkForm';
-import ArtworkQRCode from './ArtworkQRCode';
-import DeleteArtwork from './DeleteArtwork/DeleteArtwork';
+import EditArtworkForm from "./EditArtworkForm";
+import ArtworkQRCode from "./ArtworkQRCode";
+import DeleteArtwork from "./DeleteArtwork/DeleteArtwork";
 
+const SingleArtwork = props => {
+  const dispatch = useDispatch();
 
-const SingleArtwork = (props) => {
+  let artworkId = props.artworkId;
+  let listArtworks = useSelector(state => state.artwork.artworkList);
 
-    const dispatch = useDispatch();
+  const [artworkEdit, setArtworkEdit] = useState(false);
 
-    let artworkId = props.artworkId;
-    let listArtworks = useSelector(state => state.artwork.artworkList);
+  let singleArtwork = listArtworks.find(
+    ({ artwork }) => artwork.artworkId === artworkId
+  );
+  dispatch({ type: "SET_SELECTED_ARTWORK", payload: singleArtwork });
 
-    const [artworkEdit,
-        setArtworkEdit] = useState(false);
+  let {
+    title,
+    artistName,
+    media,
+    year,
+    imageURL,
+    exhibitionId,
+    sensorId,
+    artworkDetails
+  } = singleArtwork.artwork;
 
-    let singleArtwork = listArtworks.find(artwork => artwork.artworkId === artworkId);
+  //console.log(singleArtwork);
 
-    dispatch({type: "SET_SELECTED_ARTWORK", payload: singleArtwork});
-
-    let {
-        title,
-        artistName,
-        media,
-        year,
-        imageURL,
-        exhibitionId,
-        sensorId,
-        artworkDetails
-    } = singleArtwork;
-
-    //console.log(singleArtwork);
-
-    const handleEdit = () => {
-        setArtworkEdit(true);
-    }
-    return (
+  const handleEdit = () => {
+    setArtworkEdit(true);
+  };
+  return (
+    <div>
+      {!artworkEdit ? (
         <div>
+          <p>Single artwork</p>
 
-            {!artworkEdit ? (
+          <h2>Artwork: {title}</h2>
 
-                <div>
+          <img
+            src={imageURL}
+            alt="artwork"
+            style={{
+              width: "200px"
+            }}
+          />
 
-                <p>Single artwork</p>
+          <h3>Artist: {artistName}</h3>
 
-                <h2>Artwork: {title}</h2>
+          <p>Exhibition: {exhibitionId}</p>
+          <p>Sensor: {sensorId}</p>
+          <p>Media: {media}</p>
+          <p>Year: {year}</p>
 
-                <img
-                    src={imageURL}
-                    alt="artwork"
-                    style={{
-                    width: "200px"
-                }}/>
+          {artworkDetails.map(artworkDetail => (
+            <p key={artworkDetail.description}>
+              Description: {artworkDetail.description}
+              <span>Language: {artworkDetail.languageCode}</span>
+            </p>
+          ))}
 
-                <h3>
-                    Artist: {artistName}</h3>
+          <ArtworkQRCode sensorId={sensorId} />
 
-                <p>Exhibition: {exhibitionId}</p>
-                <p>Sensor: {sensorId}</p>
-                <p>Media: {media}</p>
-                <p>Year: {year}</p>
-
-                {artworkDetails.map(artworkDetail => (
-                    <p key={artworkDetail.description}>Description: {artworkDetail.description}
-                        <span>Language: {artworkDetail.languageCode}
-                        </span>
-                    </p>
-                ))}
-
-                <ArtworkQRCode sensorId={ sensorId }/>
-
-                <button onClick={handleEdit}>Edit</button>
-
-            </div>
-            ) : (
-                <EditArtworkForm artwork={ singleArtwork }/>
-            )}
-
-            <DeleteArtwork/>
-
+          <button onClick={handleEdit}>Edit</button>
         </div>
-    )
-}
+      ) : (
+        <EditArtworkForm artwork={singleArtwork.artwork} />
+      )}
+
+      <DeleteArtwork />
+    </div>
+  );
+};
 
 export default SingleArtwork;

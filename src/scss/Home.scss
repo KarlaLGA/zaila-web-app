@@ -1,0 +1,10 @@
+.app {
+    display: grid;
+    grid-template-columns: 10% 90%;
+
+    height: 100vh;
+
+    .view {
+        overflow-y: auto;
+    }
+}
