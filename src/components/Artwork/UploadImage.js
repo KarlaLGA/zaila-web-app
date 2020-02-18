@@ -12,8 +12,6 @@ const UploadImage = () => {
 
         const file = e.target.files[0];
 
-        const proxyURL = 'https://cors-anywhere.herokuapp.com/';
-
         getSignedRequest(file)
             .then(result => {
                 console.log(result);
@@ -68,7 +66,7 @@ const UploadImage = () => {
             </label>
             
             {image && (
-                <img src ={image}></img>
+                <img src ={image} alt="artwork"></img>
             )}
             
         </div>

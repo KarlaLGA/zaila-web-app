@@ -67,6 +67,7 @@ const EditArtworkForm = props => {
       ...editArtwork,
       imageURL: image
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [image]);
 
   const handleArtwork = () => {

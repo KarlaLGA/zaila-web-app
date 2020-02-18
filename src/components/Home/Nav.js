@@ -5,23 +5,23 @@ const Nav = () => {
         <div className="navigation-bar">
 
             <div className="logo">
-                <Link to="/">Home</Link>
+                <Link to="/dashboard">Home</Link>
             </div>
             <ul className="main-navigation">
                 <li>
-                    <Link to="/exhibitions">Exhibitions</Link>
+                    <Link to="/dashboard/exhibitions">Exhibitions</Link>
                 </li>
                 <li>
-                    <Link to="/artworks">Artworks</Link>
+                    <Link to="/dashboard/artworks">Artworks</Link>
                 </li>
                 <li>
-                    <Link to="/quests">Quests</Link>
+                    <Link to="/dashboard/quests">Quests</Link>
                 </li>
                 <li>
-                    <Link to="/sensors">Sensors</Link>
+                    <Link to="/dashboard/sensors">Sensors</Link>
                 </li>
                 <li>
-                    <Link to="/reports">Reports</Link>
+                    <Link to="/dashboard/reports">Reports</Link>
                 </li>
             </ul>
 

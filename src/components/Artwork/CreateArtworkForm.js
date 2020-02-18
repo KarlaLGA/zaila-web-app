@@ -158,7 +158,7 @@ const ArtworkForm = () => {
           }
         >
           {sensors
-            .filter(({ sensor }) => sensor.status == "Available")
+            .filter(({ sensor }) => sensor.status === "Available")
             .map(({ sensor }) => (
               <option value={sensor.sensorId} key={sensor.sensorId}>
                 {sensor.sensorId}

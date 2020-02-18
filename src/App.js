@@ -16,22 +16,22 @@ function App() {
         <Nav />
 
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/dashboard">
             <HomeView />
           </Route>
-          <Route path="/artworks">
+          <Route path="/dashboard/artworks">
             <ArtworkView />
           </Route>
-          <Route path="/sensors">
+          <Route path="/dashboard/sensors">
             <SensorView />
           </Route>
-          <Route path="/reports">
+          <Route path="/dashboard/reports">
             <ReportView />
           </Route>
-          <Route path="/exhibitions">
+          <Route path="/dashboard/exhibitions">
             <ExhibitionView />
           </Route>
-          <Route path="/quests">
+          <Route path="/dashboard/quests">
             <QuestView />
           </Route>
         </Switch>
