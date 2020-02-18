@@ -4,7 +4,6 @@ const QuestView = () => {
     return (
         <div className="quest-view view">
             <p>Quest view</p>
-            
         </div>
     )
 }

@@ -57,7 +57,7 @@ const ArtworkForm = () => {
 
     create("artwork", { artwork: artwork })
       .then(data => {
-        console.log(data);
+        console.log(`Create artwork from ${data}`);
       })
       .catch(error => {
         console.log(error);
@@ -65,8 +65,6 @@ const ArtworkForm = () => {
 
     setQrCode(true);
   };
-
-  //console.log(artworkDetails);
 
   return (
     <div className="artwork-form">

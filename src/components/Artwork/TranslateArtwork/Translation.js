@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-// import React, { useState, useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
 
 const Translation = (props) => {
-
-    // SHOW TEXTAREA BY DEFAULT FOR THE TRANSLATIONS, REMOVE EDIT BUTTON
 
     const dispatch = useDispatch();
 
@@ -44,11 +40,8 @@ const Translation = (props) => {
             ) : (
                 <textarea name="editTranslate" id="editTranslate" cols="30" rows="10" className={!edit ? " hidden" : ""} value={description}onChange={ handleNewTranslation }></textarea>
             )}
-
-            
+          
             <button className={!isVisible ? "button hidden" : "button"} onClick={ handleEditTranslation }>Edit translation</button>
-
-            
             <button className={!edit ? "hidden" : ""} onClick={ handleSaveTranslation }>Save</button>
             
         </div>

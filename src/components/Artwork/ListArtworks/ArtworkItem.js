@@ -19,7 +19,6 @@ const ArtworkItem = props => {
         <p>Exhibition: {exhibitionId}</p>
         <p>Sensor: {sensorId}</p>
 
-        {/* {artworkDetailsArray.map(artworkDetail => (<p key={artworkDetail.artworkDetails.description}>{ artworkDetail.artworkDetails.description} <span>{ artworkDetail.artworkDetails.languageCode} </span></p>))} */}
       </Link>
     </div>
   );

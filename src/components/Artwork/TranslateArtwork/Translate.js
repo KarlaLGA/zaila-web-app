@@ -31,10 +31,6 @@ const Translate = (props) => {
             axios.get(urlFrench)
             .then(data => {
                 let translation = he.decode(data.data.data.translations[0].translatedText);
-                //console.log(data);
-                //translation = translation.text();
-                
-                //console.log(translation);
                 dispatch({type: "SET_TRANS_FR", payload: translation});
             })
             .catch(error => {
@@ -43,10 +39,6 @@ const Translate = (props) => {
             axios.get(urlSpanish)
             .then(data => {
                 let translation = he.decode(data.data.data.translations[0].translatedText);
-                //console.log(data);
-                //translation = translation.text();
-                
-                //console.log(translation);
                 dispatch({type: "SET_TRANS_ES", payload: translation});
             })
             .catch(error => {
@@ -55,10 +47,6 @@ const Translate = (props) => {
             axios.get(urlChinese)
             .then(data => {
                 let translation = he.decode(data.data.data.translations[0].translatedText);
-                //console.log(data);
-                //translation = translation.text();
-                
-                //console.log(translation);
                 dispatch({type: "SET_TRANS_ZH", payload: translation});
             })
             .catch(error => {

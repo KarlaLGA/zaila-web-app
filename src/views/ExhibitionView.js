@@ -4,7 +4,6 @@ const ExhibitionView = () => {
     return (
         <div className="exhibition-view view">
             <p>Exhibition view</p>
-            
         </div>
     )
 }

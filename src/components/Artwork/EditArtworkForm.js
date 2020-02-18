@@ -29,8 +29,6 @@ const EditArtworkForm = props => {
 
   let image = useSelector(state => state.artwork.image) || imageURL;
 
-  //console.log(artworkDetailsTranslated);
-
   const description = artworkDetails[0].description;
 
   const [qrCode, setQrCode] = useState(false);
@@ -90,8 +88,6 @@ const EditArtworkForm = props => {
     { exhibitionId: 125, exhibitionName: "Americana" },
     { exhibitionId: 126, exhibitionName: "Latin" }
   ];
-
-  //console.log(description);
 
   const renderExhibitionList = exhibitionList.map(exhibition => {
     return (

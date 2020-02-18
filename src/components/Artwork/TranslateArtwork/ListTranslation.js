@@ -1,7 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import React, { useState, useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
 
 import Translation from './Translation';
 
@@ -16,12 +14,10 @@ const ListTranslation = () => {
         translations.push(artworkDetails[i])
     }
 
-    //console.log(translations);
     return (
         <div className="translations-list">
 
             {translations.map(translation => (<Translation key={translation.languageCode} translation={translation}/>))}
-        
             
         </div>
     )
