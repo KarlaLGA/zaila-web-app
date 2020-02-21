@@ -48,6 +48,8 @@ const LogIn = () => {
         if (formValidates) {
             console.log(submitLogIn);
             history.push("/dashboard");
+
+            // TODO Connect to backend with endpoint
         }
 
         setErrorForm(errorMessage);

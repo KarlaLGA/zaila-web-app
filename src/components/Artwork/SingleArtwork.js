@@ -29,8 +29,6 @@ const SingleArtwork = props => {
     artworkDetails
   } = singleArtwork.artwork;
 
-  //console.log(singleArtwork);
-
   const handleEdit = () => {
     setArtworkEdit(true);
   };
