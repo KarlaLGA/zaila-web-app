@@ -1,5 +1,25 @@
-.home {
+.home, 
+.log-in {
     a {
         color: black;
+    }
+}
+
+.log-in {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 100vh;
+
+    .image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .log-in-form {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
     }
 }

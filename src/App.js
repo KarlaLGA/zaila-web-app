@@ -5,6 +5,7 @@ import Nav from "./components/Home/Navigation/BarNav";
 import TopNav from "./components/Home/Navigation/TopNav";
 import Logo from "./components/Home/Navigation/Logo";
 import LandingPageView from './views/LandingPageView';
+import LogInView from './views/LogInView';
 import HomeView from "./views/HomeView";
 import ArtworkView from "./views/ArtworkView";
 import SensorView from "./views/SensorView";
@@ -16,10 +17,19 @@ function App() {
     let location = window.location;
     let path = location.pathname;
 
+    const checkPath = () => {
+      if (path === "/" || path === "/login"){
+        return false
+      }
+      else {
+        return true
+      }
+    }
+
     return (
         <BrowserRouter>
-            <main className={(path !== "/") ? "app app-dashboard" : "app"}>
-                {(path !== "/")
+            <main className={checkPath() ? "app app-dashboard" : "app"}>
+                {checkPath()
                     ? (
                             <><Logo/>
                             <TopNav/>
@@ -27,12 +37,15 @@ function App() {
                             </>
                     )
                     : (
-                        <div className="zaila"></div>
+                        <></>
                     )}
 
                 <Switch>
                     <Route exact path="/">
                         <LandingPageView/>
+                    </Route>
+                    <Route path="/login">
+                        <LogInView/>
                     </Route>
                     <Route exact path="/dashboard">
                         <HomeView/>
