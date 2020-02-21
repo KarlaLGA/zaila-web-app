@@ -1,7 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Nav from "./components/Home/Nav";
+import Nav from "./components/Home/Navigation/BarNav";
+import TopNav from "./components/Home/Navigation/TopNav";
+import Logo from "./components/Home/Navigation/Logo";
 import HomeView from "./views/HomeView";
 import ArtworkView from "./views/ArtworkView";
 import SensorView from "./views/SensorView";
@@ -13,6 +15,8 @@ function App() {
   return (
     <BrowserRouter>
       <main className="app">
+        <Logo />
+        <TopNav />
         <Nav />
 
         <Switch>
