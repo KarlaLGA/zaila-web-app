@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import ListArtwork from '../../../components/Artwork/ListArtworks/ListArtwork';
+import ListExhibition from '../../../components/Exhibition/ListExhibitions/ListExhibition';
 
 
 const ListOf = () => {
     return (
         <div>
 
-            <ListArtwork/>
+            <ListExhibition/>
 
             <Link to="/exhibitions/create">Create Exhibition</Link>
             
