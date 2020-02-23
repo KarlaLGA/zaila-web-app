@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
-import {Link, useHistory} from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const LogIn = () => {
 
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const initialForm = {
         username: '',
@@ -48,6 +50,7 @@ const LogIn = () => {
         if (formValidates) {
             console.log(submitLogIn);
             history.push("/dashboard");
+            dispatch({type: "USER_LOG_IN"});
 
             // TODO Connect to backend with endpoint
         }

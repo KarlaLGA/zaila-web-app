@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from 'react-redux';
 import {BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Nav from "./components/Home/Navigation/BarNav";
@@ -14,22 +15,15 @@ import ExhibitionView from './views/ExhibitionView';
 import QuestView from './views/QuestView';
 
 function App() {
-    let location = window.location;
-    let path = location.pathname;
+    
+    const userLogged = useSelector(state => state.user.userLogged);
 
-    const checkPath = () => {
-      if (path === "/" || path === "/login"){
-        return false
-      }
-      else {
-        return true
-      }
-    }
+  // IN THE REDUX, HAVE A VARIABLE THAT CHECKS IF THE USER IS LOGGED IN. IF IT IS, THE LAYOUT IS THE DASHBOARD
 
     return (
         <BrowserRouter>
-            <main className={checkPath() ? "app app-dashboard" : "app"}>
-                {checkPath()
+            <main className={userLogged ? "app app-dashboard" : "app"}>
+                {userLogged
                     ? (
                             <><Logo/>
                             <TopNav/>
