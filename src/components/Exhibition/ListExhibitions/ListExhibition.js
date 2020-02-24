@@ -16,9 +16,6 @@ const ListArtwork = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    console.log(exhibitions);
-
-
 return (
     <div>
         {exhibitions.map(({exhibition}) => (<ExhibitionItem key={exhibition.exhibitionId} exhibition={exhibition}/>))}

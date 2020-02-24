@@ -13,7 +13,6 @@ const Exhibition = props => {
     get(endpoint)
       .then(data => {
         setSingleExhibition(data);
-        console.log(data);
       })
       .catch(error => {
         console.log(error);

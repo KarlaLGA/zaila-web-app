@@ -51,6 +51,7 @@ const LogIn = () => {
             console.log(submitLogIn);
             history.push("/dashboard");
             dispatch({type: "USER_LOG_IN"});
+            localStorage.setItem('userData', 'logged in');
 
             // TODO Connect to backend with endpoint
         }

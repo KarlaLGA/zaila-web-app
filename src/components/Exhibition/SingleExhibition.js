@@ -6,7 +6,6 @@ import Moment from 'moment';
 const SingleExhibition = props => {
 
   let singleExhibition = props.singleExhibition;
-  console.log(singleExhibition);
 
   const start = new Moment(singleExhibition.exhibition.startDate);
   const end = new Moment(singleExhibition.exhibition.endDate);

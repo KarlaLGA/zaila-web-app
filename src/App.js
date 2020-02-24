@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from 'react-redux';
 import {BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Nav from "./components/Home/Navigation/BarNav";
@@ -16,14 +15,10 @@ import QuestView from './views/QuestView';
 
 function App() {
     
-    const userLogged = useSelector(state => state.user.userLogged);
-
-  // IN THE REDUX, HAVE A VARIABLE THAT CHECKS IF THE USER IS LOGGED IN. IF IT IS, THE LAYOUT IS THE DASHBOARD
-
     return (
         <BrowserRouter>
-            <main className={userLogged ? "app app-dashboard" : "app"}>
-                {userLogged
+            <main className={localStorage.getItem('userData') ? "app app-dashboard" : "app"}>
+                {localStorage.getItem('userData')
                     ? (
                             <><Logo/>
                             <TopNav/>
