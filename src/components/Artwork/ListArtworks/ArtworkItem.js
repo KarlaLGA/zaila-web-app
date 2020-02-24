@@ -9,7 +9,7 @@ const ArtworkItem = props => {
 
   return (
     <div className="artwork-item">
-      <Link to={"/artworks/" + artwork.artworkId}>
+      <Link to={"/dashboard/artworks/" + artwork.artworkId}>
         <h2>Artwork: {title}</h2>
 
         <img src={imageURL} alt="artwork" style={{ width: "200px" }} />

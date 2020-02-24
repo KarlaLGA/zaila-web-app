@@ -1,33 +1,15 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
 
 import EditArtworkForm from "./EditArtworkForm";
 import ArtworkQRCode from "./ArtworkQRCode";
 import DeleteArtwork from "./DeleteArtwork/DeleteArtwork";
 
 const SingleArtwork = props => {
-  const dispatch = useDispatch();
 
-  let artworkId = props.artworkId;
-  let listArtworks = useSelector(state => state.artwork.artworkList);
+  let singleArtwork = props.singleArtwork;
+  console.log(singleArtwork);
 
   const [artworkEdit, setArtworkEdit] = useState(false);
-
-  let singleArtwork = listArtworks.find(
-    ({ artwork }) => artwork.artworkId === artworkId
-  );
-  dispatch({ type: "SET_SELECTED_ARTWORK", payload: singleArtwork });
-
-  let {
-    title,
-    artistName,
-    media,
-    year,
-    imageURL,
-    exhibitionId,
-    sensorId,
-    artworkDetails
-  } = singleArtwork.artwork;
 
   const handleEdit = () => {
     setArtworkEdit(true);
@@ -38,31 +20,31 @@ const SingleArtwork = props => {
         <div>
           <p>Single artwork</p>
 
-          <h2>Artwork: {title}</h2>
+          <h2>Artwork: {singleArtwork.artwork.title}</h2>
 
           <img
-            src={imageURL}
+            src={singleArtwork.artwork.imageURL}
             alt="artwork"
             style={{
               width: "200px"
             }}
           />
 
-          <h3>Artist: {artistName}</h3>
+          <h3>Artist: {singleArtwork.artwork.artistName}</h3>
 
-          <p>Exhibition: {exhibitionId}</p>
-          <p>Sensor: {sensorId}</p>
-          <p>Media: {media}</p>
-          <p>Year: {year}</p>
+          <p>Exhibition: {singleArtwork.artwork.exhibitionId}</p>
+          <p>Sensor: {singleArtwork.artwork.sensorId}</p>
+          <p>Media: {singleArtwork.artwork.media}</p>
+          <p>Year: {singleArtwork.artwork.year}</p>
 
-          {artworkDetails.map(artworkDetail => (
+          {singleArtwork.artwork.artworkDetails.map(artworkDetail => (
             <p key={artworkDetail.description}>
               Description: {artworkDetail.description}
               <span>Language: {artworkDetail.languageCode}</span>
             </p>
           ))}
 
-          <ArtworkQRCode sensorId={sensorId} />
+          <ArtworkQRCode sensorId={singleArtwork.artwork.sensorId} />
 
           <button onClick={handleEdit}>Edit</button>
         </div>
