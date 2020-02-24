@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from "react";
-import {useDispatch} from "react-redux";
 import { get } from "services/zaila-api.js";
 
 import ExhibitionItem from "./ExhibitionItem"
 
 const ListArtwork = () => {
-    const dispatch = useDispatch();
     const [exhibitions,
         setExhibitions] = useState([]);
     

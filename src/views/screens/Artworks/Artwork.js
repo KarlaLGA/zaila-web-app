@@ -7,21 +7,8 @@ const Artwork = props => {
   
   let endpoint = "artwork/"+artworkId;
 
-  const artwork = {
-    artwork: {
-      title: "",
-      artistName: "",
-      media: "",
-      year: "",
-      imageURL: "",
-      exhibitionId: 0,
-      sensorId: 0,
-      artworkDetails: []
-    }
 
-  }
-
-  const [singleArtwork, setSingleArtwork] = useState(artwork);
+  const [singleArtwork, setSingleArtwork] = useState({});
 
   useEffect(() => {
     get(endpoint)
@@ -36,7 +23,12 @@ const Artwork = props => {
   }, []);
   return (
     <div className="artwork">
-      <SingleArtwork singleArtwork={ singleArtwork } />
+      
+      {Object.values(singleArtwork).length >=1 ? (
+            <SingleArtwork singleArtwork={ singleArtwork } />
+        ) : (
+            <></>
+        )}
     </div>
   );
 };

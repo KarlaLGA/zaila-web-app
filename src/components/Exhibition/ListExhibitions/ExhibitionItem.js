@@ -14,7 +14,7 @@ const ExhibitionItem = props => {
 
   return (
     <div className="exhibition-item">
-      <Link to={"/exhibitions/" + exhibitionId}>
+      <Link to={"/dashboard/exhibitions/" + exhibitionId}>
         <h2>Exhibition Name: {name}</h2>
 
         <p>Duration: { startExhibition } - { endExhibition }</p>
