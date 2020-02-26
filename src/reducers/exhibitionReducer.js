@@ -1,5 +1,7 @@
 const initState = {
-    filterSelected: 'current'
+    filterSelected: 'current',
+
+    image: ""
 }
 
 const exhibitionReducer = (state = initState, action) => {
@@ -9,6 +11,12 @@ const exhibitionReducer = (state = initState, action) => {
                 ...state,
                 filterSelected: action.payload
             };
+
+        case "SET_IMAGE":
+            return {
+                ...state,
+                image: action.payload
+            }
 
         default:
             return state

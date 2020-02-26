@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import ListArtwork from '../../../components/Artwork/ListArtworks/ListArtwork';
+import ListArtwork from 'components/Artwork/ListArtworks/ListArtwork';
 
 
 const ListOf = () => {
@@ -10,7 +10,7 @@ const ListOf = () => {
 
             <ListArtwork/>
 
-            <Link to="/artworks/create" className="add">Add</Link>
+            <Link to="/dashboard/artworks/create" className="add">Add</Link>
             
         </div>
     )

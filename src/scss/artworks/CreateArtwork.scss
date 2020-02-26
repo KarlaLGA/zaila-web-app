@@ -5,3 +5,22 @@ label, input, textarea {
 .hidden {
     display: none;
 }
+
+.exhibition-category {
+    width: 35%;
+   
+    .categories {
+        display: flex;
+        justify-content: space-between;
+
+        .category {
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: .5rem;
+
+            &.selected {
+                background-color: salmon;
+            }
+        }
+    } 
+}

@@ -11,7 +11,7 @@ const ListOf = () => {
             <ExhibitionHeader/>
             <ListExhibition/>
 
-            <Link to="/exhibitions/create" className="add">Add</Link>
+            <Link to="/dashboard/exhibitions/create" className="add">Add</Link>
             
         </div>
     )

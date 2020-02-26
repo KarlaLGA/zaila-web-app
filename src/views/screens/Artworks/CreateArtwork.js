@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CreateArtworkForm from '../../../components/Artwork/CreateArtworkForm'
+import CreateArtworkForm from 'components/Artwork/CreateArtworkForm'
 
 const CreateArtwork = () => {
 

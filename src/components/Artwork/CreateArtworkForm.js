@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { create, get } from "services/zaila-api";
-import UploadImage from "./UploadImage";
+import UploadImage from "components/Artwork/UploadImage";
 import Translate from "./TranslateArtwork/Translate";
 import ListTranslation from "./TranslateArtwork/ListTranslation";
 import ArtworkQRCode from "./ArtworkQRCode";
 
-const ArtworkForm = () => {
+const CreateArtworkForm = () => {
   const { image, artworkDetails } = useSelector(state => state.artwork);
 
   const newArtwork = {
@@ -188,4 +188,4 @@ const ArtworkForm = () => {
   );
 };
 
-export default ArtworkForm;
+export default CreateArtworkForm;
