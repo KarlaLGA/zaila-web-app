@@ -7,11 +7,11 @@ import ExhibitionHeader from 'components/Exhibition/ListExhibitions/ExhibitionHe
 
 const ListOf = () => {
     return (
-        <div>
+        <div className="list exhibition-list">
             <ExhibitionHeader/>
             <ListExhibition/>
 
-            <Link to="/exhibitions/create">Create Exhibition</Link>
+            <Link to="/exhibitions/create" className="add">Add</Link>
             
         </div>
     )

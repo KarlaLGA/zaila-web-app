@@ -1,6 +1,6 @@
 .artwork-item, .exhibition-item {
     border: 1px solid salmon;
-    width: 80%;
+    // width: 100%;
     margin: 1rem auto;
     display: flex;
     justify-content: space-between;
@@ -12,5 +12,15 @@
 
     h2, h3, p {
         color: #000;
+    }
+}
+
+.list {
+    position: relative;
+
+    .add {
+        position: fixed;
+        bottom: 5%;
+        right: 5%;
     }
 }

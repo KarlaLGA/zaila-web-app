@@ -6,11 +6,11 @@ import ListArtwork from '../../../components/Artwork/ListArtworks/ListArtwork';
 
 const ListOf = () => {
     return (
-        <div>
+        <div className="list artwork-list">
 
             <ListArtwork/>
 
-            <Link to="/artworks/create">Create Artwork</Link>
+            <Link to="/artworks/create" className="add">Add</Link>
             
         </div>
     )
