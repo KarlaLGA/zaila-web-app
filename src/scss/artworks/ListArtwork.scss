@@ -2,6 +2,13 @@
     border: 1px solid salmon;
     width: 80%;
     margin: 1rem auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+
+    .information {
+        width: 60%;
+    }
 
     h2, h3, p {
         color: #000;

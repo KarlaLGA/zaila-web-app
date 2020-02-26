@@ -2,24 +2,27 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ArtworkItem = props => {
-  let { title, artistName, imageURL, exhibitionId, sensorId } = props.artwork;
+  let { title, artistName, imageURL, exhibitionId } = props.artwork;
   let artwork = props.artwork;
-
-  //console.log(artworkDetailsArray);
 
   return (
     <div className="artwork-item">
-      <Link to={"/dashboard/artworks/" + artwork.artworkId}>
-        <h2>Artwork: {title}</h2>
 
+      <div className="image">
         <img src={imageURL} alt="artwork" style={{ width: "200px" }} />
-
-        <h3> Artist: {artistName}</h3>
-
+      </div>
+      
+      <div className="information">
+        <p>Artwork: {title}</p>
+        <p> Artist: {artistName}</p>
         <p>Exhibition: {exhibitionId}</p>
-        <p>Sensor: {sensorId}</p>
+      </div>
 
-      </Link>
+      <div className="icons">
+        <p>Edit</p>
+        <Link to={"/dashboard/artworks/" + artwork.artworkId}>View</Link>
+      </div>
+        
     </div>
   );
 };
