@@ -1,60 +1,103 @@
-import React, { useState } from "react";
+import React, {useState, useEffect } from "react";
+import { get } from "services/zaila-api";
 
 import EditArtworkForm from "./EditArtworkForm";
 import ArtworkQRCode from "./ArtworkQRCode";
-import DeleteArtwork from "./DeleteArtwork/DeleteArtwork";
 
 const SingleArtwork = props => {
 
-  let singleArtwork = props.singleArtwork;
-  console.log(singleArtwork);
+    let singleArtwork = props.singleArtwork;
 
-  const [artworkEdit, setArtworkEdit] = useState(false);
+    const [artworkEdit,
+        setArtworkEdit] = useState(false);
 
-  const handleEdit = () => {
-    setArtworkEdit(true);
-  };
-  return (
-    <div>
-      {!artworkEdit ? (
+    const [exhibitionName, setExhibitionName] = useState("");
+
+    useEffect(() => {
+      get("exhibition")
+      .then(data => {
+        let exhibition = data.find(dataSingle => dataSingle.exhibition.exhibitionId === singleArtwork.artwork.exhibitionId);
+        setExhibitionName(exhibition.exhibition.name);
+      })
+    }, [singleArtwork.artwork.exhibitionId])
+
+    const handleEdit = () => {
+        setArtworkEdit(true);
+    };
+    return (
         <div>
-          <p>Single artwork</p>
+            {!artworkEdit
+                ? (
+                    <div className="artwork-view single-view">
 
-          <h2>Artwork: {singleArtwork.artwork.title}</h2>
+                        <div className="general-information">
 
-          <img
-            src={singleArtwork.artwork.imageURL}
-            alt="artwork"
-            style={{
-              width: "200px"
-            }}
-          />
+                            <h2>Artwork Information</h2>
 
-          <h3>Artist: {singleArtwork.artwork.artistName}</h3>
+                            <div className="detail">
+                                <p>Artwork Title</p>
+                                <p>{singleArtwork.artwork.title}</p>
+                            </div>
 
-          <p>Exhibition: {singleArtwork.artwork.exhibitionId}</p>
-          <p>Sensor: {singleArtwork.artwork.sensorId}</p>
-          <p>Media: {singleArtwork.artwork.media}</p>
-          <p>Year: {singleArtwork.artwork.year}</p>
+                            <div className="detail">
+                                <p>Artist</p>
+                                <p>{singleArtwork.artwork.artistName}</p>
+                            </div>
 
-          {singleArtwork.artwork.artworkDetails.map(artworkDetail => (
-            <p key={artworkDetail.description}>
-              Description: {artworkDetail.description}
-              <span>Language: {artworkDetail.languageCode}</span>
-            </p>
-          ))}
+                            <div className="detail">
+                                <p>Media</p>
+                                <p>{singleArtwork.artwork.media}</p>
+                            </div>
 
-          <ArtworkQRCode sensorId={singleArtwork.artwork.sensorId} />
+                            <div className="detail">
+                                <p>Year</p>
+                                <p>{singleArtwork.artwork.year}</p>
+                            </div>
 
-          <button onClick={handleEdit}>Edit</button>
+                            <div className="detail">
+                                <p>Size (in inches)</p>
+                                <p>{singleArtwork.artwork.width}
+                                    x {singleArtwork.artwork.height}</p>
+                            </div>
+
+                            <div className="description">
+                              <p>Artwork Description</p>
+                              {singleArtwork
+                                .artwork
+                                .artworkDetails
+                                .map(artworkDetail => (
+                                    <p key={artworkDetail.description}>
+                                        {artworkDetail.description}
+                                        <span>Language: {artworkDetail.languageCode}</span>
+                                    </p>
+                                ))}
+                            </div>
+
+                        </div>
+
+                        <div className="additional-information">
+
+                        <img
+                            src={singleArtwork.artwork.imageURL}
+                            alt="artwork"
+                            style={{
+                            width: "200px"
+                        }}/>
+
+                        <p>Exhibition: {exhibitionName}</p>
+                        <p>Sensor ID: {singleArtwork.artwork.sensorId}</p>
+
+                        <ArtworkQRCode sensorId={singleArtwork.artwork.sensorId}/>
+
+                        </div>
+
+                        <button onClick={handleEdit}>Edit</button>
+                    </div>
+                )
+                : (<EditArtworkForm artwork={singleArtwork.artwork}/>)}
+
         </div>
-      ) : (
-        <EditArtworkForm artwork={singleArtwork.artwork} />
-      )}
-
-      <DeleteArtwork />
-    </div>
-  );
+    );
 };
 
 export default SingleArtwork;

@@ -7,14 +7,12 @@ const Artwork = props => {
   
   let endpoint = "artwork/"+artworkId;
 
-
   const [singleArtwork, setSingleArtwork] = useState({});
 
   useEffect(() => {
     get(endpoint)
       .then(data => {
         setSingleArtwork(data);
-        console.log(data);
       })
       .catch(error => {
         console.log(error);
