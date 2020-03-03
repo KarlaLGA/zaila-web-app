@@ -1,35 +1,34 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-
 import EditArtworkForm from "./EditArtworkForm";
 import ArtworkQRCode from "./ArtworkQRCode";
-import DeleteArtwork from "./DeleteArtwork/DeleteArtwork";
 
 const SingleArtwork = props => {
-  const dispatch = useDispatch();
+  let singleArtwork = props.singleArtwork;
 
-  let artworkId = props.artworkId;
-  let listArtworks = useSelector(state => state.artwork.artworkList);
+  let { artworkDetails } = singleArtwork.artwork;
+
+  let descriptionEnglish = artworkDetails.find(
+    artworkDetail => artworkDetail.languageCode === "en-US"
+  );
 
   const [artworkEdit, setArtworkEdit] = useState(false);
-
-  let singleArtwork = listArtworks.find(
-    ({ artwork }) => artwork.artworkId === artworkId
+  const [selectedDescription, setSelectedDescription] = useState(
+    descriptionEnglish.description
   );
-  dispatch({ type: "SET_SELECTED_ARTWORK", payload: singleArtwork });
 
-  let {
-    title,
-    artistName,
-    media,
-    year,
-    imageURL,
-    exhibitionId,
-    sensorId,
-    artworkDetails
-  } = singleArtwork.artwork;
+  const handleDescription = e => {
+    let language = e.target.value;
+    console.log(artworkDetails);
+    let description = artworkDetails.find(
+      artworkDetail => artworkDetail.languageCode === language
+    );
 
-  //console.log(singleArtwork);
+    if (description === undefined) {
+      setSelectedDescription("No translation available for this language.");
+    } else {
+      setSelectedDescription(description.description);
+    }
+  };
 
   const handleEdit = () => {
     setArtworkEdit(true);
@@ -37,42 +36,94 @@ const SingleArtwork = props => {
   return (
     <div>
       {!artworkEdit ? (
-        <div>
-          <p>Single artwork</p>
+        <div className="artwork-view single-view">
+          <div className="general-information">
+            <div className="detail">
+              <p>Artwork Title</p>
+              <p className="information">{singleArtwork.artwork.title}</p>
+            </div>
 
-          <h2>Artwork: {title}</h2>
+            <div className="detail">
+              <p>Artist</p>
+              <p className="information">{singleArtwork.artwork.artistName}</p>
+            </div>
 
-          <img
-            src={imageURL}
-            alt="artwork"
-            style={{
-              width: "200px"
-            }}
-          />
+            <div className="detail">
+              <p>Media</p>
+              <p className="information">{singleArtwork.artwork.media}</p>
+            </div>
 
-          <h3>Artist: {artistName}</h3>
+            <div className="detail">
+              <p>Year</p>
+              <p className="information">{singleArtwork.artwork.year}</p>
+            </div>
 
-          <p>Exhibition: {exhibitionId}</p>
-          <p>Sensor: {sensorId}</p>
-          <p>Media: {media}</p>
-          <p>Year: {year}</p>
+            <div className="detail">
+              <p>Size (in inches)</p>
+              <p className="information">
+                {singleArtwork.artwork.width}x {singleArtwork.artwork.height}
+              </p>
+            </div>
 
-          {artworkDetails.map(artworkDetail => (
-            <p key={artworkDetail.description}>
-              Description: {artworkDetail.description}
-              <span>Language: {artworkDetail.languageCode}</span>
-            </p>
-          ))}
+            <div className="description">
+              <div className="options-detail">
+                <p>Artwork Description</p>
+                <select
+                  name="languages"
+                  id="languages"
+                  onChange={e => handleDescription(e)}
+                >
+                  <option value="en-US">English</option>
+                  <option value="fr-CA">French</option>
+                  <option value="es-ES">Spanish</option>
+                  <option value="zh-CN">Chinese</option>
+                </select>
+              </div>
 
-          <ArtworkQRCode sensorId={sensorId} />
+              <p>{selectedDescription}</p>
+            </div>
+          </div>
 
-          <button onClick={handleEdit}>Edit</button>
+          <div className="additional-information">
+            <div className="image">
+              <img
+                src={singleArtwork.artwork.imageURL}
+                alt="artwork"
+                style={{
+                  width: "100%"
+                }}
+              />
+            </div>
+
+            <div className="detail">
+              <p>Exhibition Name</p>
+              <p className="information">
+                {singleArtwork.artwork.exhibitionName}
+              </p>
+            </div>
+
+            <div className="detail">
+              <p>Quest Name</p>
+              <p className="information">tbd</p>
+            </div>
+
+            <div className="detail">
+              <p>Sensor ID</p>
+              <div className="options-detail">
+                <p className="information">{singleArtwork.artwork.sensorId}</p>
+
+                <ArtworkQRCode sensorId={singleArtwork.artwork.sensorId} />
+              </div>
+            </div>
+          </div>
+
+          <button onClick={handleEdit} className="add">
+            Edit
+          </button>
         </div>
       ) : (
         <EditArtworkForm artwork={singleArtwork.artwork} />
       )}
-
-      <DeleteArtwork />
     </div>
   );
 };

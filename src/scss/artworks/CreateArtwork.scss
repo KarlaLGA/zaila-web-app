@@ -1,0 +1,104 @@
+label,
+input,
+textarea {
+    display: block;
+}
+
+.form {
+    .input {
+        border-radius: 5px;
+        border: 1px solid black;
+        width: 80%;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.exhibition-category {
+    width: 35%;
+
+    .categories {
+        display: flex;
+        justify-content: space-between;
+
+        .category {
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: .5rem;
+
+            &.selected {
+                background-color: salmon;
+            }
+        }
+    }
+}
+
+.download-button {
+    display: inline-block;
+
+    .qr-code {
+        display: none;
+    }
+
+    button {
+        border-radius: 5px;
+        background-color: transparent;
+        border: 1px solid black;
+        padding: 8px;
+        cursor: pointer;
+
+    }
+}
+
+.single-view {
+
+    .detail {
+        width: auto;
+        height: 3rem;
+    }
+
+    .detail p:first-of-type,
+    label {
+        margin-bottom: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .detail:nth-child(2) {
+        margin-bottom: 1rem;
+    }
+
+    .information {
+        margin-left: 10px;
+        margin-top: 0;
+        font-style: italic;
+        display: inline-block;
+    }
+
+    .options-detail {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .image {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+    }
+
+
+}
+
+.form {
+    .options-detail {
+        width: 80%;
+
+        .input {
+            width: 40%;
+        }
+
+
+    }
+}

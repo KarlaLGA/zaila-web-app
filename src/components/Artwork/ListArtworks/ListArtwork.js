@@ -1,47 +1,42 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { get } from "services/zaila-api";
 import ArtworkItem from "./ArtworkItem";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const ListArtwork = () => {
   const dispatch = useDispatch();
   const [artworks, setArtworks] = useState([]);
 
-  useEffect(() => {
-    get("artwork")
-      .then(data => {
-        setArtworks(data);
-        dispatch({ type: "SET_ARTWORK_LIST", payload: data });
-        dispatch({ type: "EMPTY_ARTWORK_DETAILS" });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, []);
+  const exhibitions = useSelector(state => state.exhibition.exhibitionList);
 
-  const handleSearch = () => {
-    const search = document.getElementById("search-artwork").value;
-    console.log(search);
-    // TODO: ADD API CALL FOR SEARCH ARTWORK
-  };
+  useEffect(() => {
+    if (exhibitions.length !== 0) {
+      get("artwork")
+        .then(data => {
+          let artworksData = data.map(artworkData => {
+            let exhibitionId = artworkData.artwork.exhibitionId;
+
+            let exhibition = exhibitions.find(
+              x => x.exhibition.exhibitionId === exhibitionId
+            );
+            let artwork = {
+              ...artworkData.artwork,
+              exhibitionName: exhibition.exhibition.name
+            };
+            return { artwork };
+          });
+          setArtworks(artworksData);
+          dispatch({ type: "SET_ARTWORK_LIST", payload: data });
+          dispatch({ type: "EMPTY_ARTWORK_DETAILS" });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }, [exhibitions, dispatch]);
 
   return (
     <div>
-      <div className="search-bar">
-        <label htmlFor="search-artwork">
-          <input
-            type="text"
-            name="search-artwork"
-            id="search-artwork"
-            placeholder="search by title or artist name"
-          />
-        </label>
-        <button onClick={handleSearch}>
-          <FontAwesomeIcon icon={faSearch} />
-        </button>
-      </div>
       {artworks.map(({ artwork }) => (
         <ArtworkItem key={artwork.artworkId} artwork={artwork} />
       ))}
