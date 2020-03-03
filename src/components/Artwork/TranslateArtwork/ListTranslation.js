@@ -3,8 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Translation from "./Translation";
 
-const ListTranslation = () => {
+const ListTranslation = props => {
   const artworkDetails = useSelector(state => state.artwork.artworkDetails);
+
+  const description = artworkDetails[0].description;
 
   const translations = [];
 
@@ -24,6 +26,7 @@ const ListTranslation = () => {
       <label htmlFor="description">
         Artwork Description
         <textarea
+          value={description ? description : ""}
           name="description"
           id="description"
           cols="30"

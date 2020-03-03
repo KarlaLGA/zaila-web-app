@@ -2,12 +2,12 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
-const UploadImage = () => {
+const UploadImage = props => {
   const dispatch = useDispatch();
 
-  const image = useSelector(state => state.artwork.image);
+  const imageReceived = props.image;
 
-  console.log(image);
+  let image = useSelector(state => state.artwork.image) || imageReceived;
 
   const handleUploadImage = async e => {
     const file = e.target.files[0];
@@ -49,18 +49,31 @@ const UploadImage = () => {
 
   return (
     <div>
-      <label htmlFor="image">
-        Submit a picture of the artwork
-        <input
-          type="file"
-          name="image"
-          id="image"
-          placeholder="submit picture"
-          onChange={handleUploadImage}
-        />
-      </label>
-
-      {image && <img src={image} alt="artwork"></img>}
+      {image ? (
+        <div className="image">
+          <img
+            src={image}
+            alt="artwork"
+            style={{
+              width: "100%"
+            }}
+          ></img>
+        </div>
+      ) : (
+        <div className="image">
+          <img
+            src="https://via.placeholder.com/400X200?text=Artwork"
+            alt="artwork"
+          />
+        </div>
+      )}
+      <input
+        type="file"
+        name="image"
+        id="image"
+        placeholder="submit picture"
+        onChange={handleUploadImage}
+      />
     </div>
   );
 };
