@@ -3,7 +3,7 @@ const initState = {
 
   image: "",
 
-  artworkDetails: [],
+  artworkDetails: [{ description: "", languageCode: "en-US" }],
   description: "",
   translationFr: "",
   translationEs: "",
@@ -65,6 +65,19 @@ const artworkReducer = (state = initState, action) => {
           ...state.artworkDetails,
           { description: action.payload, languageCode: "zh-CN" }
         ]
+      };
+
+    case "EDIT_TRANS":
+      const description = action.payload;
+      const newDetails = state.artworkDetails.map(artworkDetail => {
+        if (artworkDetail.languageCode === description.languageCode) {
+          artworkDetail.description = description.inputDescription;
+        }
+        return artworkDetail;
+      });
+      return {
+        ...state,
+        artworkDetails: newDetails
       };
 
     case "SET_ARTWORK_LIST":

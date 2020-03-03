@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import CreateArtworkForm from 'components/Artwork/CreateArtworkForm'
+import CreateArtworkForm from "components/Artwork/CreateArtworkForm";
 
 const CreateArtwork = () => {
+  return (
+    <div className="create-artwork">
+      <h2>Create Artwork</h2>
+      <CreateArtworkForm />
+    </div>
+  );
+};
 
-    return (
-        <div className="create-artwork">
-            <CreateArtworkForm/>
-        </div>
-    )
-}
-
-export default CreateArtwork
+export default CreateArtwork;
