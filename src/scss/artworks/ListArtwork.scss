@@ -1,4 +1,5 @@
-.artwork-item, .exhibition-item {
+.artwork-item,
+.exhibition-item {
     border: 1px solid salmon;
     // width: 100%;
     margin: 1rem auto;
@@ -10,7 +11,9 @@
         width: 60%;
     }
 
-    h2, h3, p {
+    h2,
+    h3,
+    p {
         color: #000;
     }
 }
@@ -28,4 +31,24 @@
 .single-view {
     display: grid;
     grid-template-columns: 50% 50%;
+}
+
+.section-header-artworks {
+    display: flex;
+    justify-content: space-between;
+
+    .search-bar {
+        display: flex;
+
+        button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        input {
+            border: none;
+            border-bottom: 1px solid black;
+        }
+    }
 }
