@@ -8,7 +8,7 @@ const BarNav = () => {
     <div className="main-navigation">
       <ul className="navigation">
         <li>
-          <Link exact to="/dashboard">
+          <Link to="/dashboard">
             <FontAwesomeIcon icon={faSquare} size="2x" />
             Home
           </Link>

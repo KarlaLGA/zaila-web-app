@@ -20,17 +20,18 @@
 
 .list {
     position: relative;
+}
 
-    .add {
-        position: fixed;
-        bottom: 5%;
-        right: 5%;
-    }
+.add {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
 }
 
 .single-view {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 45% 45%;
+    column-gap: 10%;
 }
 
 .section-header-artworks {

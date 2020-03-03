@@ -1,4 +1,6 @@
-label, input, textarea {
+label,
+input,
+textarea {
     display: block;
 }
 
@@ -8,7 +10,7 @@ label, input, textarea {
 
 .exhibition-category {
     width: 35%;
-   
+
     .categories {
         display: flex;
         justify-content: space-between;
@@ -22,5 +24,42 @@ label, input, textarea {
                 background-color: salmon;
             }
         }
-    } 
+    }
+}
+
+.download-button {
+    display: inline-block;
+
+    .qr-code {
+        display: none;
+    }
+
+    button {
+        border-radius: 5px;
+        background-color: transparent;
+        border: 1px solid black;
+        padding: 8px;
+        cursor: pointer;
+
+    }
+}
+
+.single-view {
+
+    .detail p:first-of-type {
+        margin-bottom: 0.5rem;
+    }
+
+    .information {
+        margin-left: 10px;
+        margin-top: 0;
+        font-style: italic;
+        display: inline-block;
+    }
+
+    .options-detail {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
