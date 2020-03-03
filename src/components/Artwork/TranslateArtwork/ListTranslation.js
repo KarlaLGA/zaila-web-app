@@ -5,7 +5,6 @@ import Translation from "./Translation";
 
 const ListTranslation = () => {
   const artworkDetails = useSelector(state => state.artwork.artworkDetails);
-  console.log(artworkDetails);
 
   const translations = [];
 
@@ -29,6 +28,7 @@ const ListTranslation = () => {
           id="description"
           cols="30"
           rows="10"
+          className="input"
           onChange={handleDescription}
         ></textarea>
       </label>

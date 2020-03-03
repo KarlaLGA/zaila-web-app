@@ -36,7 +36,6 @@ const CreateArtworkForm = () => {
       imageURL: image,
       artworkDetails: artworkDetails
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [image, artworkDetails]);
 
   useEffect(() => {
@@ -64,14 +63,15 @@ const CreateArtworkForm = () => {
   };
 
   return (
-    <div className="artwork-form single-view">
+    <div className="artwork-form form single-view">
       <div className="general-information">
-        <label htmlFor="title">
-          Artwork Title
+        <div className="detail">
+          <label htmlFor="title">Artwork Title</label>
           <input
             type="text"
             name="title"
             id="title"
+            className="input"
             onChange={e =>
               setArtwork({
                 ...artwork,
@@ -79,13 +79,15 @@ const CreateArtworkForm = () => {
               })
             }
           />
-        </label>
-        <label htmlFor="artist-name">
-          Artist
+        </div>
+
+        <div className="detail">
+          <label htmlFor="artist-name">Artist</label>
           <input
             type="text"
             name="artist-name"
             id="artist-name"
+            className="input"
             onChange={e =>
               setArtwork({
                 ...artwork,
@@ -93,13 +95,15 @@ const CreateArtworkForm = () => {
               })
             }
           />
-        </label>
-        <label htmlFor="media">
-          Media
+        </div>
+
+        <div className="detail">
+          <label htmlFor="media">Media</label>
           <input
             type="text"
             name="media"
             id="media"
+            className="input"
             onChange={e =>
               setArtwork({
                 ...artwork,
@@ -107,13 +111,15 @@ const CreateArtworkForm = () => {
               })
             }
           />
-        </label>
-        <label htmlFor="year">
-          Year
+        </div>
+
+        <div className="detail">
+          <label htmlFor="year">Year</label>
           <input
             type="text"
             name="year"
             id="year"
+            className="input"
             onChange={e =>
               setArtwork({
                 ...artwork,
@@ -121,42 +127,48 @@ const CreateArtworkForm = () => {
               })
             }
           />
-        </label>
-        <label htmlFor="size">Size (in inch)</label>
-        <div className="options-detail">
-          <input
-            type="text"
-            name="size"
-            id="width"
-            onChange={e =>
-              setArtwork({
-                ...artwork,
-                width: e.target.value
-              })
-            }
-          />
-          X
-          <input
-            type="text"
-            name="height"
-            id="height"
-            onChange={e =>
-              setArtwork({
-                ...artwork,
-                height: e.target.value
-              })
-            }
-          />
+        </div>
+
+        <div className="detail">
+          <label htmlFor="size">Size (in inch)</label>
+          <div className="options-detail">
+            <input
+              type="text"
+              name="size"
+              id="width"
+              className="input"
+              onChange={e =>
+                setArtwork({
+                  ...artwork,
+                  width: e.target.value
+                })
+              }
+            />
+            X
+            <input
+              type="text"
+              name="height"
+              id="height"
+              className="input"
+              onChange={e =>
+                setArtwork({
+                  ...artwork,
+                  height: e.target.value
+                })
+              }
+            />
+          </div>
         </div>
       </div>
       <div className="additional-information">
         <UploadImage />
 
-        <label htmlFor="exhibition">
-          Exhibition name:
+        <div className="detail">
+          <label htmlFor="exhibition">Exhibition name:</label>
           <select
             name="exhibition"
             id="exhibition"
+            className="input"
             onChange={e =>
               setArtwork({
                 ...artwork,
@@ -173,14 +185,15 @@ const CreateArtworkForm = () => {
               </option>
             ))}
           </select>
-        </label>
+        </div>
 
-        <label htmlFor="quest">
-          Quest
+        <div className="detail">
+          <label htmlFor="quest">Quest</label>
           <input
             type="text"
             name="quest"
             id="quest"
+            className="input"
             onChange={e =>
               setArtwork({
                 ...artwork,
@@ -188,13 +201,14 @@ const CreateArtworkForm = () => {
               })
             }
           />
-        </label>
+        </div>
 
-        <label htmlFor="sensor">
-          Sensor ID
+        <div className="detail">
+          <label htmlFor="sensor">Sensor ID</label>
           <select
             name="sensor"
             id="sensor"
+            className="input"
             onChange={e =>
               setArtwork({
                 ...artwork,
@@ -210,7 +224,7 @@ const CreateArtworkForm = () => {
                 </option>
               ))}
           </select>
-        </label>
+        </div>
       </div>
       <div className="description-artwork">
         <ListTranslation />

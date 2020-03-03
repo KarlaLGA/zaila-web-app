@@ -4,6 +4,14 @@ textarea {
     display: block;
 }
 
+.form {
+    .input {
+        border-radius: 5px;
+        border: 1px solid black;
+        width: 80%;
+    }
+}
+
 .hidden {
     display: none;
 }
@@ -46,8 +54,18 @@ textarea {
 
 .single-view {
 
-    .detail p:first-of-type {
+    .detail {
+        width: auto;
+    }
+
+    .detail p:first-of-type,
+    label {
         margin-bottom: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .detail:nth-child(2) {
+        margin-bottom: 1rem;
     }
 
     .information {
@@ -61,5 +79,19 @@ textarea {
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+
+}
+
+.form {
+    .options-detail {
+        width: 80%;
+
+        .input {
+            width: 40%;
+        }
+
+
     }
 }

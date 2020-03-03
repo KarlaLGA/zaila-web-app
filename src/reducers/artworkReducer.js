@@ -35,9 +35,16 @@ const artworkReducer = (state = initState, action) => {
       };
 
     case "SET_DESCRIPTION":
+      const description = action.payload;
+      const newDetails = state.artworkDetails.map(artworkDetail => {
+        if (artworkDetail.languageCode === "en-US") {
+          artworkDetail.description = description;
+        }
+        return artworkDetail;
+      });
       return {
         ...state,
-        artworkDetails: [{ description: action.payload, languageCode: "en-US" }]
+        artworkDetails: newDetails
       };
 
     case "SET_TRANS_FR":
@@ -68,16 +75,16 @@ const artworkReducer = (state = initState, action) => {
       };
 
     case "EDIT_TRANS":
-      const description = action.payload;
-      const newDetails = state.artworkDetails.map(artworkDetail => {
-        if (artworkDetail.languageCode === description.languageCode) {
-          artworkDetail.description = description.inputDescription;
+      const descriptionTrans = action.payload;
+      const newDetailsTrans = state.artworkDetails.map(artworkDetail => {
+        if (artworkDetail.languageCode === descriptionTrans.languageCode) {
+          artworkDetail.description = descriptionTrans.inputDescription;
         }
         return artworkDetail;
       });
       return {
         ...state,
-        artworkDetails: newDetails
+        artworkDetails: newDetailsTrans
       };
 
     case "SET_ARTWORK_LIST":
@@ -95,7 +102,16 @@ const artworkReducer = (state = initState, action) => {
     case "EMPTY_ARTWORK_DETAILS":
       return {
         ...state,
-        artworkDetails: []
+        artworkDetails: [{ description: "", languageCode: "en-US" }]
+      };
+
+    case "EMPTY_TRANSLATIONS":
+      const englishDescription = state.artworkDetails.find(
+        artworkDetail => artworkDetail.languageCode === "en-US"
+      );
+      return {
+        ...state,
+        artworkDetails: [englishDescription]
       };
 
     case "EDIT_ARTWORK_DETAILS":

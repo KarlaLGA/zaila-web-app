@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { get } from "services/zaila-api";
 
 import SingleArtwork from "components/Artwork/SingleArtwork";
 
 const Artwork = props => {
   let artworkId = props.match.params.artworkId;
-
-  const dispatch = useDispatch();
 
   let endpoint = "artwork/" + artworkId;
 

@@ -25,6 +25,7 @@ const Translate = props => {
   let urlChinese = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}&q=${description}&source=${sourceLang}&target=${targetLang3}`;
 
   const handleTranslation = () => {
+    dispatch({ type: "EMPTY_TRANSLATIONS" });
     axios
       .get(urlFrench)
       .then(data => {

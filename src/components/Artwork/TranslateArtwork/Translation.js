@@ -16,12 +16,17 @@ const Translation = props => {
 
   return (
     <div>
-      <label htmlFor="description">Artwork Description</label>
+      <div className="options-detail">
+        <label htmlFor="description">Artwork Description</label>
+        <p>{languageCode}</p>
+      </div>
+
       <textarea
         name="description"
         id="description"
         cols="30"
         rows="10"
+        className="input"
         value={description}
         onChange={handleNewTranslation}
       ></textarea>
