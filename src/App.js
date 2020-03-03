@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import { get } from "services/zaila-api";
+import { get } from "./services/zaila-api";
 
 import Nav from "./components/Home/Navigation/BarNav";
 import TopNav from "./components/Home/Navigation/TopNav";
