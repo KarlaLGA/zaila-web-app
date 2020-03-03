@@ -2,10 +2,8 @@ import React from 'react';
 
 export default function HomeView() {
     return (
-        <div>
-
-            <p>Home!</p>
-            
+        <div className="home-view view">
+            <p>Home!</p>  
         </div>
     )
 }

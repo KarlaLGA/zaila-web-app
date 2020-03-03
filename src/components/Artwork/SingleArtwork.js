@@ -1,87 +1,131 @@
-import React, {useState} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import React, { useState } from "react";
+import EditArtworkForm from "./EditArtworkForm";
+import ArtworkQRCode from "./ArtworkQRCode";
 
-import EditArtworkForm from './EditArtworkForm';
-import ArtworkQRCode from './ArtworkQRCode';
-import DeleteArtwork from './DeleteArtwork/DeleteArtwork';
+const SingleArtwork = props => {
+  let singleArtwork = props.singleArtwork;
 
+  let { artworkDetails } = singleArtwork.artwork;
 
-const SingleArtwork = (props) => {
+  let descriptionEnglish = artworkDetails.find(
+    artworkDetail => artworkDetail.languageCode === "en-US"
+  );
 
-    const dispatch = useDispatch();
+  const [artworkEdit, setArtworkEdit] = useState(false);
+  const [selectedDescription, setSelectedDescription] = useState(
+    descriptionEnglish.description
+  );
 
-    let artworkId = props.artworkId;
-    let listArtworks = useSelector(state => state.artwork.artworkList);
+  const handleDescription = e => {
+    let language = e.target.value;
+    console.log(artworkDetails);
+    let description = artworkDetails.find(
+      artworkDetail => artworkDetail.languageCode === language
+    );
 
-    const [artworkEdit,
-        setArtworkEdit] = useState(false);
-
-    let singleArtwork = listArtworks.find(artwork => artwork.artworkId === artworkId);
-
-    dispatch({type: "SET_SELECTED_ARTWORK", payload: singleArtwork});
-
-    let {
-        title,
-        artistName,
-        media,
-        year,
-        imageURL,
-        exhibitionId,
-        sensorId,
-        artworkDetails
-    } = singleArtwork;
-
-    //console.log(singleArtwork);
-
-    const handleEdit = () => {
-        setArtworkEdit(true);
+    if (description === undefined) {
+      setSelectedDescription("No translation available for this language.");
+    } else {
+      setSelectedDescription(description.description);
     }
-    return (
-        <div>
+  };
 
-            {!artworkEdit ? (
-
-                <div>
-
-                <p>Single artwork</p>
-
-                <h2>Artwork: {title}</h2>
-
-                <img
-                    src={imageURL}
-                    alt="artwork"
-                    style={{
-                    width: "200px"
-                }}/>
-
-                <h3>
-                    Artist: {artistName}</h3>
-
-                <p>Exhibition: {exhibitionId}</p>
-                <p>Sensor: {sensorId}</p>
-                <p>Media: {media}</p>
-                <p>Year: {year}</p>
-
-                {artworkDetails.map(artworkDetail => (
-                    <p key={artworkDetail.description}>Description: {artworkDetail.description}
-                        <span>Language: {artworkDetail.languageCode}
-                        </span>
-                    </p>
-                ))}
-
-                <ArtworkQRCode sensorId={ sensorId }/>
-
-                <button onClick={handleEdit}>Edit</button>
-
+  const handleEdit = () => {
+    setArtworkEdit(true);
+  };
+  return (
+    <div>
+      {!artworkEdit ? (
+        <div className="artwork-view single-view">
+          <div className="general-information">
+            <div className="detail">
+              <p>Artwork Title</p>
+              <p className="information">{singleArtwork.artwork.title}</p>
             </div>
-            ) : (
-                <EditArtworkForm artwork={ singleArtwork }/>
-            )}
 
-            <DeleteArtwork/>
+            <div className="detail">
+              <p>Artist</p>
+              <p className="information">{singleArtwork.artwork.artistName}</p>
+            </div>
 
+            <div className="detail">
+              <p>Media</p>
+              <p className="information">{singleArtwork.artwork.media}</p>
+            </div>
+
+            <div className="detail">
+              <p>Year</p>
+              <p className="information">{singleArtwork.artwork.year}</p>
+            </div>
+
+            <div className="detail">
+              <p>Size (in inches)</p>
+              <p className="information">
+                {singleArtwork.artwork.width}x {singleArtwork.artwork.height}
+              </p>
+            </div>
+
+            <div className="description">
+              <div className="options-detail">
+                <p>Artwork Description</p>
+                <select
+                  name="languages"
+                  id="languages"
+                  onChange={e => handleDescription(e)}
+                >
+                  <option value="en-US">English</option>
+                  <option value="fr-CA">French</option>
+                  <option value="es-ES">Spanish</option>
+                  <option value="zh-CN">Chinese</option>
+                </select>
+              </div>
+
+              <p>{selectedDescription}</p>
+            </div>
+          </div>
+
+          <div className="additional-information">
+            <div className="image">
+              <img
+                src={singleArtwork.artwork.imageURL}
+                alt="artwork"
+                style={{
+                  width: "100%"
+                }}
+              />
+            </div>
+
+            <div className="detail">
+              <p>Exhibition Name</p>
+              <p className="information">
+                {singleArtwork.artwork.exhibitionName}
+              </p>
+            </div>
+
+            <div className="detail">
+              <p>Quest Name</p>
+              <p className="information">tbd</p>
+            </div>
+
+            <div className="detail">
+              <p>Sensor ID</p>
+              <div className="options-detail">
+                <p className="information">{singleArtwork.artwork.sensorId}</p>
+
+                <ArtworkQRCode sensorId={singleArtwork.artwork.sensorId} />
+              </div>
+            </div>
+          </div>
+
+          <button onClick={handleEdit} className="add">
+            Edit
+          </button>
         </div>
-    )
-}
+      ) : (
+        <EditArtworkForm artwork={singleArtwork.artwork} />
+      )}
+    </div>
+  );
+};
 
 export default SingleArtwork;

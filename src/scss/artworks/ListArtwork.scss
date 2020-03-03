@@ -1,0 +1,71 @@
+.artwork-item,
+.exhibition-item {
+    border: 1px solid salmon;
+    // width: 100%;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+
+    .information {
+        width: 60%;
+    }
+
+    h2,
+    h3,
+    p {
+        color: #000;
+    }
+}
+
+.list {
+    position: relative;
+}
+
+.add {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+}
+
+.single-view {
+    display: grid;
+    grid-template-columns: repeat(2, 47.5%);
+    gap: 5%;
+}
+
+.single-view.artwork-form {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    width: 100%;
+    gap: 0;
+
+    .description-artwork {
+        grid-column: 1 / 3;
+
+        .translations-list {
+            display: grid;
+            grid-template-columns: repeat(2, 50%);
+        }
+    }
+}
+
+.section-header-artworks {
+    display: flex;
+    justify-content: space-between;
+
+    .search-bar {
+        display: flex;
+
+        button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        input {
+            border: none;
+            border-bottom: 1px solid black;
+        }
+    }
+}

@@ -1,71 +1,47 @@
-import React from 'react';
-import {useDispatch} from 'react-redux';
-
-import ArtworkItem from './ArtworkItem';
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { get } from "services/zaila-api";
+import ArtworkItem from "./ArtworkItem";
 
 const ListArtwork = () => {
+  const dispatch = useDispatch();
+  const [artworks, setArtworks] = useState([]);
 
-    const dispatch = useDispatch();
+  const exhibitions = useSelector(state => state.exhibition.exhibitionList);
 
-    // TODO: REPLACE THIS MOCKING DATA WITH THE API CALL
+  useEffect(() => {
+    if (exhibitions.length !== 0) {
+      get("artwork")
+        .then(data => {
+          let artworksData = data.map(artworkData => {
+            let exhibitionId = artworkData.artwork.exhibitionId;
 
-    const data = {
+            let exhibition = exhibitions.find(
+              x => x.exhibition.exhibitionId === exhibitionId
+            );
+            let artwork = {
+              ...artworkData.artwork,
+              exhibitionName: exhibition.exhibition.name
+            };
+            return { artwork };
+          });
+          setArtworks(artworksData);
+          dispatch({ type: "SET_ARTWORK_LIST", payload: data });
+          dispatch({ type: "EMPTY_ARTWORK_DETAILS" });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }, [exhibitions, dispatch]);
 
-        artworks: [
-            {
-                artworkId: 1,
-                exhibitionId: 125,
-                sensorId: "n123",
-                title: "The Pharao",
-                imageURL: "https://i.picsum.photos/id/1025/4951/3301.jpg",
-                artistName: "Cleopatra",
-                media: "PNG",
-                year: "2020",
-                artworkDetails: [
-                    {
-                        "artworkDetailsId": 2333,
-                        "description": "This is a famous paiting",
-                        "languageCode": "en-CA"
-                    }, {
-                        "artworkDetailsId": 2334,
-                        "description": "Cest une portrait",
-                        "languageCode": "fr-CA"
-                    }
-                ]
-
-            }, {
-                artworkId: 2,
-                exhibitionId: 123,
-                sensorId: "n124",
-                title: "Pyramid",
-                imageURL: "https://i.picsum.photos/id/219/5184/3456.jpg",
-                artistName: "Ramses",
-                media: "PNG",
-                year: "2020",
-                artworkDetails: [
-                    {
-                        "artworkDetailsId": 2333,
-                        "description": "This is a famous paiting",
-                        "languageCode": "en-CA"
-                    }, {
-                        "artworkDetailsId": 2334,
-                        "description": "Cest une portrait",
-                        "languageCode": "fr-CA"
-                    }
-                ]
-            }
-
-        ]
-    };
-
-    dispatch({type: "SET_ARTWORK_LIST", payload: data.artworks});
-    dispatch({type: "EMPTY_ARTWORK_DETAILS"});
-
-    return (
-        <div>
-            {data.artworks.map(artwork => (<ArtworkItem key={artwork.artworkId} artwork={artwork}/>))}
-        </div>
-    )
-}
+  return (
+    <div>
+      {artworks.map(({ artwork }) => (
+        <ArtworkItem key={artwork.artworkId} artwork={artwork} />
+      ))}
+    </div>
+  );
+};
 
 export default ListArtwork;

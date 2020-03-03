@@ -1,30 +1,45 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-// import React, { useState, useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-import Translation from './Translation';
+import Translation from "./Translation";
 
+const ListTranslation = props => {
+  const artworkDetails = useSelector(state => state.artwork.artworkDetails);
 
-const ListTranslation = () => {
+  const description = artworkDetails[0].description;
 
-    const artworkDetails = useSelector(state => state.artwork.artworkDetails);
+  const translations = [];
 
-    const translations = [];
+  const dispatch = useDispatch();
 
-    for(let i = 1; i < artworkDetails.length; i++){
-        translations.push(artworkDetails[i])
-    }
+  const handleDescription = e => {
+    let inputDescription = e.target.value;
+    dispatch({ type: "SET_DESCRIPTION", payload: inputDescription });
+  };
 
-    //console.log(translations);
-    return (
-        <div className="translations-list">
+  for (let i = 1; i < artworkDetails.length; i++) {
+    translations.push(artworkDetails[i]);
+  }
 
-            {translations.map(translation => (<Translation key={translation.languageCode} translation={translation}/>))}
-        
-            
-        </div>
-    )
-}
+  return (
+    <div className="translations-list">
+      <label htmlFor="description">
+        Artwork Description
+        <textarea
+          value={description ? description : ""}
+          name="description"
+          id="description"
+          cols="30"
+          rows="10"
+          className="input"
+          onChange={handleDescription}
+        ></textarea>
+      </label>
+      {translations.map((translation, index) => (
+        <Translation key={index} translation={translation} />
+      ))}
+    </div>
+  );
+};
 
 export default ListTranslation;
