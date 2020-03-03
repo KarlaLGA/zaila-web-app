@@ -1,12 +1,11 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React from "react";
 
 const Logo = () => {
-    return (
-        <div className="logo">
-            <Link to="/dashboard">Home</Link>
-        </div>
-    )
-}
+  return (
+    <div className="logo">
+      <p>LOGO</p>
+    </div>
+  );
+};
 
-export default Logo
+export default Logo;

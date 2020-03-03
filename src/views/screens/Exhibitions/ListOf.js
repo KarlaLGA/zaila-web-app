@@ -6,6 +6,7 @@ import ExhibitionHeader from 'components/Exhibition/ListExhibitions/ExhibitionHe
 
 
 const ListOf = () => {
+    // infinite date
     return (
         <div className="list exhibition-list">
             <ExhibitionHeader/>

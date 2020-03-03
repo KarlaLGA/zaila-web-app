@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 10% 90%;
     grid-template-rows: 10% 90%;
-
+    background-color: #969696;
     height: 100vh;
 
     .view {
@@ -10,5 +10,8 @@
         padding-right: 10%;
         padding-left: 5%;
         padding-top: 5%;
+
+        background-color: white;
+        border-top-left-radius: 20px;
     }
 }

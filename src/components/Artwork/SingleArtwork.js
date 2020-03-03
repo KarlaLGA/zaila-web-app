@@ -1,6 +1,5 @@
-import React, {useState, useEffect } from "react";
-import { get } from "services/zaila-api";
-
+import React, {useState } from "react";
+import { useSelector } from 'react-redux';
 import EditArtworkForm from "./EditArtworkForm";
 import ArtworkQRCode from "./ArtworkQRCode";
 
@@ -11,15 +10,11 @@ const SingleArtwork = props => {
     const [artworkEdit,
         setArtworkEdit] = useState(false);
 
-    const [exhibitionName, setExhibitionName] = useState("");
+    const exhibitions = useSelector(state => state.exhibition.exhibitionList);
 
-    useEffect(() => {
-      get("exhibition")
-      .then(data => {
-        let exhibition = data.find(dataSingle => dataSingle.exhibition.exhibitionId === singleArtwork.artwork.exhibitionId);
-        setExhibitionName(exhibition.exhibition.name);
-      })
-    }, [singleArtwork.artwork.exhibitionId])
+    let exhibitionName = exhibitions.find(singleEx => singleEx.exhibition.name === singleArtwork.artwork.exhibitionId)
+
+    console.log(exhibitionName);
 
     const handleEdit = () => {
         setArtworkEdit(true);
