@@ -6,7 +6,6 @@ import Translate from "./TranslateArtwork/Translate";
 import ListTranslation from "./TranslateArtwork/ListTranslation";
 import ArtworkQRCode from "./ArtworkQRCode";
 
-// TO UPDATE THE IMAGE, SHOW THE CURRENT IMAGE AND ADD A BUTTON TO UPDATE/ REWRITE THE FILE
 const EditArtworkForm = props => {
   const dispatch = useDispatch();
 
