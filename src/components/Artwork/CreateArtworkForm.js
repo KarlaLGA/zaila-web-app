@@ -160,6 +160,7 @@ const CreateArtworkForm = () => {
           </div>
         </div>
       </div>
+
       <div className="additional-information">
         <UploadImage />
 
@@ -232,7 +233,7 @@ const CreateArtworkForm = () => {
       </div>
 
       <button onClick={handleArtwork} className="add">
-        Save Artwork
+        Save
       </button>
       {qrCode ? <ArtworkQRCode sensorId={artwork.sensorId} /> : <div />}
     </div>

@@ -1,34 +1,34 @@
 const initState = {
-    filterSelected: 'current',
+  filterSelected: "current",
 
-    image: "",
+  image: "",
 
-    exhibitionList: []
-}
+  exhibitionList: []
+};
 
 const exhibitionReducer = (state = initState, action) => {
-    switch (action.type) {
-        case "SET_EXHIBITION_FILTER":
-            return {
-                ...state,
-                filterSelected: action.payload
-            };
+  switch (action.type) {
+    case "SET_EXHIBITION_FILTER":
+      return {
+        ...state,
+        filterSelected: action.payload
+      };
 
-        case "SET_IMAGE":
-            return {
-                ...state,
-                image: action.payload
-            }
+    case "SET_IMAGE_EXHIBITION":
+      return {
+        ...state,
+        image: action.payload
+      };
 
-        case "SET_EXHIBITIONS":
-            return {
-                ...state,
-                exhibitionList: action.payload
-            }
+    case "SET_EXHIBITIONS":
+      return {
+        ...state,
+        exhibitionList: action.payload
+      };
 
-        default:
-            return state
-    }
-}
+    default:
+      return state;
+  }
+};
 
-export default exhibitionReducer
+export default exhibitionReducer;

@@ -1,142 +1,183 @@
-import React, {useState, useEffect} from "react";
-import {useSelector} from "react-redux";
-import {create} from "services/zaila-api";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { create } from "services/zaila-api";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 import UploadImage from "components/Exhibition/UploadImage";
 
 const CreateExhibitionForm = () => {
-    const {image} = useSelector(state => state.exhibition);
+  const { image } = useSelector(state => state.exhibition);
 
-    const newExhibition = {
-        museumId: 1,
-        name: "",
-        description: "",
-        imageURL: {},
-        startDate: Date,
-        endDate: Date,
-        categoryId: 1,
-        completionBadgeId: 1,
-        completionXp: 10
-    };
+  const newExhibition = {
+    museumId: 1,
+    name: "",
+    description: "",
+    imageURL: {},
+    startDate: Date,
+    endDate: Date,
+    categoryId: 1,
+    completionBadgeId: 1,
+    completionXp: 10,
+    quest: ""
+  };
 
-    const categories = [
-        {
-            type: "art",
-            id: 1
-        }, {
-            type: "science",
-            id: 2
-        }, {
-            type: "photography",
-            id: 3
-        }, {
-            type: "nature",
-            id: 4
-        }
-    ]
+  const categories = [
+    {
+      type: "art",
+      id: 1
+    },
+    {
+      type: "science",
+      id: 2
+    },
+    {
+      type: "photography",
+      id: 3
+    },
+    {
+      type: "nature",
+      id: 4
+    }
+  ];
 
-    const [exhibition,
-        setExhibition] = useState(newExhibition);
+  const [exhibition, setExhibition] = useState(newExhibition);
 
-    useEffect(() => {
-        setExhibition({
-            ...exhibition,
-            imageURL: image
-        });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [image]);
+  useEffect(() => {
+    setExhibition({
+      ...exhibition,
+      imageURL: image
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [image]);
 
-    const handleExhibition = () => {
-        console.log(exhibition);
-
-        create("exhibition", {exhibition: exhibition}).then(data => {
-            console.log(`Create exhibition from ${data}`);
-        }).catch(error => {
-            console.log(error);
-        });
-    };
-
+  const handleExhibition = () => {
     console.log(exhibition);
 
-    return (
-        <div className="exhibition-form">
-            <h2>Exhibition Information</h2>
-            <label htmlFor="name">
-                Exhibition Title
-                <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    onChange={e => setExhibition({
-                    ...exhibition,
-                    name: e.target.value
-                })}/>
-            </label>
+    create("exhibition", { exhibition: exhibition })
+      .then(data => {
+        console.log(`Create exhibition from ${data}`);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
-            <div className="duration">
-                <p>Duration</p>
+  console.log(exhibition);
 
-                <label htmlFor="start">
-                    From
-                    <input
-                        type="date"
-                        name="start"
-                        id="start"
-                        onChange={e => setExhibition({
-                        ...exhibition,
-                        startDate: e.target.value
-                    })}/>
-                </label>
+  return (
+    <div className="exhibition-form form single-view">
+      <div className="general-information">
+        <div className="detail">
+          <label htmlFor="name">Exhibition Title</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            className="input"
+            onChange={e =>
+              setExhibition({
+                ...exhibition,
+                name: e.target.value
+              })
+            }
+          />
+        </div>
 
-                <label htmlFor="end">
-                    To
-                    <input
-                        type="date"
-                        name="duration-end"
-                        id="duration-end"
-                        onChange={e => setExhibition({
-                        ...exhibition,
-                        endDate: e.target.value
-                    })}/>
-                </label>
-            </div>
-
-            <label htmlFor="description"/>
-            Exhibition Description
-            <textarea
-                name="description"
-                id="description"
-                cols="30"
-                rows="10"
-                onChange={e => setExhibition({
+        <div className="detail duration">
+          <p>Duration</p>
+          <div className="options-detail">
+            <DatePicker
+              className="input"
+              selected={new Date()}
+              onChange={date =>
+                setExhibition({
+                  ...exhibition,
+                  startDate: date
+                })
+              }
+            />
+            <p>To</p>
+            <DatePicker
+              className="input"
+              style={{ width: "200px" }}
+              selected={new Date()}
+              onChange={e =>
+                setExhibition({
+                  ...exhibition,
+                  endDate: e.target.value
+                })
+              }
+            />
+          </div>
+        </div>
+        <div className="detail">
+          <label htmlFor="description">Exhibition Description</label>
+          <textarea
+            name="description"
+            id="description"
+            cols="30"
+            rows="10"
+            className="input"
+            onChange={e =>
+              setExhibition({
                 ...exhibition,
                 description: e.target.value
-            })}></textarea>
-
-            <UploadImage/>
-
-            <div className="exhibition-category">
-                <p>Exhibition Category</p>
-                <div className="categories">
-                    {categories.map(category => (
-                        <div
-                            className={exhibition.categoryId === category.id
-                            ? "category selected"
-                            : "category"}
-                            key={category.id}
-                            id={category.id}
-                            onClick={e => setExhibition({
-                            ...exhibition,
-                            categoryId: Number(e.target.id)
-                        })}>
-                            {category.type}
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <button onClick={handleExhibition}>Save</button>
+              })
+            }
+          ></textarea>
         </div>
-    );
+      </div>
+      <div className="additional-information">
+        <UploadImage />
+
+        <div className="exhibition-category detail">
+          <p>Exhibition Category</p>
+          <div className="categories">
+            {categories.map(category => (
+              <div className="category" key={category.id}>
+                <div
+                  className={
+                    exhibition.categoryId === category.id
+                      ? "category-icon selected"
+                      : "category-icon"
+                  }
+                  id={category.id}
+                  onClick={e =>
+                    setExhibition({
+                      ...exhibition,
+                      categoryId: Number(e.target.id)
+                    })
+                  }
+                ></div>
+                {category.type}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="detail">
+          <label htmlFor="quest">Quest</label>
+          <input
+            type="text"
+            name="quest"
+            id="quest"
+            className="input"
+            onChange={e =>
+              setExhibition({
+                ...exhibition,
+                quest: e.target.value
+              })
+            }
+          />
+        </div>
+      </div>
+
+      <button onClick={handleExhibition} className="add">
+        Save
+      </button>
+    </div>
+  );
 };
 
 export default CreateExhibitionForm;

@@ -17,21 +17,31 @@ textarea {
 }
 
 .exhibition-category {
-    width: 35%;
+    width: 400px !important;
+    height: 5rem !important;
 
     .categories {
         display: flex;
         justify-content: space-between;
 
         .category {
-            border: 1px solid black;
-            border-radius: 5px;
-            padding: .5rem;
+            font-size: 0.7rem;
+            text-align: center;
 
-            &.selected {
-                background-color: salmon;
+            .category-icon {
+                border: 1px solid black;
+                border-radius: 5px;
+                width: 32px;
+                height: 32px;
+                margin: auto;
+
+                &.selected {
+                    background-color: salmon;
+                }
             }
         }
+
+
     }
 }
 
@@ -56,17 +66,26 @@ textarea {
 
     .detail {
         width: auto;
-        height: 3rem;
+        height: fit-content;
+        margin-bottom: 1rem;
     }
+
+    .general-information {
+
+        .detail:first-of-type {
+
+            p,
+            label {
+                margin-top: 0;
+            }
+        }
+    }
+
 
     .detail p:first-of-type,
     label {
         margin-bottom: 0.5rem;
-        margin-top: 1rem;
-    }
-
-    .detail:nth-child(2) {
-        margin-bottom: 1rem;
+        margin-top: 0;
     }
 
     .information {
@@ -98,7 +117,27 @@ textarea {
         .input {
             width: 40%;
         }
+    }
 
+    .duration {
+        display: inline-block;
+
+        .options-detail {
+
+            p {
+                margin: 0 10px !important;
+            }
+        }
+
+        .react-datepicker-wrapper {
+            min-width: 200px;
+        }
+
+
+
+        .input {
+            width: 100%;
+        }
 
     }
 }
