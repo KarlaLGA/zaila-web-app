@@ -4,8 +4,8 @@ import SingleExhibition from "components/Exhibition/SingleExhibition";
 
 const Exhibition = props => {
   let exhibitionId = props.match.params.exhibitionId;
-  
-  let endpoint = "exhibition/"+exhibitionId;
+
+  let endpoint = "exhibition/" + exhibitionId;
 
   const [singleExhibition, setSingleExhibition] = useState({});
 
@@ -17,16 +17,15 @@ const Exhibition = props => {
       .catch(error => {
         console.log(error);
       });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className="artwork">
-        {Object.values(singleExhibition).length >=1 ? (
-            <SingleExhibition singleExhibition={ singleExhibition } />
-        ) : (
-            <></>
-        )}
-      
+      {Object.values(singleExhibition).length >= 1 ? (
+        <SingleExhibition singleExhibition={singleExhibition} />
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
