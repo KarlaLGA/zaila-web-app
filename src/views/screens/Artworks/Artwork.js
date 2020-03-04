@@ -3,9 +3,12 @@ import { useSelector } from "react-redux";
 import { get } from "services/zaila-api";
 
 import SingleArtwork from "components/Artwork/SingleArtwork";
+import EditArtworkForm from "../../../components/Artwork/EditArtworkForm";
 
 const Artwork = props => {
   let artworkId = props.match.params.artworkId;
+
+  let edit = props.location.edit;
 
   let endpoint = "artwork/" + artworkId;
 
@@ -32,16 +35,22 @@ const Artwork = props => {
     }
   }, [endpoint, exhibitions]);
 
+  const handleEdit = () => {
+    if (Object.values(singleArtwork).length >= 1 && edit === true) {
+      return <EditArtworkForm artwork={singleArtwork.artwork} />;
+    } else if (Object.values(singleArtwork).length >= 1) {
+      return <SingleArtwork singleArtwork={singleArtwork} />;
+    } else {
+      return <></>;
+    }
+  };
+
   return (
     <div className="artwork">
       <div className="section-header">
         <h2>Artwork Information</h2>
       </div>
-      {Object.values(singleArtwork).length >= 1 ? (
-        <SingleArtwork singleArtwork={singleArtwork} />
-      ) : (
-        <></>
-      )}
+      {handleEdit()}
     </div>
   );
 };
