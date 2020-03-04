@@ -1,21 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import ListExhibition from 'components/Exhibition/ListExhibitions/ListExhibition';
-import ExhibitionHeader from 'components/Exhibition/ListExhibitions/ExhibitionHeader';
-
+import ListExhibition from "components/Exhibition/ListExhibitions/ListExhibition";
+import ExhibitionHeader from "components/Exhibition/ListExhibitions/ExhibitionHeader";
 
 const ListOf = () => {
-    // infinite date
-    return (
-        <div className="list exhibition-list">
-            <ExhibitionHeader/>
-            <ListExhibition/>
+  return (
+    <div className="list exhibition-list">
+      <div className="section-header section-header-exhibitions">
+        <h2>Exhibitions</h2>
+      </div>
+      <ExhibitionHeader />
+      <ListExhibition />
 
-            <Link to="/dashboard/exhibitions/create" className="add">Add</Link>
-            
-        </div>
-    )
-}
+      <Link to="/dashboard/exhibitions/create" className="add">
+        Add
+      </Link>
+    </div>
+  );
+};
 
 export default ListOf;
