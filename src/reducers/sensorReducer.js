@@ -1,6 +1,6 @@
 const initState = {
   sensors: [],
-  filter: "all"
+  filter: "Bluetooth"
 };
 
 const sensorReducer = (state = initState, action) => {

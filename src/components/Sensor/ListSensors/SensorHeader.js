@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-const SensorHeader = props => {
+const SensorHeader = () => {
   /*=========================
       INIT
   ===========================*/
@@ -11,7 +11,6 @@ const SensorHeader = props => {
       RECEIVE VALUES FROM 
       REDUX STORE AND PROPS
   ===========================*/
-  const { title } = props;
   const { filter } = useSelector(state => state.sensor);
 
   /*=========================
@@ -19,16 +18,10 @@ const SensorHeader = props => {
   ===========================*/
   const filters = [
     {
-      code: "all",
-      text: "Show All"
+      text: "Bluetooth"
     },
     {
-      code: "linked",
-      text: "Attached"
-    },
-    {
-      code: "Available",
-      text: "Detached"
+      text: "NFC"
     }
   ];
 
@@ -37,20 +30,21 @@ const SensorHeader = props => {
   ===========================*/
   return (
     <div className="section-header">
-      <h2 className="section-title">{title}</h2>
-      <div>
+      <div className="filters">
         {/* Display the list of filters at the top right corner */}
-        {filters.map((currFilter, id) => (
+        {filters.map(currFilter => (
           <span
             onClick={() =>
-              dispatch({ type: "SET_SENSORS_FILTER", payload: currFilter.code })
+              dispatch({ type: "SET_SENSORS_FILTER", payload: currFilter.text })
             }
-            key={currFilter.code}
-            className={currFilter.code === filter ? "active" : ""}
+            key={currFilter.text}
+            className={
+              currFilter.text === filter
+                ? "filter-title selected"
+                : "filter-title"
+            }
           >
             {currFilter.text}
-            {/* Add "/" next to the filter if it isn't the last one */}
-            {id !== filters.length - 1 && " / "}
           </span>
         ))}
       </div>
