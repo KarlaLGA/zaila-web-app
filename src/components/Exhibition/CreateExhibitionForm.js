@@ -8,7 +8,7 @@ import UploadImage from "components/Exhibition/UploadImage";
 
 const CreateExhibitionForm = () => {
   const { image } = useSelector(state => state.exhibition);
-
+  const categories = useSelector(state => state.exhibition.categories);
   const newExhibition = {
     museumId: 1,
     name: "",
@@ -21,25 +21,6 @@ const CreateExhibitionForm = () => {
     completionXp: 10,
     quest: ""
   };
-
-  const categories = [
-    {
-      type: "art",
-      id: 1
-    },
-    {
-      type: "science",
-      id: 2
-    },
-    {
-      type: "photography",
-      id: 3
-    },
-    {
-      type: "nature",
-      id: 4
-    }
-  ];
 
   const [exhibition, setExhibition] = useState(newExhibition);
 
@@ -135,22 +116,24 @@ const CreateExhibitionForm = () => {
           <p>Exhibition Category</p>
           <div className="categories">
             {categories.map(category => (
-              <div className="category" key={category.id}>
-                <div
+              <div className="category" key={category.categoryId}>
+                <img
+                  alt={`category ${category.categoryName}`}
+                  src={category.imageURL}
                   className={
-                    exhibition.categoryId === category.id
+                    exhibition.categoryId === category.categoryId
                       ? "category-icon selected"
                       : "category-icon"
                   }
-                  id={category.id}
+                  id={category.categoryId}
                   onClick={e =>
                     setExhibition({
                       ...exhibition,
                       categoryId: Number(e.target.id)
                     })
                   }
-                ></div>
-                {category.type}
+                />
+                {category.categoryName}
               </div>
             ))}
           </div>

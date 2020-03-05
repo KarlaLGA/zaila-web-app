@@ -17,7 +17,7 @@ textarea {
 }
 
 .exhibition-category {
-    width: 400px !important;
+    max-width: 400px !important;
     height: 5rem !important;
 
     .categories {
@@ -26,17 +26,16 @@ textarea {
 
         .category {
             font-size: 0.7rem;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
 
             .category-icon {
-                border: 1px solid black;
-                border-radius: 5px;
                 width: 32px;
                 height: 32px;
                 margin: auto;
 
                 &.selected {
-                    background-color: salmon;
+                    border: 2px solid salmon;
                 }
             }
         }
@@ -128,12 +127,6 @@ textarea {
                 margin: 0 10px !important;
             }
         }
-
-        .react-datepicker-wrapper {
-            min-width: 200px;
-        }
-
-
 
         .input {
             width: 100%;

@@ -36,6 +36,7 @@ const CreateArtworkForm = () => {
       imageURL: image,
       artworkDetails: artworkDetails
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [image, artworkDetails]);
 
   useEffect(() => {

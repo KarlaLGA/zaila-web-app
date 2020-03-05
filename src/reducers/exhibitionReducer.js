@@ -3,7 +3,9 @@ const initState = {
 
   image: "",
 
-  exhibitionList: []
+  exhibitionList: [],
+
+  categories: []
 };
 
 const exhibitionReducer = (state = initState, action) => {
@@ -24,6 +26,12 @@ const exhibitionReducer = (state = initState, action) => {
       return {
         ...state,
         exhibitionList: action.payload
+      };
+
+    case "SET_CATEGORIES":
+      return {
+        ...state,
+        categories: action.payload
       };
 
     default:

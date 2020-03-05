@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 
-import Moment from 'moment';
+import Moment from "moment";
 // import EditArtworkForm from "./EditArtworkForm";
 
 const SingleExhibition = props => {
+  let singleExhibition = props.singleExhibition.exhibition;
 
-  let singleExhibition = props.singleExhibition;
+  console.log(singleExhibition);
 
-  const start = new Moment(singleExhibition.exhibition.startDate);
-  const end = new Moment(singleExhibition.exhibition.endDate);
+  const start = new Moment(singleExhibition.startDate);
+  const end = new Moment(singleExhibition.endDate);
 
-   const startExhibition = start.format('LL');
-   const endExhibition = end.format('LL');
+  const startExhibition = start.format("LL");
+  const endExhibition = end.format("LL");
 
   const [exhibitionEdit, setExhibitionEdit] = useState(false);
 
@@ -22,11 +23,10 @@ const SingleExhibition = props => {
     <div>
       {!exhibitionEdit ? (
         <div>
-
-          <h2>Exhibition: {singleExhibition.exhibition.name}</h2>
+          <h2>Exhibition: {singleExhibition.name}</h2>
 
           <img
-            src={singleExhibition.exhibition.imageURL}
+            src={singleExhibition.imageURL}
             alt="exhibition"
             style={{
               width: "200px"
@@ -34,12 +34,14 @@ const SingleExhibition = props => {
           />
 
           <p>Duration:</p>
-          <p>{ startExhibition } to { endExhibition }</p> 
+          <p>
+            {startExhibition} to {endExhibition}
+          </p>
 
           <p>Exhibition description: </p>
-          <p>{singleExhibition.exhibition.description}</p>
+          <p>{singleExhibition.description}</p>
 
-          <p>Exhibition Category: {singleExhibition.exhibition.categoryId}</p>
+          <p>Exhibition Category: {singleExhibition.categoryId}</p>
 
           <button onClick={handleEdit}>Edit</button>
         </div>
@@ -47,10 +49,8 @@ const SingleExhibition = props => {
         <p>Edit exhibition</p>
       )}
 
-        {/* <EditArtworkForm artwork={singleArtwork.artwork} /> */}
-        {/* The code above goes where the text to edit is */}
-
-
+      {/* <EditArtworkForm artwork={singleArtwork.artwork} /> */}
+      {/* The code above goes where the text to edit is */}
     </div>
   );
 };
