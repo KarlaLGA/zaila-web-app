@@ -30,20 +30,17 @@ const SingleExhibition = props => {
               <p>Exhibition Title</p>
               <p className="information">{singleExhibition.exhibition.name}</p>
             </div>
-
             <div className="detail">
               <p>Duration</p>
               <p className="information">
                 {startExhibition} to {endExhibition}
               </p>
             </div>
-
             <div className="detail">
               <p>Exhibition Description </p>
               <p>{singleExhibition.exhibition.description}</p>
             </div>
           </div>
-
           <div className="additional-information">
             <img
               src={singleExhibition.exhibition.imageURL}
@@ -52,21 +49,21 @@ const SingleExhibition = props => {
                 width: "100%"
               }}
             />
-
             <div className="exhibition-category detail">
               <p>Exhibition Category</p>
               <div className="categories">
                 {categories.map(category => (
                   <div className="category" key={category.categoryId}>
-                    <img 
-                    src={category.imageURL} 
-                    alt={`category ${category.categoryName}`} 
-                    className={
-                      singleExhibition.exhibition.categoryId === category.categoryId 
-                      ? "category-icon selected" 
-                      : "category-icon"
+                    <img
+                      src={category.imageURL}
+                      alt={`category ${category.categoryName}`}
+                      className={
+                        singleExhibition.exhibition.exhibition_category
+                          .categoryId === category.categoryId
+                          ? "category-icon selected"
+                          : "category-icon"
                       }
-                    id={category.categoryId}
+                      id={category.categoryId}
                     />
                     {category.categoryName}
                   </div>
@@ -75,16 +72,14 @@ const SingleExhibition = props => {
             </div>
           </div>
 
-          
-
-          <button onClick={handleEdit} className="add">Edit</button>
+          <button onClick={handleEdit} className="add">
+            Edit
+          </button>
         </div>
       ) : (
-        <EditExhibitionForm exhibition={singleExhibition.exhibition}/>
+        <EditExhibitionForm exhibition={singleExhibition.exhibition} />
       )}
-
     </div>
   );
 };
-
 export default SingleExhibition;
