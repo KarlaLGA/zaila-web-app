@@ -49,6 +49,7 @@ const SingleExhibition = props => {
                 width: "100%"
               }}
             />
+
             <div className="exhibition-category detail">
               <p>Exhibition Category</p>
               <div className="categories">
@@ -69,6 +70,14 @@ const SingleExhibition = props => {
                   </div>
                 ))}
               </div>
+            </div>
+
+            <div className="detail">
+              <p>Quest</p>
+              <p className="information">
+                {singleExhibition.exhibition.quest ||
+                  "No quest related to this exhibition"}
+              </p>
             </div>
           </div>
 
