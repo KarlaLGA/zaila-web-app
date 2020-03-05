@@ -92,6 +92,7 @@ const CreateExhibitionForm = () => {
             />
           </div>
         </div>
+
         <div className="detail">
           <label htmlFor="description">Exhibition Description</label>
           <textarea
