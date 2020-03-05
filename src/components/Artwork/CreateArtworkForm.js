@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { create, get } from "services/zaila-api";
+import { create, get } from "../../services/zaila-api";
 import UploadImage from "components/Artwork/UploadImage";
 import Translate from "./TranslateArtwork/Translate";
 import ListTranslation from "./TranslateArtwork/ListTranslation";

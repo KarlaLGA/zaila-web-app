@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { get } from "services/zaila-api";
+import { get } from "../../../services/zaila-api";
 
 import SingleArtwork from "components/Artwork/SingleArtwork";
 import EditArtworkForm from "components/Artwork/EditArtworkForm";
