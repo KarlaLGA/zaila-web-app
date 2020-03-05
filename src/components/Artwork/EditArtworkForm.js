@@ -11,6 +11,8 @@ const EditArtworkForm = props => {
 
   const [editArtwork, setEditArtwork] = useState(props.artwork);
 
+  console.log(editArtwork);
+
   const {
     title,
     imageURL,
@@ -47,6 +49,7 @@ const EditArtworkForm = props => {
       .catch(error => {
         console.log(error);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [description]);
 
   useEffect(() => {
@@ -154,7 +157,7 @@ const EditArtworkForm = props => {
           <label htmlFor="size">Size (in inch)</label>
           <div className="options-detail">
             <input
-              value="123"
+              value={width || "123"}
               type="text"
               name="size"
               id="width"
@@ -168,7 +171,7 @@ const EditArtworkForm = props => {
             />
             X
             <input
-              value="123"
+              value={height || "123"}
               type="text"
               name="height"
               id="height"

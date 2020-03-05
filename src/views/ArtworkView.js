@@ -1,23 +1,32 @@
-import React from 'react';
-import { Route, Switch, useRouteMatch } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Route, Switch, useRouteMatch } from "react-router-dom";
 
-import ListOf from './screens/Artworks/ListOf';
-import CreateArtwork from './screens/Artworks/CreateArtwork';
-import Artwork from './screens/Artworks/Artwork';
+import { get } from "services/zaila-api";
 
-export default function ArtworkView() {
+import ListOf from "./screens/Artworks/ListOf";
+import CreateArtwork from "./screens/Artworks/CreateArtwork";
+import Artwork from "./screens/Artworks/Artwork";
 
-    let { path } = useRouteMatch();
+const ArtworkView = () => {
+  let { path } = useRouteMatch();
+  const dispatch = useDispatch();
 
-    return (
-        <div className="artwork-view view">
+  useEffect(() => {
+    get("exhibition").then(data => {
+      dispatch({ type: "SET_EXHIBITIONS", payload: data });
+    });
+  });
 
-            <Switch>
-                    <Route exact path={ path } component={ ListOf }/>
-                    <Route exact path={`${ path }/create`} component={ CreateArtwork }/>
-                    <Route path={`${ path }/:artworkId`} component={ Artwork }/>
-            </Switch>
+  return (
+    <div className="artwork-view view">
+      <Switch>
+        <Route exact path={path} component={ListOf} />
+        <Route exact path={`${path}/create`} component={CreateArtwork} />
+        <Route path={`${path}/:artworkId`} component={Artwork} />
+      </Switch>
+    </div>
+  );
+};
 
-        </div>
-    )
-}
+export default ArtworkView;

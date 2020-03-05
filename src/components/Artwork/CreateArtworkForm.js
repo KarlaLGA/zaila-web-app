@@ -36,6 +36,7 @@ const CreateArtworkForm = () => {
       imageURL: image,
       artworkDetails: artworkDetails
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [image, artworkDetails]);
 
   useEffect(() => {
@@ -160,6 +161,7 @@ const CreateArtworkForm = () => {
           </div>
         </div>
       </div>
+
       <div className="additional-information">
         <UploadImage />
 
@@ -232,7 +234,7 @@ const CreateArtworkForm = () => {
       </div>
 
       <button onClick={handleArtwork} className="add">
-        Save Artwork
+        Save
       </button>
       {qrCode ? <ArtworkQRCode sensorId={artwork.sensorId} /> : <div />}
     </div>

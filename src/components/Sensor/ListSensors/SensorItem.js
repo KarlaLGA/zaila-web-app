@@ -6,29 +6,37 @@ const SensorItem = props => {
   ===========================*/
   let { sensor, entityType, entity, exhibition } = props;
 
-  /*=========================
-      CUSTOM METHODS
-  ===========================*/
-  const handleDetach = sensorId => {
-    // Call API to detach the sensor from it's linked entity
-    console.log(`Detch sensor called. Sensor ID is: ${sensorId}`);
+  const handleEntity = () => {
+    if (entityType === "Quest" && entity !== undefined) {
+      return (
+        <div className="status">
+          <div>
+            {entityType}: {entity.name}
+          </div>
+          <div>Exhibition: {exhibition.name}</div>
+        </div>
+      );
+    } else if (entityType === "Artwork" && entity !== undefined) {
+      return (
+        <div className="status">
+          <div>
+            {entityType}: {entity.title}
+          </div>
+          <div>Exhibition: {exhibition.name}</div>
+        </div>
+      );
+    } else {
+      return <div>Not connected</div>;
+    }
   };
 
   /*=========================
       JSX (Duh.)
   ===========================*/
   return (
-    <div className="sensor" key={sensor.sensorId}>
-      <div>Sensor ID: {sensor.sensorId}</div>
-      <div>
-        {entityType} Name: {entity ? entity.title : "NA"}
-      </div>
-      <div>Exhibition Name: {exhibition ? exhibition.name : "NA"}</div>
-      {sensor.status === "linked" && (
-        <div className="btn-wrapper">
-          <button onClick={() => handleDetach(sensor.sensorId)}>Detach</button>
-        </div>
-      )}
+    <div className="sensor" key={sensor}>
+      <div>Sensor ID: {sensor}</div>
+      {handleEntity()}
     </div>
   );
 };

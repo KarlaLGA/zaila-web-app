@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import EditArtworkForm from "./EditArtworkForm";
+
 import ArtworkQRCode from "./ArtworkQRCode";
+
+import EditArtworkForm from "./EditArtworkForm";
 
 const SingleArtwork = props => {
   let singleArtwork = props.singleArtwork;
@@ -61,7 +63,7 @@ const SingleArtwork = props => {
             <div className="detail">
               <p>Size (in inches)</p>
               <p className="information">
-                {singleArtwork.artwork.width}x {singleArtwork.artwork.height}
+                {singleArtwork.artwork.width} x {singleArtwork.artwork.height}
               </p>
             </div>
 

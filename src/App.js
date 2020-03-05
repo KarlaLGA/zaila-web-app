@@ -1,8 +1,5 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
-import { get } from "./services/zaila-api";
 
 import Nav from "./components/Home/Navigation/BarNav";
 import TopNav from "./components/Home/Navigation/TopNav";
@@ -17,15 +14,6 @@ import ExhibitionView from "./views/ExhibitionView";
 import QuestView from "./views/QuestView";
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    get("exhibition").then(data => {
-      dispatch({ type: "SET_EXHIBITIONS", payload: data });
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <BrowserRouter>
       <main

@@ -8,10 +8,9 @@ const ListSensor = props => {
       RECEIVE VALUES FROM REDUX STORE 
       AND LOCAL STATE(S)
   ===========================*/
-  // sensorObjs will contain data about the sensor itelf,
-  // plus the entity (artwork/quest) as well as the exhibition to which they belong
   const { filter: appliedFilter } = useSelector(state => state.sensor);
-  const [sensorObjs, setSensorObjs] = useState([]);
+  const [sensorNfc, setSensorNfc] = useState([]);
+  const [sensorBluetooth, setSensorBluetooth] = useState([]);
 
   /*=========================
       LIFECYCLE METHODS
@@ -19,38 +18,54 @@ const ListSensor = props => {
   useEffect(() => {
     get("sensor")
       .then(data => {
-        setSensorObjs(data);
+        setSensorNfc(data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    get("bluetooth")
+      .then(data => {
+        setSensorBluetooth(data);
       })
       .catch(error => {
         console.log(error);
       });
   }, []);
 
+  const handleBluetooth = () => {
+    return sensorBluetooth.map(bluetooth => (
+      <SensorItem
+        key={bluetooth.bluetoothSensor.bluetoothId}
+        sensor={bluetooth.bluetoothSensor.bluetoothId}
+        entity={bluetooth.quest}
+        entityType="Quest"
+        exhibition={bluetooth.exhibition}
+      />
+    ));
+  };
+
+  const handleNfc = () => {
+    return sensorNfc.map(nfc => (
+      <SensorItem
+        key={nfc.sensor.sensorId}
+        sensor={nfc.sensor.sensorId}
+        entity={nfc.artwork}
+        entityType="Artwork"
+        exhibition={nfc.exhibition}
+      />
+    ));
+  };
+
   /*=========================
       JSX (Duh.)
   ===========================*/
   return (
     <div id="sensors">
-      {/* First, filter the sensors based on the selected filter (All / Attached / Detached) */}
-      {sensorObjs
-        .filter(
-          sensorObj =>
-            appliedFilter === "all" || sensorObj.sensor.status === appliedFilter
-        )
-        // Then loop through them and display each one of it
-        .map(sensorObj => (
-          // The entity prop below can represent either an artwork or quest
-          // NFC Sensors will have artworks, while Bluetooth sensors will have quests
-          <SensorItem
-            key={sensorObj.sensor.sensorId}
-            sensor={sensorObj.sensor}
-            entityType={
-              sensorObj.artwork ? "Artwork" : sensorObj.quest && "Quest"
-            }
-            entity={sensorObj.artwork || sensorObj.quest}
-            exhibition={sensorObj.exhibition}
-          />
-        ))}
+      {appliedFilter === "Bluetooth" ? handleBluetooth() : handleNfc()}
     </div>
   );
 };

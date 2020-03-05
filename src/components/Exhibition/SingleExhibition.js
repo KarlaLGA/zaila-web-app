@@ -1,17 +1,20 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import Moment from "moment";
 
-import Moment from 'moment';
-// import EditArtworkForm from "./EditArtworkForm";
+import EditExhibitionForm from "components/Exhibition/EditExhibitionForm";
 
 const SingleExhibition = props => {
-
   let singleExhibition = props.singleExhibition;
+
+  console.log(singleExhibition);
 
   const start = new Moment(singleExhibition.exhibition.startDate);
   const end = new Moment(singleExhibition.exhibition.endDate);
+  const categories = useSelector(state => state.exhibition.categories);
 
-   const startExhibition = start.format('LL');
-   const endExhibition = end.format('LL');
+  const startExhibition = start.format("LL");
+  const endExhibition = end.format("LL");
 
   const [exhibitionEdit, setExhibitionEdit] = useState(false);
 
@@ -21,38 +24,71 @@ const SingleExhibition = props => {
   return (
     <div>
       {!exhibitionEdit ? (
-        <div>
+        <div className="exhibition-view single-view">
+          <div className="general-information">
+            <div className="detail">
+              <p>Exhibition Title</p>
+              <p className="information">{singleExhibition.exhibition.name}</p>
+            </div>
+            <div className="detail">
+              <p>Duration</p>
+              <p className="information">
+                {startExhibition} to {endExhibition}
+              </p>
+            </div>
+            <div className="detail">
+              <p>Exhibition Description </p>
+              <p>{singleExhibition.exhibition.description}</p>
+            </div>
+          </div>
+          <div className="additional-information">
+            <img
+              src={singleExhibition.exhibition.imageURL}
+              alt="exhibition"
+              style={{
+                width: "100%"
+              }}
+            />
 
-          <h2>Exhibition: {singleExhibition.exhibition.name}</h2>
+            <div className="exhibition-category detail">
+              <p>Exhibition Category</p>
+              <div className="categories">
+                {categories.map(category => (
+                  <div className="category" key={category.categoryId}>
+                    <img
+                      src={category.imageURL}
+                      alt={`category ${category.categoryName}`}
+                      className={
+                        singleExhibition.exhibition.exhibition_category
+                          .categoryId === category.categoryId
+                          ? "category-icon selected"
+                          : "category-icon"
+                      }
+                      id={category.categoryId}
+                    />
+                    {category.categoryName}
+                  </div>
+                ))}
+              </div>
+            </div>
 
-          <img
-            src={singleExhibition.exhibition.imageURL}
-            alt="exhibition"
-            style={{
-              width: "200px"
-            }}
-          />
+            <div className="detail">
+              <p>Quest</p>
+              <p className="information">
+                {singleExhibition.exhibition.quest ||
+                  "No quest related to this exhibition"}
+              </p>
+            </div>
+          </div>
 
-          <p>Duration:</p>
-          <p>{ startExhibition } to { endExhibition }</p> 
-
-          <p>Exhibition description: </p>
-          <p>{singleExhibition.exhibition.description}</p>
-
-          <p>Exhibition Category: {singleExhibition.exhibition.categoryId}</p>
-
-          <button onClick={handleEdit}>Edit</button>
+          <button onClick={handleEdit} className="add">
+            Edit
+          </button>
         </div>
       ) : (
-        <p>Edit exhibition</p>
+        <EditExhibitionForm exhibition={singleExhibition.exhibition} />
       )}
-
-        {/* <EditArtworkForm artwork={singleArtwork.artwork} /> */}
-        {/* The code above goes where the text to edit is */}
-
-
     </div>
   );
 };
-
 export default SingleExhibition;
