@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { get } from "services/zaila-api";
 
 import SingleArtwork from "components/Artwork/SingleArtwork";
-import EditArtworkForm from "../../../components/Artwork/EditArtworkForm";
+import EditArtworkForm from "components/Artwork/EditArtworkForm";
 
 const Artwork = props => {
   let artworkId = props.match.params.artworkId;

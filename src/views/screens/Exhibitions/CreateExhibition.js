@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import CreateExhibitionForm from 'components/Exhibition/CreateExhibitionForm'
+import CreateExhibitionForm from "components/Exhibition/CreateExhibitionForm";
 
 const CreateExhibition = () => {
+  return (
+    <div className="create-artwork">
+      <h2>Create Exhibition</h2>
+      <CreateExhibitionForm />
+    </div>
+  );
+};
 
-    return (
-        <div className="create-artwork">
-            <CreateExhibitionForm/>
-        </div>
-    )
-}
-
-export default CreateExhibition
+export default CreateExhibition;
