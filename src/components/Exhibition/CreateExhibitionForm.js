@@ -83,10 +83,10 @@ const CreateExhibitionForm = () => {
               className="input"
               style={{ width: "200px" }}
               selected={new Date()}
-              onChange={e =>
+              onChange={date =>
                 setExhibition({
                   ...exhibition,
-                  endDate: e.target.value
+                  endDate: date
                 })
               }
             />

@@ -18,10 +18,12 @@ function App() {
     <BrowserRouter>
       <main
         className={
-          localStorage.getItem("userData") ? "app app-dashboard" : "app"
+          localStorage.getItem("userData") !== null
+            ? "app app-dashboard"
+            : "app"
         }
       >
-        {localStorage.getItem("userData") ? (
+        {localStorage.getItem("userData") !== null ? (
           <>
             <Logo />
             <TopNav />
