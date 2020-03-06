@@ -3,8 +3,6 @@ import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 
-import { create } from "services/zaila-api.js";
-
 const LogIn = () => {
   const history = useHistory();
   const dispatch = useDispatch();

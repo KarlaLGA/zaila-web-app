@@ -2,8 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ArtworkItem = props => {
-  let { title, artistName, imageURL, exhibitionName } = props.artwork;
-  let artwork = props.artwork;
+  let {
+    title,
+    artistName,
+    imageURL,
+    exhibitionName,
+    artworkId
+  } = props.artwork;
 
   return (
     <div className="artwork-item">
@@ -20,13 +25,13 @@ const ArtworkItem = props => {
       <div className="icons">
         <Link
           to={{
-            pathname: `/dashboard/artworks/${artwork.artworkId}`,
+            pathname: `/dashboard/artworks/${artworkId}`,
             edit: true
           }}
         >
           Edit
         </Link>
-        <Link to={"/dashboard/artworks/" + artwork.artworkId}>View</Link>
+        <Link to={`/dashboard/artworks/${artworkId}`}>View</Link>
       </div>
     </div>
   );

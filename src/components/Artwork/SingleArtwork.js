@@ -20,7 +20,6 @@ const SingleArtwork = props => {
 
   const handleDescription = e => {
     let language = e.target.value;
-    console.log(artworkDetails);
     let description = artworkDetails.find(
       artworkDetail => artworkDetail.languageCode === language
     );

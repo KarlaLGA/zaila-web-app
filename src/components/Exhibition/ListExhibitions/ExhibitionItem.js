@@ -6,21 +6,28 @@ const ExhibitionItem = props => {
 
   return (
     <div className="exhibition-item">
-
       <div className="image">
         <img src={imageURL} alt="exhibition" style={{ width: "200px" }} />
       </div>
-        
+
       <div className="information">
         <p>Exhibition Name: {name}</p>
-        <p>Duration: { startDate } - { endDate }</p>  
+        <p>
+          Duration: {startDate} - {endDate}
+        </p>
       </div>
 
       <div className="icons">
-        <p>Edit</p>
+        <Link
+          to={{
+            pathname: `/dashboard/exhibitions/${exhibitionId}`,
+            edit: true
+          }}
+        >
+          Edit
+        </Link>
         <Link to={"/dashboard/exhibitions/" + exhibitionId}>View</Link>
       </div>
-        
     </div>
   );
 };

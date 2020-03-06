@@ -50,8 +50,6 @@ const CreateArtworkForm = () => {
   }, []);
 
   const handleArtwork = () => {
-    console.log(artwork);
-
     create("artwork", { artwork: artwork })
       .then(data => {
         console.log(`Create artwork from ${data}`);

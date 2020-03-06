@@ -3,7 +3,6 @@ import ArtworkItem from "./ArtworkItem";
 
 const ListArtwork = props => {
   const artworksRelated = props.artworks;
-  console.log(artworksRelated);
 
   return (
     <div className="artworks-related">

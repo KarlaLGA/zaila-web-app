@@ -42,8 +42,6 @@ const EditExhibitionForm = props => {
       });
   };
 
-  console.log(editExhibition);
-
   return (
     <div className="exhibition-form form single-view">
       <div className="general-information">

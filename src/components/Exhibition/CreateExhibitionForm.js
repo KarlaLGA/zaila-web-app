@@ -44,8 +44,6 @@ const CreateExhibitionForm = () => {
       });
   };
 
-  console.log(exhibition);
-
   return (
     <div className="exhibition-form form single-view">
       <div className="general-information">

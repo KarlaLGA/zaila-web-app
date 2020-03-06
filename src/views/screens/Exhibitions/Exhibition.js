@@ -19,7 +19,14 @@ const Exhibition = props => {
   useEffect(() => {
     get(endpoint)
       .then(data => {
-        setSingleExhibition(data);
+        let categoryId = data.exhibition.exhibition_category.categoryId;
+        let exhibitionCategory = {
+          exhibition: {
+            ...data.exhibition,
+            categoryId: categoryId
+          }
+        };
+        setSingleExhibition(exhibitionCategory);
       })
       .catch(error => {
         console.log(error);
