@@ -51,13 +51,7 @@ const UploadImage = props => {
     <div>
       {image ? (
         <div className="image">
-          <img
-            src={image}
-            alt="artwork"
-            style={{
-              width: "100%"
-            }}
-          ></img>
+          <img src={image} alt="artwork"></img>
         </div>
       ) : (
         <div className="image">

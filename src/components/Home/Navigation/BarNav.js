@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquare } from "@fortawesome/free-solid-svg-icons";
 
@@ -7,42 +7,30 @@ const BarNav = () => {
   return (
     <div className="main-navigation">
       <ul className="navigation">
-        <li>
-          <Link to="/dashboard">
-            <FontAwesomeIcon icon={faSquare} size="2x" />
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/dashboard/exhibitions">
-            <FontAwesomeIcon icon={faSquare} size="2x" />
-            Exhibitions
-          </Link>
-        </li>
-        <li>
-          <Link to="/dashboard/artworks">
-            <FontAwesomeIcon icon={faSquare} size="2x" />
-            Artworks
-          </Link>
-        </li>
-        <li>
-          <Link to="/dashboard/quests">
-            <FontAwesomeIcon icon={faSquare} size="2x" />
-            Quests
-          </Link>
-        </li>
-        <li>
-          <Link to="/dashboard/sensors">
-            <FontAwesomeIcon icon={faSquare} size="2x" />
-            Sensors
-          </Link>
-        </li>
-        <li>
-          <Link to="/dashboard/reports">
-            <FontAwesomeIcon icon={faSquare} size="2x" />
-            Reports
-          </Link>
-        </li>
+        <NavLink to="/dashboard" exact activeClassName="selected">
+          <FontAwesomeIcon icon={faSquare} size="2x" />
+          Home
+        </NavLink>
+        <NavLink to="/dashboard/exhibitions" activeClassName="selected">
+          <FontAwesomeIcon icon={faSquare} size="2x" />
+          Exhibitions
+        </NavLink>
+        <NavLink to="/dashboard/artworks" activeClassName="selected">
+          <FontAwesomeIcon icon={faSquare} size="2x" />
+          Artworks
+        </NavLink>
+        <NavLink to="/dashboard/quests" activeClassName="selected">
+          <FontAwesomeIcon icon={faSquare} size="2x" />
+          Quests
+        </NavLink>
+        <NavLink to="/dashboard/sensors" activeClassName="selected">
+          <FontAwesomeIcon icon={faSquare} size="2x" />
+          Sensors
+        </NavLink>
+        <NavLink to="/dashboard/reports" activeClassName="selected">
+          <FontAwesomeIcon icon={faSquare} size="2x" />
+          Reports
+        </NavLink>
       </ul>
     </div>
   );

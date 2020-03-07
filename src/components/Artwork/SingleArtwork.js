@@ -87,13 +87,7 @@ const SingleArtwork = props => {
 
           <div className="additional-information">
             <div className="image">
-              <img
-                src={singleArtwork.artwork.imageURL}
-                alt="artwork"
-                style={{
-                  width: "100%"
-                }}
-              />
+              <img src={singleArtwork.artwork.imageURL} alt="artwork" />
             </div>
 
             <div className="detail">

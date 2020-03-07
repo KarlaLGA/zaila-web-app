@@ -6,6 +6,7 @@ const get = endpoint => {
       headers: { Authorization: `Bearer ${localStorage.getItem("userData")}` }
     })
     .then(res => {
+      console.log(res);
       return res.data.data;
     })
     .catch(err => {

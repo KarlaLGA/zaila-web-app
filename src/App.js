@@ -12,6 +12,7 @@ import SensorView from "./views/SensorView";
 import ReportView from "./views/ReportView";
 import ExhibitionView from "./views/ExhibitionView";
 import QuestView from "./views/QuestView";
+import SettingsView from "./views/SettingsView";
 
 function App() {
   return (
@@ -57,6 +58,9 @@ function App() {
           </Route>
           <Route path="/dashboard/quests">
             <QuestView />
+          </Route>
+          <Route path="/dashboard/settings">
+            <SettingsView />
           </Route>
         </Switch>
       </main>

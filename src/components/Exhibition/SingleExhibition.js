@@ -40,13 +40,12 @@ const SingleExhibition = props => {
             </div>
           </div>
           <div className="additional-information">
-            <img
-              src={singleExhibition.exhibition.imageURL}
-              alt="exhibition"
-              style={{
-                width: "100%"
-              }}
-            />
+            <div className="image">
+              <img
+                src={singleExhibition.exhibition.imageURL}
+                alt="exhibition"
+              />
+            </div>
 
             <div className="exhibition-category detail">
               <p>Exhibition Category</p>

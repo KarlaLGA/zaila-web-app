@@ -12,13 +12,13 @@ code {
     monospace;
 }
 
-@import "./scss/artworks/CreateArtwork.scss";
+@import "./scss/features/Create.scss";
 @import "./scss/sensors/ListSensor.scss";
-@import "./scss/artworks/ListArtwork.scss";
+@import "./scss/features/List.scss";
 @import "./scss/Home.scss";
 @import "./scss/NavBar.scss";
 @import "./scss/LandingPage/LandingPage.scss";
-@import "./scss/exhibitions/FilterHeader.scss";
+@import "./scss/features/FilterHeader.scss";
 
 // =====================================
 // =            Variables              =

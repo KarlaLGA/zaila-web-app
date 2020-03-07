@@ -47,7 +47,11 @@ const LogIn = () => {
 
     if (formValidates) {
       axios
-        .post("https://zaila-carol.herokuapp.com/auth/login", submitLogIn)
+        .post("https://zaila-backend.herokuapp.com/auth/login", submitLogIn, {
+          headers: {
+            "Access-Control-Allow-Origin": "*"
+          }
+        })
         .then(res => {
           if (res.status === 200) {
             localStorage.setItem("userData", res.data.token);
