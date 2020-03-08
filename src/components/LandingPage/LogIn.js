@@ -57,6 +57,7 @@ const LogIn = () => {
             localStorage.setItem("userData", res.data.token);
             history.push("/dashboard");
             dispatch({ type: "USER_LOG_IN" });
+            window.location.reload();
           }
         })
         .catch(error => {

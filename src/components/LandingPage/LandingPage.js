@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import Hero from "./Hero";
 
 const LandingPage = () => {
-  useEffect(() => {
-    localStorage.removeItem("userData");
-  }, []);
+  localStorage.removeItem("userData");
 
   return (
     <div className="home">
