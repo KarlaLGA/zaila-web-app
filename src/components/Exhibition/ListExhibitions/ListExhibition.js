@@ -15,13 +15,14 @@ const ListArtwork = () => {
   useEffect(() => {
     get("exhibition")
       .then(data => {
+        console.log(data);
         // Add status of the exhibition comparing to the current day
         const exhibitionsFilter = data.map(dataObject => {
           // Format date objects
           let startDate = new Moment(dataObject.exhibition.startDate);
           let endDate = new Moment(dataObject.exhibition.endDate);
-          let formatStart = startDate.format("LL");
-          let formatEnd = endDate.format("LL");
+          let formatStart = startDate.format("L");
+          let formatEnd = endDate.format("L");
           let currentDay = new Moment(new Date());
 
           //Compare status of date
