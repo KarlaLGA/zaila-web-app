@@ -7,7 +7,8 @@ const ListOf = () => {
       JSX (Duh.)
   ===========================*/
   return (
-    <div>
+    <div className="list">
+      <h1>Sensors</h1>
       <SensorHeader title="NFC Sensors" />
       <ListSensor />
     </div>

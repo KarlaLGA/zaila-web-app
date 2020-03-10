@@ -14,7 +14,7 @@ const ExhibitionHeader = () => {
       status: "future"
     },
     {
-      status: "past"
+      status: "previous"
     }
   ];
 
@@ -36,7 +36,7 @@ const ExhibitionHeader = () => {
                 : "filter-title"
             }
           >
-            {filter.status}
+            <h2>{filter.status}</h2>
           </div>
         ))}
       </div>

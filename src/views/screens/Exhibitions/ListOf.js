@@ -8,7 +8,7 @@ const ListOf = () => {
   return (
     <div className="list exhibition-list">
       <div className="section-header section-header-exhibitions">
-        <h2>Exhibitions</h2>
+        <h1>Exhibitions</h1>
       </div>
       <ExhibitionHeader />
       <ListExhibition />

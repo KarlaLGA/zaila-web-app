@@ -64,7 +64,7 @@ const ListSensor = props => {
       JSX (Duh.)
   ===========================*/
   return (
-    <div id="sensors">
+    <div id="sensors" className="list-view">
       {appliedFilter === "Bluetooth" ? handleBluetooth() : handleNfc()}
     </div>
   );

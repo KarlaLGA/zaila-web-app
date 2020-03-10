@@ -49,7 +49,7 @@ const ListArtwork = () => {
   }, []);
 
   return (
-    <div>
+    <div className="list-view">
       {exhibitions
         .filter(({ exhibition }) => filterSelected === exhibition.status)
         .map(({ exhibition }) => (

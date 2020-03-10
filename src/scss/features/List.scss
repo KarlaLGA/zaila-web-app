@@ -1,11 +1,9 @@
 .artwork-item,
 .exhibition-item {
-  border: 1px solid salmon;
-  // width: 100%;
   margin: 1rem auto;
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem;
+  padding: 2rem;
 
   .information {
     width: 60%;
@@ -26,6 +24,22 @@
 
 .list {
   position: relative;
+
+  .list-view {
+    border: 2px solid #FFDBBF;
+
+    .spacer {
+      border-bottom: 2px solid #bababa;
+      width: 95%;
+      margin: auto;
+    }
+
+    .list-item:last-of-type {
+      .spacer {
+        display: none;
+      }
+    }
+  }
 }
 
 .add {

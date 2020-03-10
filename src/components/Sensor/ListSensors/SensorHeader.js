@@ -44,7 +44,7 @@ const SensorHeader = () => {
                 : "filter-title"
             }
           >
-            {currFilter.text}
+            <h2>{currFilter.text}</h2>
           </span>
         ))}
       </div>
