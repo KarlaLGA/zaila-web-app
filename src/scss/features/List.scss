@@ -27,9 +27,11 @@
 
   .list-view {
     border: 2px solid #FFDBBF;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 
     .spacer {
-      border-bottom: 2px solid #bababa;
+      border-bottom: 1.5px solid #bababa;
       width: 95%;
       margin: auto;
     }

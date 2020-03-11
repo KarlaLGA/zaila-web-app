@@ -2,23 +2,12 @@ import React from "react";
 
 import ExhibitionItem from "components/Home/Overview/Exhibition/ExhibitionItem";
 
-const ExhibitionsList = () => {
-  const data = [
-    {
-      exhibitionName: "Exhibition A",
-      duration: "02/12 - 08/15",
-      imageURL: "https://i.picsum.photos/id/1002/200/90.jpg"
-    },
-    {
-      exhibitionName: "Exhibition B",
-      duration: "01/09 - 11/27",
-      imageURL: "https://i.picsum.photos/id/1026/200/90.jpg"
-    }
-  ];
+const ExhibitionsList = props => {
+  const data = props.exhibitions;
   return (
     <div>
-      {data.map(exhibition => (
-        <ExhibitionItem exhibition={exhibition} />
+      {data.map((exhibition, index) => (
+        <ExhibitionItem exhibition={exhibition.exhibition} key={index} />
       ))}
     </div>
   );

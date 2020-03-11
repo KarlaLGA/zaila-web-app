@@ -1,11 +1,10 @@
 import React from "react";
 
 const ExhibitionItem = props => {
-  const { exhibitionName, duration, imageURL } = props.exhibition;
+  const { name, duration } = props.exhibition;
   return (
-    <div>
-      <img src={imageURL} alt="exhibition" style={{ "max-width": "100%" }} />
-      <p>{exhibitionName}</p>
+    <div className="exhibition-overview">
+      <p>{name}</p>
       <p>{duration}</p>
     </div>
   );
