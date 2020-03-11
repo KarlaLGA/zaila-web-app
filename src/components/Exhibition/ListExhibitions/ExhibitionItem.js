@@ -27,7 +27,12 @@ const ExhibitionItem = props => {
           >
             Edit
           </Link>
-          <Link to={"/dashboard/exhibitions/" + exhibitionId}>View</Link>
+          <Link
+            to={"/dashboard/exhibitions/" + exhibitionId}
+            className="button"
+          >
+            View
+          </Link>
         </div>
       </div>
 

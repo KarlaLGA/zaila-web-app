@@ -3,7 +3,6 @@
 .main-navigation {
 
     a {
-        color: black;
         text-decoration: none;
     }
 }
@@ -22,15 +21,15 @@ ul {
         border-bottom-left-radius: 40%;
     }
 
-    svg {
-        color: #3D1412;
+    svg path {
+        color: #3D1412 !important;
     }
 
     .selected {
         background-color: #fff;
 
-        svg {
-            color: #F79839;
+        svg path {
+            color: #F79839 !important;
         }
     }
 
