@@ -51,7 +51,7 @@ const SingleExhibition = props => {
               <p>Exhibition Category</p>
               <div className="categories">
                 {categories.map(category => (
-                  <div className="category" key={category.categoryId}>
+                  <div className="category caption" key={category.categoryId}>
                     <img
                       src={category.imageURL}
                       alt={`category ${category.categoryName}`}

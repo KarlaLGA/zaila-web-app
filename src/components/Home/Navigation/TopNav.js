@@ -7,13 +7,17 @@ const TopNav = () => {
   return (
     <div className="top-navigation">
       <ul className="navigation">
-        <NavLink to="/dashboard/settings" activeClassName="selected-top">
+        <NavLink
+          to="/dashboard/settings"
+          activeClassName="selected-top"
+          className="caption"
+        >
           <FontAwesomeIcon icon={faSquare} size="2x" />
           Settings
         </NavLink>
-        <li>
+        <li className="caption">
           <FontAwesomeIcon icon={faSquare} size="2x" />
-          LogOut
+          Logout
         </li>
       </ul>
     </div>

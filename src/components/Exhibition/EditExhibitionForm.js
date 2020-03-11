@@ -115,7 +115,7 @@ const EditExhibitionForm = props => {
           <p>Exhibition Category</p>
           <div className="categories">
             {categories.map(category => (
-              <div className="category" key={category.categoryId}>
+              <div className="category caption" key={category.categoryId}>
                 <img
                   alt={`category ${category.categoryName}`}
                   src={category.imageURL}

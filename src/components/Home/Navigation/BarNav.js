@@ -7,27 +7,52 @@ const BarNav = () => {
   return (
     <div className="main-navigation">
       <ul className="navigation">
-        <NavLink to="/dashboard" exact activeClassName="selected">
+        <NavLink
+          to="/dashboard"
+          exact
+          activeClassName="selected"
+          className="caption"
+        >
           <FontAwesomeIcon icon={faSquare} size="2x" />
           Home
         </NavLink>
-        <NavLink to="/dashboard/exhibitions" activeClassName="selected">
+        <NavLink
+          to="/dashboard/exhibitions"
+          activeClassName="selected"
+          className="caption"
+        >
           <FontAwesomeIcon icon={faSquare} size="2x" />
           Exhibitions
         </NavLink>
-        <NavLink to="/dashboard/artworks" activeClassName="selected">
+        <NavLink
+          to="/dashboard/artworks"
+          activeClassName="selected"
+          className="caption"
+        >
           <FontAwesomeIcon icon={faSquare} size="2x" />
           Artworks
         </NavLink>
-        <NavLink to="/dashboard/quests" activeClassName="selected">
+        <NavLink
+          to="/dashboard/quests"
+          activeClassName="selected"
+          className="caption"
+        >
           <FontAwesomeIcon icon={faSquare} size="2x" />
           Quests
         </NavLink>
-        <NavLink to="/dashboard/sensors" activeClassName="selected">
+        <NavLink
+          to="/dashboard/sensors"
+          activeClassName="selected"
+          className="caption"
+        >
           <FontAwesomeIcon icon={faSquare} size="2x" />
           Sensors
         </NavLink>
-        <NavLink to="/dashboard/reports" activeClassName="selected">
+        <NavLink
+          to="/dashboard/reports"
+          activeClassName="selected"
+          className="caption"
+        >
           <FontAwesomeIcon icon={faSquare} size="2x" />
           Reports
         </NavLink>
