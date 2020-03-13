@@ -54,7 +54,9 @@ export default function HomeView() {
 
   return (
     <div className="home-view view">
-      <h1>Museum Overview</h1>
+      <div className="section-header">
+        <h1>Museum Overview</h1>
+      </div>
       <div className="overview-list">
         <ExhibitionsOverview exhibitions={exhibitions} />
         <ArtworksOverview />

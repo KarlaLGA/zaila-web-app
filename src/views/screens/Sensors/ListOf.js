@@ -8,7 +8,9 @@ const ListOf = () => {
   ===========================*/
   return (
     <div className="list">
-      <h1>Sensors</h1>
+      <div className="section-header">
+        <h1>Sensors</h1>
+      </div>
       <SensorHeader title="NFC Sensors" />
       <ListSensor />
     </div>

@@ -5,8 +5,8 @@ const ListArtwork = props => {
   const artworksRelated = props.artworks;
 
   return (
-    <div className="artworks-related">
-      <p>Artworks Related</p>
+    <div className="artworks-related list-artwork">
+      <p>Artwork List</p>
       {artworksRelated.map(({ artwork }) => (
         <ArtworkItem key={artwork.artworkId} artwork={artwork} />
       ))}

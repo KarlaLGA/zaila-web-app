@@ -36,7 +36,7 @@ const ListArtwork = () => {
   }, [exhibitions, dispatch]);
 
   return (
-    <div>
+    <div className="list-artwork">
       {artworks.map(({ artwork }) => (
         <ArtworkItem key={artwork.artworkId} artwork={artwork} />
       ))}

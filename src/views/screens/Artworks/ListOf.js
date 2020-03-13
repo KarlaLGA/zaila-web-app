@@ -6,7 +6,7 @@ import SearchBar from "components/Artwork/ListArtworks/SearchBar";
 
 const ListOf = () => {
   return (
-    <div className="list artwork-list">
+    <div className="list">
       <div className="section-header section-header-artworks">
         <h1>Artworks</h1>
         <SearchBar />

@@ -29,7 +29,7 @@ const SensorHeader = () => {
       JSX (Duh.)
   ===========================*/
   return (
-    <div className="section-header">
+    <div>
       <div className="filters">
         {/* Display the list of filters at the top right corner */}
         {filters.map(currFilter => (

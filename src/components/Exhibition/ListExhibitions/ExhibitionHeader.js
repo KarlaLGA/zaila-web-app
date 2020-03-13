@@ -19,7 +19,7 @@ const ExhibitionHeader = () => {
   ];
 
   return (
-    <div className="section-header section-header-exhibition">
+    <div className="section-header-exhibition">
       <div className="filters">
         {filters.map(filter => (
           <div

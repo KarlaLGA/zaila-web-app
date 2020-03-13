@@ -5,7 +5,9 @@ import CreateArtworkForm from "components/Artwork/CreateArtworkForm";
 const CreateArtwork = () => {
   return (
     <div className="create-artwork">
-      <h1>Create Artwork</h1>
+      <div className="section-header">
+        <h1>Create Artwork</h1>
+      </div>
       <CreateArtworkForm />
     </div>
   );
