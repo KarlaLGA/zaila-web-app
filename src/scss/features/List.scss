@@ -78,7 +78,7 @@
 .single-view {
   display: grid;
   grid-template-columns: repeat(2, 47.5%);
-  gap: 5%;
+  column-gap: 5%;
 }
 
 .single-view.artwork-form {
@@ -90,7 +90,6 @@
     .translations-list {
       display: grid;
       grid-template-columns: repeat(2, 47.5%);
-      gap: 5%;
     }
   }
 }

@@ -25,12 +25,12 @@ const BarNav = () => {
           Exhibitions
         </NavLink>
         <NavLink
-          to="/dashboard/artworks"
+          to="/dashboard/artifacts"
           activeClassName="selected"
           className="caption"
         >
           <FontAwesomeIcon icon={faSquare} size="2x" />
-          Artworks
+          Artifacts
         </NavLink>
         <NavLink
           to="/dashboard/quests"

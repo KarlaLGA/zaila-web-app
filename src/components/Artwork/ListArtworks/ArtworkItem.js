@@ -13,12 +13,12 @@ const ArtworkItem = props => {
   return (
     <div className="artwork-item">
       <div className="image">
-        <img src={imageURL} alt="artwork" style={{ width: "200px" }} />
+        <img src={imageURL} alt="artifact" style={{ width: "200px" }} />
       </div>
 
       <div className="information">
         <p>
-          Artwork: <span>{title}</span>
+          Artifact: <span>{title}</span>
         </p>
         <p> Artist: {artistName}</p>
         <p>Exhibition: {exhibitionName}</p>
@@ -27,13 +27,13 @@ const ArtworkItem = props => {
       <div className="icons">
         <Link
           to={{
-            pathname: `/dashboard/artworks/${artworkId}`,
+            pathname: `/dashboard/artifacts/${artworkId}`,
             edit: true
           }}
         >
           Edit
         </Link>
-        <Link to={`/dashboard/artworks/${artworkId}`} className="button">
+        <Link to={`/dashboard/artifacts/${artworkId}`} className="button">
           View
         </Link>
       </div>

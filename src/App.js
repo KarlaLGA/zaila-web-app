@@ -44,7 +44,7 @@ function App() {
           <Route exact path="/dashboard">
             <HomeView />
           </Route>
-          <Route path="/dashboard/artworks">
+          <Route path="/dashboard/artifacts">
             <ArtworkView />
           </Route>
           <Route path="/dashboard/sensors">

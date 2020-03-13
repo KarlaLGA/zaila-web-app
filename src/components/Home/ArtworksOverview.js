@@ -29,10 +29,10 @@ const ArtworksOverview = () => {
 
   return (
     <div className="overview-item">
-      <h2>Artworks</h2>
+      <h2>Artifacts</h2>
 
       <div className="total">
-        <p>Artworks Displayed: {total}</p>
+        <p>Artifacts Displayed: {total}</p>
       </div>
 
       <ArtworkList artworks={artworks} total={total} />

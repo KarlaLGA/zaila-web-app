@@ -65,7 +65,7 @@ const CreateArtworkForm = () => {
     <div className="artwork-form form single-view">
       <div className="general-information">
         <div className="detail">
-          <label htmlFor="title">Artwork Title</label>
+          <label htmlFor="title">Artifact Title</label>
           <input
             type="text"
             name="title"

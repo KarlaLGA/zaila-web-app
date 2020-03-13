@@ -54,7 +54,7 @@ const ListSensor = props => {
         key={nfc.sensor.sensorId}
         sensor={nfc.sensor.sensorId}
         entity={nfc.artwork}
-        entityType="Artwork"
+        entityType="Artifact"
         exhibition={nfc.exhibition}
       />
     ));

@@ -6,7 +6,7 @@ const CreateArtwork = () => {
   return (
     <div className="create-artwork">
       <div className="section-header">
-        <h1>Create Artwork</h1>
+        <h1>Add Artifact</h1>
       </div>
       <CreateArtworkForm />
     </div>

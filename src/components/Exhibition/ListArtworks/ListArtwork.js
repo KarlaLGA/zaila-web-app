@@ -6,7 +6,7 @@ const ListArtwork = props => {
 
   return (
     <div className="artworks-related list-artwork">
-      <p>Artwork List</p>
+      <p>Artifacts List</p>
       {artworksRelated.map(({ artwork }) => (
         <ArtworkItem key={artwork.artworkId} artwork={artwork} />
       ))}

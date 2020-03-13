@@ -15,8 +15,8 @@ export default function HomeView() {
         let exhibitionFormat = data.map(dataSingle => {
           let startDate = new Moment(dataSingle.exhibition.startDate);
           let endDate = new Moment(dataSingle.exhibition.endDate);
-          let formatStart = startDate.format("MM/D/YY");
-          let formatEnd = endDate.format("MM/D/YY");
+          let formatStart = startDate.format("MMM D, YYYY");
+          let formatEnd = endDate.format("MMM D, YYYY");
           return {
             exhibition: {
               name: dataSingle.exhibition.name,

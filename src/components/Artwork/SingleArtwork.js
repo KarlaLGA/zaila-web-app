@@ -40,7 +40,7 @@ const SingleArtwork = props => {
         <div className="artwork-view single-view">
           <div className="general-information">
             <div className="detail">
-              <p>Artwork Title</p>
+              <p>Artifact Title</p>
               <p className="information">{singleArtwork.artwork.title}</p>
             </div>
 
@@ -68,7 +68,7 @@ const SingleArtwork = props => {
 
             <div className="description">
               <div className="options-detail">
-                <p>Artwork Description</p>
+                <p>Artifact Description</p>
                 <select
                   name="languages"
                   id="languages"

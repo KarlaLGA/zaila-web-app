@@ -51,7 +51,7 @@ const UploadImage = props => {
     <div className="upload">
       {image ? (
         <div className="image">
-          <img src={image} alt="artwork"></img>
+          <img src={image} alt="artifact"></img>
         </div>
       ) : (
         <div className="image empty"></div>
