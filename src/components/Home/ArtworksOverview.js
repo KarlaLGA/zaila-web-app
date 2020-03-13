@@ -10,7 +10,6 @@ const ArtworksOverview = () => {
   useEffect(() => {
     get("artwork")
       .then(data => {
-        console.log(data);
         setTotal(data.length);
         let artist = data.map(artwork => ({
           artist: artwork.artwork.artistName

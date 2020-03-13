@@ -1,12 +1,10 @@
-const initState = {
-
-}
+const initState = {};
 
 const dataReducer = (state = initState, action) => {
-    switch (action.type) {
-        default:
-            return state
-    }
-}
+  switch (action.type) {
+    default:
+      return state;
+  }
+};
 
-export default dataReducer
+export default dataReducer;
