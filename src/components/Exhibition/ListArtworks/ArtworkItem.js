@@ -12,7 +12,9 @@ const ArtworkItem = props => {
       </div>
 
       <div className="information">
-        <p>Artwork: {title}</p>
+        <p>
+          Artwork: <span>{title}</span>
+        </p>
         <p> Artist: {artistName}</p>
       </div>
 
@@ -25,7 +27,12 @@ const ArtworkItem = props => {
         >
           Edit
         </Link>
-        <Link to={"/dashboard/artworks/" + artwork.artworkId}>View</Link>
+        <Link
+          to={"/dashboard/artworks/" + artwork.artworkId}
+          className="button"
+        >
+          View
+        </Link>
       </div>
     </div>
   );

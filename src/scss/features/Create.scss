@@ -34,7 +34,7 @@ textarea {
                 margin: auto;
 
                 &.selected {
-                    border: 2px solid salmon;
+                    border: 2px solid #F79839;
                 }
             }
         }
@@ -82,6 +82,15 @@ textarea {
             }
         }
 
+        .description {
+
+            .options-detail {
+                p:first-child {
+                    font-weight: bold !important;
+                }
+            }
+        }
+
     }
 
 
@@ -89,6 +98,7 @@ textarea {
     label {
         margin-bottom: 0.5rem;
         margin-top: 0;
+        font-weight: bold;
     }
 
     .detail p:nth-of-type(2),
@@ -99,7 +109,6 @@ textarea {
     .information {
         margin-left: 10px;
         margin-top: 0;
-        font-style: italic;
         display: inline-block;
     }
 
@@ -107,6 +116,10 @@ textarea {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        p {
+            font-weight: normal !important;
+        }
     }
 
     .image {
