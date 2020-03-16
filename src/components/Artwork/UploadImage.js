@@ -27,10 +27,7 @@ const UploadImage = props => {
     xhr.open("PUT", myurl);
 
     xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-    xhr.setRequestHeader(
-      "Authorization",
-      `Bearer ${localStorage.getItem("userData")}`
-    );
+    
 
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4) {
@@ -47,8 +44,10 @@ const UploadImage = props => {
 
   const getSignedRequest = async file => {
     return axios.get(
-      `storage/sign-s3?fileName=${file.name}&fileType=${file.type}`
-    );
+      `storage/sign-s3?fileName=${file.name}&fileType=${file.type}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("userData")}`
+        }})
   };
 
   return (
