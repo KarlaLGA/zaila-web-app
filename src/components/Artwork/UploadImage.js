@@ -27,6 +27,10 @@ const UploadImage = props => {
     xhr.open("PUT", myurl);
 
     xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+    xhr.setRequestHeader(
+      "Authorization",
+      `Bearer ${localStorage.getItem("userData")}`
+    );
 
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4) {
