@@ -48,7 +48,7 @@ const Artwork = props => {
   return (
     <div className="artwork">
       <div className="section-header">
-        <h2>Artwork Information</h2>
+        <h1>Artifact Information</h1>
       </div>
       {handleEdit()}
     </div>

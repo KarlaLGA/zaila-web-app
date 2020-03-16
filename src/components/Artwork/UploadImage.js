@@ -48,24 +48,13 @@ const UploadImage = props => {
   };
 
   return (
-    <div>
+    <div className="upload">
       {image ? (
         <div className="image">
-          <img
-            src={image}
-            alt="artwork"
-            style={{
-              width: "100%"
-            }}
-          ></img>
+          <img src={image} alt="artifact"></img>
         </div>
       ) : (
-        <div className="image">
-          <img
-            src="https://via.placeholder.com/400X200?text=Artwork"
-            alt="artwork"
-          />
-        </div>
+        <div className="image empty"></div>
       )}
       <input
         type="file"

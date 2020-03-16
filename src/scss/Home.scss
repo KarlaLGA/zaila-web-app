@@ -1,22 +1,70 @@
 .app-dashboard {
     display: grid;
-    grid-template-columns: 10% 90%;
-    grid-template-rows: 10% 90%;
-    background-color: #969696;
+    grid-template-columns: 110px auto;
+    grid-template-rows: 90px auto;
+    background: transparent linear-gradient(180deg, #FFF8F2 0%, #FFEEF2 100%) 0% 0% no-repeat padding-box;
+    ;
     height: 100vh;
+
+    .logo {
+        img {
+            width: 70px;
+        }
+    }
 
     .view {
         overflow-y: auto;
         padding-right: 10%;
         padding-left: 5%;
-        padding-top: 5%;
-        padding-bottom: 10%;
+        padding-top: 2%;
+        padding-bottom: 5%;
 
         background-color: white;
-        border-top-left-radius: 20px;
+        border-top-left-radius: 30px;
 
         h2 {
             margin-top: 0;
         }
+
+        .overview-list {
+            display: flex;
+            justify-content: space-between;
+
+            .overview-item {
+                border: 1px solid grey;
+                width: 25%;
+                text-align: center;
+                padding: 5px 25px;
+
+                .exhibition-overview {
+                    margin-bottom: 2rem;
+                    text-align: left;
+
+                    p {
+                        margin: 0;
+                    }
+
+                    p:first-child {
+                        font-size: 1.1rem;
+                    }
+                }
+
+                .artwork-overview {
+                    text-align: left;
+
+                    p {
+                        margin: 0;
+                    }
+
+                    .overview-header {
+                        font-size: 1.1rem;
+                    }
+                }
+            }
+        }
     }
+}
+
+.caption {
+    font-size: 0.75rem;
 }

@@ -16,7 +16,7 @@ const SensorItem = props => {
           <div>Exhibition: {exhibition.name}</div>
         </div>
       );
-    } else if (entityType === "Artwork" && entity !== undefined) {
+    } else if (entityType === "Artifact" && entity !== undefined) {
       return (
         <div className="status">
           <div>

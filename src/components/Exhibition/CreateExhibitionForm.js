@@ -44,8 +44,6 @@ const CreateExhibitionForm = () => {
       });
   };
 
-  console.log(exhibition);
-
   return (
     <div className="exhibition-form form single-view">
       <div className="general-information">
@@ -83,10 +81,10 @@ const CreateExhibitionForm = () => {
               className="input"
               style={{ width: "200px" }}
               selected={new Date()}
-              onChange={e =>
+              onChange={date =>
                 setExhibition({
                   ...exhibition,
-                  endDate: e.target.value
+                  endDate: date
                 })
               }
             />
@@ -117,7 +115,7 @@ const CreateExhibitionForm = () => {
           <p>Exhibition Category</p>
           <div className="categories">
             {categories.map(category => (
-              <div className="category" key={category.categoryId}>
+              <div className="category caption" key={category.categoryId}>
                 <img
                   alt={`category ${category.categoryName}`}
                   src={category.imageURL}

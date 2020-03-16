@@ -5,7 +5,9 @@ import CreateArtworkForm from "components/Artwork/CreateArtworkForm";
 const CreateArtwork = () => {
   return (
     <div className="create-artwork">
-      <h2>Create Artwork</h2>
+      <div className="section-header">
+        <h1>Add Artifact</h1>
+      </div>
       <CreateArtworkForm />
     </div>
   );
