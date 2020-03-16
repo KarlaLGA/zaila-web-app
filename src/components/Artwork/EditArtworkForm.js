@@ -86,7 +86,7 @@ const EditArtworkForm = props => {
     <div className="artwork-form form single-view">
       <div className="general-information">
         <div className="detail">
-          <label htmlFor="title">Artwork Title</label>
+          <label htmlFor="title">Artifact Title</label>
           <input
             value={title}
             type="text"

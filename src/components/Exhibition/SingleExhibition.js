@@ -7,8 +7,6 @@ import EditExhibitionForm from "components/Exhibition/EditExhibitionForm";
 const SingleExhibition = props => {
   let singleExhibition = props.singleExhibition;
 
-  console.log(singleExhibition);
-
   const start = new Moment(singleExhibition.exhibition.startDate);
   const end = new Moment(singleExhibition.exhibition.endDate);
   const categories = useSelector(state => state.exhibition.categories);
@@ -42,19 +40,18 @@ const SingleExhibition = props => {
             </div>
           </div>
           <div className="additional-information">
-            <img
-              src={singleExhibition.exhibition.imageURL}
-              alt="exhibition"
-              style={{
-                width: "100%"
-              }}
-            />
+            <div className="image">
+              <img
+                src={singleExhibition.exhibition.imageURL}
+                alt="exhibition"
+              />
+            </div>
 
             <div className="exhibition-category detail">
               <p>Exhibition Category</p>
               <div className="categories">
                 {categories.map(category => (
-                  <div className="category" key={category.categoryId}>
+                  <div className="category caption" key={category.categoryId}>
                     <img
                       src={category.imageURL}
                       alt={`category ${category.categoryName}`}

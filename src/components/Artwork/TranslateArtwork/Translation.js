@@ -17,7 +17,7 @@ const Translation = props => {
   return (
     <div>
       <div className="options-detail">
-        <label htmlFor="description">Artwork Description</label>
+        <label htmlFor="description">Artifact Description</label>
         <p>{languageCode}</p>
       </div>
 

@@ -54,7 +54,7 @@ const ListSensor = props => {
         key={nfc.sensor.sensorId}
         sensor={nfc.sensor.sensorId}
         entity={nfc.artwork}
-        entityType="Artwork"
+        entityType="Artifact"
         exhibition={nfc.exhibition}
       />
     ));
@@ -64,7 +64,7 @@ const ListSensor = props => {
       JSX (Duh.)
   ===========================*/
   return (
-    <div id="sensors">
+    <div id="sensors" className="list-view">
       {appliedFilter === "Bluetooth" ? handleBluetooth() : handleNfc()}
     </div>
   );

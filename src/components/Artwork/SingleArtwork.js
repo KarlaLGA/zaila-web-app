@@ -20,7 +20,6 @@ const SingleArtwork = props => {
 
   const handleDescription = e => {
     let language = e.target.value;
-    console.log(artworkDetails);
     let description = artworkDetails.find(
       artworkDetail => artworkDetail.languageCode === language
     );
@@ -41,7 +40,7 @@ const SingleArtwork = props => {
         <div className="artwork-view single-view">
           <div className="general-information">
             <div className="detail">
-              <p>Artwork Title</p>
+              <p>Artifact Title</p>
               <p className="information">{singleArtwork.artwork.title}</p>
             </div>
 
@@ -69,7 +68,7 @@ const SingleArtwork = props => {
 
             <div className="description">
               <div className="options-detail">
-                <p>Artwork Description</p>
+                <p>Artifact Description</p>
                 <select
                   name="languages"
                   id="languages"
@@ -88,13 +87,7 @@ const SingleArtwork = props => {
 
           <div className="additional-information">
             <div className="image">
-              <img
-                src={singleArtwork.artwork.imageURL}
-                alt="artwork"
-                style={{
-                  width: "100%"
-                }}
-              />
+              <img src={singleArtwork.artwork.imageURL} alt="artwork" />
             </div>
 
             <div className="detail">

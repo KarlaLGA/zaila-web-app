@@ -3,11 +3,10 @@ import ArtworkItem from "./ArtworkItem";
 
 const ListArtwork = props => {
   const artworksRelated = props.artworks;
-  console.log(artworksRelated);
 
   return (
-    <div className="artworks-related">
-      <p>Artworks Related</p>
+    <div className="artworks-related list-artwork">
+      <p>Artifacts List</p>
       {artworksRelated.map(({ artwork }) => (
         <ArtworkItem key={artwork.artworkId} artwork={artwork} />
       ))}

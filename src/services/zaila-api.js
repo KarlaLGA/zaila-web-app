@@ -2,7 +2,9 @@ import axios from "axios";
 
 const get = endpoint => {
   return axios
-    .get(endpoint)
+    .get(endpoint, {
+      headers: { Authorization: `Bearer ${localStorage.getItem("userData")}` }
+    })
     .then(res => {
       return res.data.data;
     })
@@ -13,7 +15,13 @@ const get = endpoint => {
 
 const create = (endpoint, data) => {
   return axios
-    .post(endpoint, data)
+    .post(
+      endpoint,
+      {
+        headers: { Authorization: `Bearer ${localStorage.getItem("userData")}` }
+      },
+      data
+    )
     .then(res => {
       return res.data;
     })
@@ -24,7 +32,13 @@ const create = (endpoint, data) => {
 
 const update = (endpoint, data) => {
   return axios
-    .put(endpoint, data)
+    .put(
+      endpoint,
+      {
+        headers: { Authorization: `Bearer ${localStorage.getItem("userData")}` }
+      },
+      data
+    )
     .then(res => {
       return res.data;
     })

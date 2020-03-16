@@ -24,7 +24,7 @@ const ListTranslation = props => {
   return (
     <div className="translations-list">
       <label htmlFor="description">
-        Artwork Description
+        Artifact Description
         <textarea
           value={description ? description : ""}
           name="description"

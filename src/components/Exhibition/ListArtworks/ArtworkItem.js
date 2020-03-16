@@ -8,24 +8,31 @@ const ArtworkItem = props => {
   return (
     <div className="artwork-item">
       <div className="image">
-        <img src={imageURL} alt="artwork" style={{ width: "200px" }} />
+        <img src={imageURL} alt="artifact" style={{ width: "200px" }} />
       </div>
 
       <div className="information">
-        <p>Artwork: {title}</p>
+        <p>
+          Artifact: <span>{title}</span>
+        </p>
         <p> Artist: {artistName}</p>
       </div>
 
       <div className="icons">
         <Link
           to={{
-            pathname: `/dashboard/artworks/${artwork.artworkId}`,
+            pathname: `/dashboard/artifacts/${artwork.artworkId}`,
             edit: true
           }}
         >
           Edit
         </Link>
-        <Link to={"/dashboard/artworks/" + artwork.artworkId}>View</Link>
+        <Link
+          to={"/dashboard/artifacts/" + artwork.artworkId}
+          className="button"
+        >
+          View
+        </Link>
       </div>
     </div>
   );

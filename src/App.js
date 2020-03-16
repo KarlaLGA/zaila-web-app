@@ -12,16 +12,19 @@ import SensorView from "./views/SensorView";
 import ReportView from "./views/ReportView";
 import ExhibitionView from "./views/ExhibitionView";
 import QuestView from "./views/QuestView";
+import SettingsView from "./views/SettingsView";
 
 function App() {
   return (
     <BrowserRouter>
       <main
         className={
-          localStorage.getItem("userData") ? "app app-dashboard" : "app"
+          localStorage.getItem("userData") !== null
+            ? "app app-dashboard"
+            : "app"
         }
       >
-        {localStorage.getItem("userData") ? (
+        {localStorage.getItem("userData") !== null ? (
           <>
             <Logo />
             <TopNav />
@@ -41,7 +44,7 @@ function App() {
           <Route exact path="/dashboard">
             <HomeView />
           </Route>
-          <Route path="/dashboard/artworks">
+          <Route path="/dashboard/artifacts">
             <ArtworkView />
           </Route>
           <Route path="/dashboard/sensors">
@@ -55,6 +58,9 @@ function App() {
           </Route>
           <Route path="/dashboard/quests">
             <QuestView />
+          </Route>
+          <Route path="/dashboard/settings">
+            <SettingsView />
           </Route>
         </Switch>
       </main>

@@ -14,12 +14,12 @@ const ExhibitionHeader = () => {
       status: "future"
     },
     {
-      status: "past"
+      status: "previous"
     }
   ];
 
   return (
-    <div className="section-header section-header-exhibition">
+    <div className="section-header-exhibition">
       <div className="filters">
         {filters.map(filter => (
           <div
@@ -36,7 +36,7 @@ const ExhibitionHeader = () => {
                 : "filter-title"
             }
           >
-            {filter.status}
+            <h2>{filter.status}</h2>
           </div>
         ))}
       </div>

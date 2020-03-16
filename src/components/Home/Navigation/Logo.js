@@ -3,7 +3,7 @@ import React from "react";
 const Logo = () => {
   return (
     <div className="logo">
-      <p>LOGO</p>
+      <img src="/logo.svg" alt="Zaila" />
     </div>
   );
 };
