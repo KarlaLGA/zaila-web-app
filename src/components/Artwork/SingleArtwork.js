@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import ArtworkQRCode from "./ArtworkQRCode";
-
 import EditArtworkForm from "./EditArtworkForm";
 
 const SingleArtwork = props => {
@@ -17,11 +16,53 @@ const SingleArtwork = props => {
   const [selectedDescription, setSelectedDescription] = useState(
     descriptionEnglish.description
   );
+  const [dropdown, setDropdown] = useState(true);
+  const [languageCode, setLanguageCode] = useState({
+    code: "en-US",
+    text: "EN",
+    icon: "/icons/english.png",
+    alt: "english icon"
+  });
+
+  const dropdownOptions = [
+    {
+      code: "en-US",
+      text: "EN",
+      icon: "/icons/english.png",
+      alt: "english icon"
+    },
+    {
+      code: "fr-CA",
+      text: "FR",
+      icon: "/icons/french.png",
+      alt: "french icon"
+    },
+    {
+      code: "es-ES",
+      text: "ES",
+      icon: "/icons/spanish.png",
+      alt: "spanish icon"
+    },
+    {
+      code: "zh-CN",
+      text: "CH",
+      icon: "/icons/chinese.png",
+      alt: "chinese icon"
+    }
+  ];
+
+  const handleDropdown = () => {
+    setDropdown(!dropdown);
+  };
 
   const handleDescription = e => {
-    let language = e.target.value;
+    let language = dropdownOptions.find(option => option.code === e.target.id);
+    setLanguageCode(language);
+  };
+
+  useEffect(() => {
     let description = artworkDetails.find(
-      artworkDetail => artworkDetail.languageCode === language
+      artworkDetail => artworkDetail.languageCode === languageCode.code
     );
 
     if (description === undefined) {
@@ -29,11 +70,12 @@ const SingleArtwork = props => {
     } else {
       setSelectedDescription(description.description);
     }
-  };
+  }, [languageCode.code]);
 
   const handleEdit = () => {
     setArtworkEdit(true);
   };
+
   return (
     <div>
       {!artworkEdit ? (
@@ -69,16 +111,56 @@ const SingleArtwork = props => {
             <div className="description">
               <div className="options-detail">
                 <p>Artifact Description</p>
-                <select
+                <div className="select">
+                  <div className="dropdown" onClick={handleDropdown}>
+                    <img
+                      src={languageCode.icon}
+                      alt={languageCode.alt}
+                      className="language-icon"
+                    />
+                    {languageCode.text}
+                    <span className="dropdown-icon">
+                      <img src="/icons/arrow.svg" alt="dropdown icon" />
+                    </span>
+                  </div>
+
+                  {!dropdown ? (
+                    <div className="dropdown active">
+                      <ul className="languages">
+                        {dropdownOptions.map(option => (
+                          <div
+                            className={
+                              languageCode === option.code
+                                ? "selected-language"
+                                : "language"
+                            }
+                            id={option.code}
+                            onClick={e => handleDescription(e)}
+                            key={option.code}
+                          >
+                            <img
+                              src={option.icon}
+                              alt={option.alt}
+                              className="language-icon"
+                              id={option.code}
+                              onClick={e => handleDescription(e)}
+                            />
+                            {option.text}
+                          </div>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                </div>
+                {/* <select
                   name="languages"
                   id="languages"
                   onChange={e => handleDescription(e)}
                 >
                   <option value="en-US" className="language english">
-                    <span role="img" aria-label="english flag">
-                      🤣
-                    </span>
-                    🇨🇦
+                    English
                   </option>
                   <option value="fr-CA" className="language french">
                     French
@@ -89,7 +171,7 @@ const SingleArtwork = props => {
                   <option value="zh-CN" className="language chinese">
                     Chinese
                   </option>
-                </select>
+                </select> */}
               </div>
 
               <p>{selectedDescription}</p>
