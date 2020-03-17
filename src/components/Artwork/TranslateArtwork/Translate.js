@@ -27,7 +27,7 @@ const Translate = props => {
   const handleTranslation = () => {
     dispatch({ type: "EMPTY_TRANSLATIONS" });
     axios
-      .get(urlFrench)
+      .post(urlFrench)
       .then(data => {
         let translation = he.decode(
           data.data.data.translations[0].translatedText
@@ -38,7 +38,7 @@ const Translate = props => {
         console.log(error);
       });
     axios
-      .get(urlSpanish)
+      .post(urlSpanish)
       .then(data => {
         let translation = he.decode(
           data.data.data.translations[0].translatedText
@@ -49,7 +49,7 @@ const Translate = props => {
         console.log(error);
       });
     axios
-      .get(urlChinese)
+      .post(urlChinese)
       .then(data => {
         let translation = he.decode(
           data.data.data.translations[0].translatedText

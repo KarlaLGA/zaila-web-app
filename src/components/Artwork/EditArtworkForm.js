@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { update, get } from "../../services/zaila-api";
 import UploadImage from "components/Artwork/UploadImage";
 import Translate from "./TranslateArtwork/Translate";
@@ -7,6 +8,7 @@ import ListTranslation from "./TranslateArtwork/ListTranslation";
 import ArtworkQRCode from "./ArtworkQRCode";
 
 const EditArtworkForm = props => {
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const [editArtwork, setEditArtwork] = useState(props.artwork);
@@ -74,6 +76,8 @@ const EditArtworkForm = props => {
     update(`artwork/${editArtwork.artworkId}`, { artwork: editArtwork })
       .then(data => {
         console.log(data);
+        history.push("/dashboard/artifacts");
+        dispatch({ type: "EMPTY_IMAGE" });
       })
       .catch(error => {
         console.log(error);

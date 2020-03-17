@@ -1,10 +1,10 @@
 import axios from "axios";
 
+const headers = { Authorization: `Bearer ${localStorage.getItem("userData")}` };
+
 const get = endpoint => {
   return axios
-    .get(endpoint, {
-      headers: { Authorization: `Bearer ${localStorage.getItem("userData")}` }
-    })
+    .get(endpoint, { headers: headers })
     .then(res => {
       return res.data.data;
     })
@@ -15,13 +15,7 @@ const get = endpoint => {
 
 const create = (endpoint, data) => {
   return axios
-    .post(
-      endpoint,
-      {
-        headers: { Authorization: `Bearer ${localStorage.getItem("userData")}` }
-      },
-      data
-    )
+    .post({ headers: headers }, endpoint, data)
     .then(res => {
       return res.data;
     })
@@ -32,14 +26,9 @@ const create = (endpoint, data) => {
 
 const update = (endpoint, data) => {
   return axios
-    .put(
-      endpoint,
-      {
-        headers: { Authorization: `Bearer ${localStorage.getItem("userData")}` }
-      },
-      data
-    )
+    .put(endpoint, data, { headers: headers })
     .then(res => {
+      console.log(res);
       return res.data;
     })
     .catch(err => {
