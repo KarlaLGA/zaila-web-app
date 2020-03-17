@@ -270,9 +270,10 @@ const EditArtworkForm = props => {
         <Translate description={description} />
       </div>
 
-      <button onClick={handleArtwork} className="add">
+      <div onClick={handleArtwork} className="add">
+        <img src="/icons/save-border.svg" alt="save icon" />
         Save
-      </button>
+      </div>
       {qrCode ? <ArtworkQRCode sensorId={editArtwork.sensorId} /> : <div />}
     </div>
   );

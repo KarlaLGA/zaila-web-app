@@ -24,7 +24,13 @@ const ExhibitionItem = props => {
               pathname: `/dashboard/exhibitions/${exhibitionId}`,
               edit: true
             }}
+            className="edit-icon"
           >
+            <img
+              src="/icons/edit.svg"
+              alt="edit icons"
+              className="icon-no-background"
+            />
             Edit
           </Link>
           <Link

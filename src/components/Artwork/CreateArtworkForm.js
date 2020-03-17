@@ -237,9 +237,10 @@ const CreateArtworkForm = () => {
         <Translate description={artworkDetails[0].description} />
       </div>
 
-      <button onClick={handleArtwork} className="add">
+      <div onClick={handleArtwork} className="add">
+        <img src="/icons/save-border.svg" alt="save icon" />
         Save
-      </button>
+      </div>
       {qrCode ? <ArtworkQRCode sensorId={artwork.sensorId} /> : <div />}
     </div>
   );

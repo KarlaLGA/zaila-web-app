@@ -74,10 +74,21 @@ const SingleArtwork = props => {
                   id="languages"
                   onChange={e => handleDescription(e)}
                 >
-                  <option value="en-US">English</option>
-                  <option value="fr-CA">French</option>
-                  <option value="es-ES">Spanish</option>
-                  <option value="zh-CN">Chinese</option>
+                  <option value="en-US" className="language english">
+                    <span role="img" aria-label="english flag">
+                      🤣
+                    </span>
+                    🇨🇦
+                  </option>
+                  <option value="fr-CA" className="language french">
+                    French
+                  </option>
+                  <option value="es-ES" className="language spanish">
+                    Spanish
+                  </option>
+                  <option value="zh-CN" className="language chinese">
+                    Chinese
+                  </option>
                 </select>
               </div>
 
@@ -112,9 +123,10 @@ const SingleArtwork = props => {
             </div>
           </div>
 
-          <button onClick={handleEdit} className="add">
+          <div onClick={handleEdit} className="add">
+            <img src="/icons/edit-border.svg" alt="edit icon" />
             Edit
-          </button>
+          </div>
         </div>
       ) : (
         <EditArtworkForm artwork={singleArtwork.artwork} />
