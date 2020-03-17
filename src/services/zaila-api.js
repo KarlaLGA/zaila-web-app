@@ -15,7 +15,7 @@ const get = endpoint => {
 
 const create = (endpoint, data) => {
   return axios
-    .post({ headers: headers }, endpoint, data)
+    .post(endpoint, data, { headers: headers })
     .then(res => {
       return res.data;
     })
