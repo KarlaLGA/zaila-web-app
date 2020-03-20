@@ -36,28 +36,25 @@
                 text-align: center;
                 padding: 5px 25px;
 
-                .exhibition-overview {
-                    margin-bottom: 2rem;
-                    text-align: left;
-
-                    p {
-                        margin: 0;
-                    }
-
-                    p:first-child {
-                        font-size: 1.1rem;
-                    }
+                .header {
+                    font-weight: bold;
                 }
 
-                .artwork-overview {
+                .number {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                }
+
+
+
+                .exhibition-overview,
+                .artwork-overview,
+                .sensor-overview {
                     text-align: left;
+                    margin-bottom: 1rem;
 
                     p {
                         margin: 0;
-                    }
-
-                    .overview-header {
-                        font-size: 1.1rem;
                     }
                 }
             }
