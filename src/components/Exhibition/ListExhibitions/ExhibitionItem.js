@@ -27,7 +27,7 @@ const ExhibitionItem = props => {
             className="edit-icon"
           >
             <img
-              src="/icons/edit.svg"
+              src="/assets/icons/edit.svg"
               alt="edit icons"
               className="icon-no-background"
             />
