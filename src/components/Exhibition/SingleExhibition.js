@@ -78,9 +78,10 @@ const SingleExhibition = props => {
             </div>
           </div>
 
-          <button onClick={handleEdit} className="add">
+          <div onClick={handleEdit} className="add">
+            <img src="/assets/icons/edit-border.svg" alt="edit icon" />
             Edit
-          </button>
+          </div>
         </div>
       ) : (
         <EditExhibitionForm exhibition={singleExhibition.exhibition} />

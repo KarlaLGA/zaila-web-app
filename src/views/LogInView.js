@@ -1,13 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import LogIn from '../components/LandingPage/LogIn'
+import LogIn from "../components/LandingPage/LogIn";
+import NavBar from "../components/LandingPage/NavBar";
 
 const LogInView = () => {
-    return (
-        <div className="zaila">
-            <LogIn />
-        </div>
-    )
-}
+  return (
+    <div className="log-in">
+      <NavBar />
+      <LogIn />
+    </div>
+  );
+};
 
-export default LogInView
+export default LogInView;

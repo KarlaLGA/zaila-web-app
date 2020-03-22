@@ -18,15 +18,7 @@ const ArtworkItem = props => {
         <p> Artist: {artistName}</p>
       </div>
 
-      <div className="icons">
-        <Link
-          to={{
-            pathname: `/dashboard/artifacts/${artwork.artworkId}`,
-            edit: true
-          }}
-        >
-          Edit
-        </Link>
+      <div className="icons icons-artwork">
         <Link
           to={"/dashboard/artifacts/" + artwork.artworkId}
           className="button"

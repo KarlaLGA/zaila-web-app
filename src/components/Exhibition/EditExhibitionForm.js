@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { update } from "services/zaila-api";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -7,6 +8,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import UploadImage from "components/Exhibition/UploadImage";
 
 const EditExhibitionForm = props => {
+  const history = useHistory();
+  const dispatch = useDispatch();
   const [editExhibition, setEditExhibition] = useState(props.exhibition);
 
   const {
@@ -31,11 +34,13 @@ const EditExhibitionForm = props => {
   }, [image]);
 
   const handleExhibition = () => {
-    update(`exhibition/${editExhibition.exhibitionId}`, {
+    let endpoint = `exhibition/${editExhibition.exhibitionId}`;
+    update(endpoint, {
       exhibition: editExhibition
     })
       .then(data => {
-        console.log(data);
+        history.push("/dashboard/exhibitions");
+        dispatch({ type: "EMPTY_IMAGE_EXHIBITION" });
       })
       .catch(error => {
         console.log(error);
@@ -156,9 +161,10 @@ const EditExhibitionForm = props => {
         </div>
       </div>
 
-      <button onClick={handleExhibition} className="add">
+      <div onClick={handleExhibition} className="add">
+        <img src="/assets/icons/save-border.svg" alt="save icon" />
         Save
-      </button>
+      </div>
     </div>
   );
 };

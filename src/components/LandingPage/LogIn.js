@@ -57,7 +57,7 @@ const LogIn = () => {
             localStorage.setItem("userData", res.data.token);
             history.push("/dashboard");
             dispatch({ type: "USER_LOG_IN" });
-            window.location.reload();
+            //window.location.reload();
           }
         })
         .catch(error => {
@@ -68,45 +68,72 @@ const LogIn = () => {
     setErrorForm(errorMessage);
   };
   return (
-    <div className="log-in">
-      <div className="image">image</div>
-      <div className="log-in-form">
-        <p>Logo</p>
-        <form action="" onSubmit={handleSubmit}>
-          <p className="error-message">{errorForm.submitError}</p>
+    <div className="login-view">
+      <div className="mobile">
+        <div className="image">
+          <img src="/assets/images/Zaila.svg" alt="Zaila logo" />
+          <h1>Hello!</h1>
+          <h1>My name is Zaila</h1>
+          <p>Login on a desktop to use Zaila for your Museum.</p>
+        </div>
+        <div className="contact-us">
+          <p>Don’t have Zaila? Reach out to us!</p>
+          <Link to="/#contact">
+            <button>Contact Us</button>
+          </Link>
+        </div>
+      </div>
+      <div className="desktop">
+        <div className="image">
+          <img src="/assets/images/Zaila.svg" alt="Zaila logo" />
+          <h1>Hello!</h1>
+          <h1>My name is Zaila</h1>
+        </div>
+        <div className="log-in-form">
+          <p>Let’s make your exhibitions more exciting and fun!</p>
+          <form action="" onSubmit={handleSubmit}>
+            <p className="error-message">{errorForm.submitError}</p>
 
-          <label htmlFor="username">Username</label>
-          <div className="error-message">{errorForm.usernameError}</div>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            onChange={e => {
-              setLogInForm({
-                ...logInForm,
-                username: e.target.value
-              });
-            }}
-          />
-
-          <label htmlFor="password">
-            Password
+            <label htmlFor="username">Username:</label>
+            <div className="error-message">{errorForm.usernameError}</div>
             <input
-              type="password"
-              name="password"
-              id="password"
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Enter your email"
               onChange={e => {
                 setLogInForm({
                   ...logInForm,
-                  password: e.target.value
+                  username: e.target.value
                 });
               }}
             />
-          </label>
 
-          <button>Log In</button>
-        </form>
-        <Link to="/contact-us">Contact Us</Link>
+            <label htmlFor="password">
+              Password:
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="&bull;&bull;&bull;&bull;&bull;&bull;"
+                onChange={e => {
+                  setLogInForm({
+                    ...logInForm,
+                    password: e.target.value
+                  });
+                }}
+              />
+            </label>
+
+            <button>Log In</button>
+          </form>
+          <div className="contact-us">
+            <p>Don’t have Zaila? Reach out to us!</p>
+            <Link to="/#contact">
+              <button>Contact Us</button>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

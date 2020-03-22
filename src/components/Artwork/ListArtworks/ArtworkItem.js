@@ -30,7 +30,13 @@ const ArtworkItem = props => {
             pathname: `/dashboard/artifacts/${artworkId}`,
             edit: true
           }}
+          className="edit-icon"
         >
+          <img
+            src="/assets/icons/edit.svg"
+            alt="edit icon"
+            className="icon-no-background"
+          />
           Edit
         </Link>
         <Link to={`/dashboard/artifacts/${artworkId}`} className="button">

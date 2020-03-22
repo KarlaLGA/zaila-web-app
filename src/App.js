@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Nav from "./components/Home/Navigation/BarNav";
@@ -15,16 +16,23 @@ import QuestView from "./views/QuestView";
 import SettingsView from "./views/SettingsView";
 
 function App() {
+  const dispatch = useDispatch();
+  const userLogged = useSelector(state => state.user.userLogged);
+
+  useEffect(() => {
+    if (localStorage.getItem("userData") !== null) {
+      dispatch({ type: "USER_LOG_IN" });
+    } else {
+      dispatch({ type: "USER_LOG_OUT" });
+    }
+  }, [dispatch]);
+
+  console.log(userLogged);
+
   return (
     <BrowserRouter>
-      <main
-        className={
-          localStorage.getItem("userData") !== null
-            ? "app app-dashboard"
-            : "app"
-        }
-      >
-        {localStorage.getItem("userData") !== null ? (
+      <main className={userLogged ? "app app-dashboard" : "app"}>
+        {userLogged ? (
           <>
             <Logo />
             <TopNav />

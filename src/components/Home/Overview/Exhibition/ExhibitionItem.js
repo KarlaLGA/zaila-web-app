@@ -4,7 +4,7 @@ const ExhibitionItem = props => {
   const { name, duration } = props.exhibition;
   return (
     <div className="exhibition-overview">
-      <p>{name}</p>
+      <p className="header">{name}</p>
       <p>{duration}</p>
     </div>
   );

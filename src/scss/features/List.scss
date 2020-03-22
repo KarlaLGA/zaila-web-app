@@ -15,6 +15,12 @@
     justify-content: space-between;
   }
 
+  .icons-artwork {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
   h2,
   h3,
   p {
@@ -69,10 +75,35 @@
   }
 }
 
+.edit-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-decoration: none;
+  font-size: 12px;
+
+  .icon-no-background {
+    width: 30px;
+  }
+}
+
 .add {
   position: fixed;
   bottom: 5%;
   right: 5%;
+  text-decoration: none;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+
+  img {
+    background-color: #3D1412;
+    border-radius: 50%;
+    width: 35px;
+    display: block;
+  }
 }
 
 .single-view {

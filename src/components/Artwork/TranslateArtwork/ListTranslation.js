@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Translation from "./Translation";
 
-const ListTranslation = props => {
+const ListTranslation = () => {
   const artworkDetails = useSelector(state => state.artwork.artworkDetails);
 
   const description = artworkDetails[0].description;

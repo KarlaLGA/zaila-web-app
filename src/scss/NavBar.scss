@@ -21,15 +21,19 @@ ul {
         border-bottom-left-radius: 40%;
     }
 
-    svg path {
-        color: #3D1412 !important;
+    img {
+        width: 25px;
+        border-radius: 50%;
+        border: 1px solid #3D1412;
+        padding: 2px;
     }
 
     .selected {
         background-color: #fff;
 
-        svg path {
-            color: #F79839 !important;
+        img {
+            background-color: #F79839 !important;
+            border: none;
         }
     }
 
@@ -38,8 +42,9 @@ ul {
         border-top-right-radius: 50%;
         background-color: #fff;
 
-        svg {
-            color: #F79839;
+        img {
+            background-color: #F79839;
+            border: none;
         }
     }
 
@@ -58,7 +63,7 @@ ul {
         margin-top: 25px;
     }
 
-    .svg-inline--fa {
+    img {
         display: block;
         margin: auto;
     }

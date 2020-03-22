@@ -1,19 +1,24 @@
 const initState = {
-    userLogged: false
-}
+  userLogged: false
+};
 
 const userReducer = (state = initState, action) => {
-    switch (action.type) {
+  switch (action.type) {
+    case "USER_LOG_IN":
+      return {
+        ...state,
+        userLogged: true
+      };
 
-        case "USER_LOG_IN":
-            return {
-                ...state,
-                userLogged: true
-            }
+    case "USER_LOG_OUT":
+      return {
+        ...state,
+        userLogged: false
+      };
 
-        default:
-            return state
-    }
-}
+    default:
+      return state;
+  }
+};
 
-export default userReducer
+export default userReducer;
