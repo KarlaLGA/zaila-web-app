@@ -162,7 +162,7 @@ const EditExhibitionForm = props => {
       </div>
 
       <div onClick={handleExhibition} className="add">
-        <img src="/icons/save-border.svg" alt="save icon" />
+        <img src="/assets/icons/save-border.svg" alt="save icon" />
         Save
       </div>
     </div>

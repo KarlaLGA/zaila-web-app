@@ -13,17 +13,7 @@ const Team = () => {
         "https://www.linkedin.com/in/karlalopez3d/",
         "https://github.com/KarlaLGA"
       ],
-      images: "/images/Team/Karla.JPG",
-      socialArray: [
-        {
-          social: "LinkedIn",
-          link: "https://www.linkedin.com/"
-        },
-        {
-          social: "Github",
-          link: "https://github.com/"
-        }
-      ]
+      images: "/assets/images/Team/Karla.JPG"
     },
     {
       name: "Luis Eduardo Consolo",
@@ -33,17 +23,7 @@ const Team = () => {
         "https://www.linkedin.com/in/educonsolo/",
         "https://www.behance.net/educonsolo"
       ],
-      images: "/images/Team/Luis.JPG",
-      socialArray: [
-        {
-          social: "LinkedIn",
-          link: "https://www.linkedin.com/"
-        },
-        {
-          social: "Behance",
-          link: "https://www.behance.net/"
-        }
-      ]
+      images: "/assets/images/Team/Luis.JPG"
     },
     {
       name: "Diana Gunawan",
@@ -53,17 +33,7 @@ const Team = () => {
         "https://www.linkedin.com/in/dianagunawan/",
         "https://www.behance.net/dianagunawan"
       ],
-      images: "/images/Team/Diana.JPG",
-      socialArray: [
-        {
-          social: "LinkedIn",
-          link: "https://www.linkedin.com/"
-        },
-        {
-          social: "Behance",
-          link: "https://www.behance.net/"
-        }
-      ]
+      images: "/assets/images/Team/Diana.JPG"
     },
     {
       name: "Anurag Sharma",
@@ -73,17 +43,7 @@ const Team = () => {
         "https://www.linkedin.com/in/kikidesign29/",
         "https://www.behance.net/kikidesign29"
       ],
-      images: "/images/Team/Anurag.JPG",
-      socialArray: [
-        {
-          social: "LinkedIn",
-          link: "https://www.linkedin.com/"
-        },
-        {
-          social: "Behance",
-          link: "https://www.behance.net/"
-        }
-      ]
+      images: "/assets/images/Team/Anurag.JPG"
     },
     {
       name: "Rafael Montenegro",
@@ -93,17 +53,7 @@ const Team = () => {
         "https://www.linkedin.com/in/rafaelmonte",
         "http://github.com/rafaelgsm"
       ],
-      images: "/images/Team/Rafael.JPG",
-      socialArray: [
-        {
-          social: "LinkedIn",
-          link: "https://www.linkedin.com/"
-        },
-        {
-          social: "Github",
-          link: "https://github.com/"
-        }
-      ]
+      images: "/assets/images/Team/Rafael.JPG"
     },
     {
       name: "Sunny Xue",
@@ -113,17 +63,7 @@ const Team = () => {
         "https://www.linkedin.com/in/sunnyxue/",
         "https://github.com/Sunnysit"
       ],
-      images: "/images/Team/Sunny.JPG",
-      socialArray: [
-        {
-          social: "LinkedIn",
-          link: "https://www.linkedin.com/"
-        },
-        {
-          social: "Github",
-          link: "https://github.com/"
-        }
-      ]
+      images: "/assets/images/Team/Sunny.JPG"
     },
     {
       name: "Juan Tirado",
@@ -133,17 +73,7 @@ const Team = () => {
         "https://www.linkedin.com/in/juanfernandotirado/",
         "https://github.com/juanfernandotirado"
       ],
-      images: "/images/Team/Juan.JPG",
-      socialArray: [
-        {
-          social: "LinkedIn",
-          link: "https://www.linkedin.com/"
-        },
-        {
-          social: "Github",
-          link: "https://github.com/"
-        }
-      ]
+      images: "/assets/images/Team/Juan.JPG"
     },
     {
       name: "Carolina Souza",
@@ -153,17 +83,7 @@ const Team = () => {
         "https://www.linkedin.com/in/carolinasmbastos/",
         "https://github.com/carolinasmbastos"
       ],
-      images: "/images/Team/Carolina.JPG",
-      socialArray: [
-        {
-          social: "LinkedIn",
-          link: "https://www.linkedin.com/"
-        },
-        {
-          social: "Github",
-          link: "https://github.com/"
-        }
-      ]
+      images: "/assets/images/Team/Carolina.JPG"
     },
     {
       name: "Pratt Vaidya",
@@ -173,27 +93,17 @@ const Team = () => {
         "https://www.linkedin.com/in/prathameshvaidya/",
         "https://github.com/prattrv"
       ],
-      images: "/images/Team/Pratt.JPG",
-      socialArray: [
-        {
-          social: "LinkedIn",
-          link: "https://www.linkedin.com/"
-        },
-        {
-          social: "Github",
-          link: "https://github.com/"
-        }
-      ]
+      images: "/assets/images/Team/Pratt.JPG"
     }
   ];
 
   return (
     <div className="team-members home-view" id="team">
-      <h2>Our Team</h2>
+      <h2 className="red-text">Our Team</h2>
       <div className="members">
-      {teamMembers.map(member => (
-        <TeamMember key={member.name} teamMember={member} />
-      ))}
+        {teamMembers.map(member => (
+          <TeamMember key={member.name} teamMember={member} />
+        ))}
       </div>
     </div>
   );

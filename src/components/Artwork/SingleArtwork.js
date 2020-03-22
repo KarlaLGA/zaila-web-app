@@ -20,7 +20,7 @@ const SingleArtwork = props => {
   const [languageCode, setLanguageCode] = useState({
     code: "en-US",
     text: "EN",
-    icon: "/icons/english.png",
+    icon: "/assets/icons/english.png",
     alt: "english icon"
   });
 
@@ -28,25 +28,25 @@ const SingleArtwork = props => {
     {
       code: "en-US",
       text: "EN",
-      icon: "/icons/english.png",
+      icon: "/assets/icons/english.png",
       alt: "english icon"
     },
     {
       code: "fr-CA",
       text: "FR",
-      icon: "/icons/french.png",
+      icon: "/assets/icons/french.png",
       alt: "french icon"
     },
     {
       code: "es-ES",
       text: "ES",
-      icon: "/icons/spanish.png",
+      icon: "/assets/icons/spanish.png",
       alt: "spanish icon"
     },
     {
       code: "zh-CN",
       text: "CH",
-      icon: "/icons/chinese.png",
+      icon: "/assets/icons/chinese.png",
       alt: "chinese icon"
     }
   ];
@@ -120,7 +120,7 @@ const SingleArtwork = props => {
                     />
                     {languageCode.text}
                     <span className="dropdown-icon">
-                      <img src="/icons/arrow.svg" alt="dropdown icon" />
+                      <img src="/assets/icons/arrow.svg" alt="dropdown icon" />
                     </span>
                   </div>
 
@@ -206,7 +206,7 @@ const SingleArtwork = props => {
           </div>
 
           <div onClick={handleEdit} className="add">
-            <img src="/icons/edit-border.svg" alt="edit icon" />
+            <img src="/assets/icons/edit-border.svg" alt="edit icon" />
             Edit
           </div>
         </div>

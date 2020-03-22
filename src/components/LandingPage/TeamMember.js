@@ -26,20 +26,30 @@ const TeamMember = props => {
       </div>
       <div className="content">
         <p className="name">{teamMember.name}</p>
-        {roles.map(role => <p>{role}</p>)}
+        {roles.map(role => (
+          <p key={role}>{role}</p>
+        ))}
 
         <div className="social-icons">
           <a href={teamMember.link[0]} target="blank">
-            <FontAwesomeIcon icon={faLinkedin} size="2x" />
+            <FontAwesomeIcon
+              icon={faLinkedin}
+              size="lg"
+              style={{ color: "#4875B4" }}
+            />
           </a>
 
           {!socialIconStream ? (
             <a href={teamMember.link[1]} target="blank">
-              <FontAwesomeIcon icon={faBehanceSquare} size="2x" />
+              <FontAwesomeIcon
+                icon={faBehanceSquare}
+                size="lg"
+                style={{ color: "#0057ff" }}
+              />
             </a>
           ) : (
             <a href={teamMember.link[1]} target="blank">
-              <FontAwesomeIcon icon={faGithub} size="2x" />
+              <FontAwesomeIcon icon={faGithub} size="lg" />
             </a>
           )}
         </div>

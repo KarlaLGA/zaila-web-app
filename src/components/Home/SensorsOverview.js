@@ -63,9 +63,7 @@ const SensorsOverview = props => {
       .catch(error => {
         console.log(error);
       });
-  }, []);
 
-  useEffect(() => {
     get("bluetooth")
       .then(data => {
         setBluetooth(data);

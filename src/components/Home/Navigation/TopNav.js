@@ -10,11 +10,11 @@ const TopNav = () => {
           activeClassName="selected-top"
           className="caption"
         >
-          <img src="/icons/settings.svg" alt="settings icon" />
+          <img src="/assets/icons/settings.svg" alt="settings icon" />
           Settings
         </NavLink>
         <li className="caption">
-          <img src="/icons/logout.svg" alt="logout icon" />
+          <img src="/assets/icons/logout.svg" alt="logout icon" />
           Logout
         </li>
       </ul>

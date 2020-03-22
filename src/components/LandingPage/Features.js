@@ -8,7 +8,7 @@ const Features = () => {
         <div className="feature">
           {/* <FontAwesomeIcon icon={faGithub} /> */}
           <div className="container">
-            <img src="/images/Dashboard.svg" alt="dashboard feature" />
+            <img src="/assets/images/Dashboard.svg" alt="dashboard feature" />
           </div>
           <h3>Museum Dashboard</h3>
           <p>
@@ -19,7 +19,7 @@ const Features = () => {
 
         <div className="feature">
           <div className="container">
-            <img src="/images/wifi.svg" alt="wireless feature" />
+            <img src="/assets/images/wifi.svg" alt="wireless feature" />
           </div>
           <h3>Wireless Interaction</h3>
           <p>
@@ -30,7 +30,10 @@ const Features = () => {
 
         <div className="feature">
           <div className="container">
-            <img src="/images/translation.svg" alt="translation feature" />
+            <img
+              src="/assets/images/translation.svg"
+              alt="translation feature"
+            />
           </div>
           <h3>Multi Language</h3>
           <p>
@@ -41,7 +44,7 @@ const Features = () => {
 
         <div className="feature">
           <div className="container">
-            <img src="/images/Quest.svg" alt="quest feature" />
+            <img src="/assets/images/Quest.svg" alt="quest feature" />
           </div>
 
           <h3>Interactive Quests</h3>
@@ -56,7 +59,7 @@ const Features = () => {
           <div className="feature">
             {/* <FontAwesomeIcon icon={faGithub} /> */}
             <div className="container">
-              <img src="/images/Dashboard.svg" alt="dashboard feature" />
+              <img src="/assets/images/Dashboard.svg" alt="dashboard feature" />
             </div>
             <h3>Museum Dashboard</h3>
             <p>
@@ -67,7 +70,7 @@ const Features = () => {
 
           <div className="feature">
             <div className="container">
-              <img src="/images/wifi.svg" alt="wireless feature" />
+              <img src="/assets/images/wifi.svg" alt="wireless feature" />
             </div>
             <h3>Wireless Interaction</h3>
             <p>
@@ -78,13 +81,16 @@ const Features = () => {
         </div>
 
         <div>
-          <img src="/images/mobile.png" alt="mobile screens" />
+          <img src="/assets/images/mobile.png" alt="mobile screens" />
         </div>
 
         <div>
           <div className="feature">
             <div className="container">
-              <img src="/images/translation.svg" alt="translation feature" />
+              <img
+                src="/assets/images/translation.svg"
+                alt="translation feature"
+              />
             </div>
             <h3>Multi Language</h3>
             <p>
@@ -95,7 +101,7 @@ const Features = () => {
 
           <div className="feature">
             <div className="container">
-              <img src="/images/Quest.svg" alt="quest feature" />
+              <img src="/assets/images/Quest.svg" alt="quest feature" />
             </div>
 
             <h3>Interactive Quests</h3>

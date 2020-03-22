@@ -33,7 +33,7 @@ const ArtworkItem = props => {
           className="edit-icon"
         >
           <img
-            src="/icons/edit.svg"
+            src="/assets/icons/edit.svg"
             alt="edit icon"
             className="icon-no-background"
           />

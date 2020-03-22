@@ -11,7 +11,7 @@ const BarNav = () => {
           activeClassName="selected"
           className="caption"
         >
-          <img src="/icons/home.svg" alt="home icon" />
+          <img src="/assets/icons/home.svg" alt="home icon" />
           Home
         </NavLink>
         <NavLink
@@ -19,7 +19,7 @@ const BarNav = () => {
           activeClassName="selected"
           className="caption"
         >
-          <img src="/icons/exhibition.svg" alt="exhibitions icon" />
+          <img src="/assets/icons/exhibition.svg" alt="exhibitions icon" />
           Exhibitions
         </NavLink>
         <NavLink
@@ -27,7 +27,7 @@ const BarNav = () => {
           activeClassName="selected"
           className="caption"
         >
-          <img src="/icons/artifact.svg" alt="artifacts icon" />
+          <img src="/assets/icons/artifact.svg" alt="artifacts icon" />
           Artifacts
         </NavLink>
         <NavLink
@@ -35,7 +35,7 @@ const BarNav = () => {
           activeClassName="selected"
           className="caption"
         >
-          <img src="/icons/quest.svg" alt="quests icon" />
+          <img src="/assets/icons/quest.svg" alt="quests icon" />
           Quests
         </NavLink>
         <NavLink
@@ -43,7 +43,7 @@ const BarNav = () => {
           activeClassName="selected"
           className="caption"
         >
-          <img src="/icons/sensor.svg" alt="sensors icon" />
+          <img src="/assets/icons/sensor.svg" alt="sensors icon" />
           Sensors
         </NavLink>
         <NavLink
@@ -51,7 +51,7 @@ const BarNav = () => {
           activeClassName="selected"
           className="caption"
         >
-          <img src="/icons/report.svg" alt="reports icon" />
+          <img src="/assets/icons/report.svg" alt="reports icon" />
           Reports
         </NavLink>
       </ul>

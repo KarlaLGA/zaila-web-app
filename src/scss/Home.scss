@@ -22,6 +22,12 @@
         background-color: white;
         border-top-left-radius: 30px;
 
+        a,
+        a:focus,
+        a:active {
+            color: #333333;
+        }
+
         h2 {
             margin-top: 0;
         }
