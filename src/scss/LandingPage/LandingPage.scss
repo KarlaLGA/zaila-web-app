@@ -27,7 +27,7 @@
     h2 {
         font-size: 1.5rem;
         text-transform: uppercase;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         font-weight: bold;
     }
 
@@ -70,13 +70,17 @@
         padding: 0.5rem 0;
         color: #88163B;
         cursor: pointer;
+
+        a {
+            display: block;
+        }
     }
 
     .home-view,
     .login-view {
         text-align: center;
         padding: 2rem;
-        padding-top: 4rem;
+        padding-top: 7rem;
 
 
         @media screen and (min-width:1000px) {
@@ -262,7 +266,7 @@
                 padding: 0.5rem 1rem;
                 width: 280px;
                 margin-top: 0.2rem;
-                margin-bottom: 2rem;
+                margin-bottom: 0.5rem;
                 background-color: #ffa8bf1a;
             }
 
@@ -362,8 +366,12 @@
 .login-view {
 
     @media screen and (min-width:1000px) {
-        justify-content: center;
-        align-items: center;
+        .desktop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
     }
 
     .mobile {
