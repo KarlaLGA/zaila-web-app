@@ -1,11 +1,44 @@
 import React, { useEffect, useState } from "react";
 import { get } from "services/zaila-api.js";
 
+import SensorList from "./Overview/Sensor/SensorList";
+
 const SensorsOverview = props => {
   const exhibitions = props.exhibitions;
+  const artworks = props.artworks;
+
+  console.log(exhibitions);
+  //console.log(artworks);
 
   const [sensorsConnected, setSensorsConnected] = useState([]);
   const [sensorsAvailable, setSensorsAvailable] = useState([]);
+  const [bluetooth, setBluetooth] = useState([]);
+  const [sensorExhibition, setSensorExhibition] = useState([]);
+
+  useEffect(() => {
+    const exhibitionsAvailable = exhibitions.map(exhibition => ({
+      exhibitionId: exhibition.exhibitionId,
+      artworksTotal: 0,
+      exhibitionName: exhibition.name
+    }));
+    console.log(exhibitionsAvailable);
+
+    artworks.map(artwork => {
+      exhibitionsAvailable.map(exhibition => {
+        if (artwork.exhibitionId === exhibition.exhibitionId) {
+          exhibition.artworksTotal++;
+        }
+        return true;
+      });
+      return true;
+    });
+    const exhibitionsWithArtworks = exhibitionsAvailable.filter(
+      exhibition => exhibition.artworksTotal !== 0
+    );
+    setSensorExhibition(exhibitionsWithArtworks);
+  }, [artworks, exhibitions]);
+
+  console.log(sensorExhibition);
 
   useEffect(() => {
     get("sensor")
@@ -30,6 +63,14 @@ const SensorsOverview = props => {
       .catch(error => {
         console.log(error);
       });
+
+    get("bluetooth")
+      .then(data => {
+        setBluetooth(data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }, []);
 
   return (
@@ -37,9 +78,20 @@ const SensorsOverview = props => {
       <h2>Sensors</h2>
 
       <div className="total">
-        <p>NFC sensors connected: {sensorsConnected.length}</p>
-        <p>NFC sensors available: {sensorsAvailable.length}</p>
+        <p>
+          Bluetooth sensors: <span className="number">{bluetooth.length}</span>
+        </p>
+        <p>
+          NFC sensors connected:{" "}
+          <span className="number">{sensorsConnected.length}</span>
+        </p>
+        <p>
+          NFC sensors available:{" "}
+          <span className="number">{sensorsAvailable.length}</span>
+        </p>
       </div>
+
+      <SensorList exhibitions={sensorExhibition} />
     </div>
   );
 };

@@ -22,6 +22,12 @@ const exhibitionReducer = (state = initState, action) => {
         image: action.payload
       };
 
+    case "EMPTY_IMAGE_EXHIBITION":
+      return {
+        ...state,
+        image: ""
+      };
+
     case "SET_EXHIBITIONS":
       return {
         ...state,

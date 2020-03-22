@@ -1,7 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSquare } from "@fortawesome/free-solid-svg-icons";
 
 const TopNav = () => {
   return (
@@ -12,11 +10,11 @@ const TopNav = () => {
           activeClassName="selected-top"
           className="caption"
         >
-          <FontAwesomeIcon icon={faSquare} size="2x" />
+          <img src="/assets/icons/settings.svg" alt="settings icon" />
           Settings
         </NavLink>
         <li className="caption">
-          <FontAwesomeIcon icon={faSquare} size="2x" />
+          <img src="/assets/icons/logout.svg" alt="logout icon" />
           Logout
         </li>
       </ul>

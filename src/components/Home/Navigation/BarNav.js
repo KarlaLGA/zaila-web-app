@@ -1,7 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSquare } from "@fortawesome/free-solid-svg-icons";
 
 const BarNav = () => {
   return (
@@ -13,7 +11,7 @@ const BarNav = () => {
           activeClassName="selected"
           className="caption"
         >
-          <FontAwesomeIcon icon={faSquare} size="2x" />
+          <img src="/assets/icons/home.svg" alt="home icon" />
           Home
         </NavLink>
         <NavLink
@@ -21,7 +19,7 @@ const BarNav = () => {
           activeClassName="selected"
           className="caption"
         >
-          <FontAwesomeIcon icon={faSquare} size="2x" />
+          <img src="/assets/icons/exhibition.svg" alt="exhibitions icon" />
           Exhibitions
         </NavLink>
         <NavLink
@@ -29,7 +27,7 @@ const BarNav = () => {
           activeClassName="selected"
           className="caption"
         >
-          <FontAwesomeIcon icon={faSquare} size="2x" />
+          <img src="/assets/icons/artifact.svg" alt="artifacts icon" />
           Artifacts
         </NavLink>
         <NavLink
@@ -37,7 +35,7 @@ const BarNav = () => {
           activeClassName="selected"
           className="caption"
         >
-          <FontAwesomeIcon icon={faSquare} size="2x" />
+          <img src="/assets/icons/quest.svg" alt="quests icon" />
           Quests
         </NavLink>
         <NavLink
@@ -45,7 +43,7 @@ const BarNav = () => {
           activeClassName="selected"
           className="caption"
         >
-          <FontAwesomeIcon icon={faSquare} size="2x" />
+          <img src="/assets/icons/sensor.svg" alt="sensors icon" />
           Sensors
         </NavLink>
         <NavLink
@@ -53,7 +51,7 @@ const BarNav = () => {
           activeClassName="selected"
           className="caption"
         >
-          <FontAwesomeIcon icon={faSquare} size="2x" />
+          <img src="/assets/icons/report.svg" alt="reports icon" />
           Reports
         </NavLink>
       </ul>

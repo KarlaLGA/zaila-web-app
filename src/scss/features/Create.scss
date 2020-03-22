@@ -43,6 +43,58 @@ textarea {
     }
 }
 
+.select {
+    position: relative;
+    width: 60px;
+
+    .dropdown {
+        border: 1px solid #E3E3E3;
+        border-radius: 5px;
+        width: 80px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .dropdown-icon {
+        background-color: #3D1412;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        img {
+            width: 25px;
+        }
+    }
+
+    .dropdown.active {
+        position: absolute;
+        background-color: white;
+    }
+
+    .language-icon {
+        width: 20px;
+        height: 20px;
+        border: none;
+    }
+
+    .languages {
+        margin: 0;
+        width: 100%;
+    }
+
+    .language {
+        border-bottom: 1px solid #D0D0D0;
+        padding: 0.5rem 0;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+}
+
 .download-button {
     display: inline-block;
 

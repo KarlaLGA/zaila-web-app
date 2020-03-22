@@ -9,6 +9,12 @@ import SensorsOverview from "components/Home/SensorsOverview";
 export default function HomeView() {
   const [exhibitions, setExhibitions] = useState([]);
   const [exhibitionsName, setExhibitionsName] = useState([]);
+
+  //artworks
+  const [total, setTotal] = useState(0);
+  const [artists, setArtists] = useState([]);
+  const [artworks, setArtworks] = useState([]);
+
   useEffect(() => {
     get("exhibition")
       .then(data => {
@@ -37,17 +43,39 @@ export default function HomeView() {
             return false;
           }
         });
-        let exhibitionName = data.map(dataSingle => {
-          return {
-            exhibition: {
-              name: dataSingle.exhibition.name,
-              id: dataSingle.exhibition.exhibitionId
-            }
-          };
-        });
+        let exhibitionName = data.map(dataSingle => ({
+          name: dataSingle.exhibition.name,
+          exhibitionId: dataSingle.exhibition.exhibitionId
+        }));
         setExhibitions(exhibitionCurrent);
-        console.log(exhibitionCurrent);
         setExhibitionsName(exhibitionName);
+      })
+      .catch(error => console.log(error));
+  }, []);
+
+  useEffect(() => {
+    get("artwork")
+      .then(data => {
+        console.log(data);
+        setTotal(data.length);
+        let artist = data.map(artwork => ({
+          artist: artwork.artwork.artistName
+        }));
+        let allArtworks = data.map(artwork => ({
+          artwork: artwork.artwork.artworkId,
+          exhibitionId: artwork.artwork.exhibitionId
+        }));
+        setArtworks(allArtworks);
+
+        let filterArtist = artist.filter((single, index, array) => {
+          for (let i = 0; i < index; i++) {
+            if (array[i].artist === single.artist) {
+              return false;
+            }
+          }
+          return true;
+        });
+        setArtists(filterArtist);
       })
       .catch(error => console.log(error));
   }, []);
@@ -59,8 +87,8 @@ export default function HomeView() {
       </div>
       <div className="overview-list">
         <ExhibitionsOverview exhibitions={exhibitions} />
-        <ArtworksOverview />
-        <SensorsOverview exhibitions={exhibitionsName} />
+        <ArtworksOverview total={total} artists={artists} />
+        <SensorsOverview exhibitions={exhibitionsName} artworks={artworks} />
       </div>
     </div>
   );

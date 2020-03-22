@@ -22,6 +22,12 @@ const artworkReducer = (state = initState, action) => {
         image: action.payload
       };
 
+    case "EMPTY_IMAGE":
+      return {
+        ...state,
+        image: ""
+      };
+
     case "SET_SELECTED_LANGUAGE":
       return {
         ...state,

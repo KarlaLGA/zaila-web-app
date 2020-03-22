@@ -10,7 +10,10 @@ const ExhibitionsOverview = props => {
       <h2>Exhibitions</h2>
 
       <div className="total">
-        <p>Current exhibitions: {exhibitions.length}</p>
+        <p>
+          Current exhibitions:{" "}
+          <span className="number">{exhibitions.length}</span>
+        </p>
       </div>
 
       <ExhibitionsList exhibitions={exhibitions} />

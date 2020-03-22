@@ -28,7 +28,6 @@ const UploadImage = props => {
 
     xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
 
-
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
@@ -44,10 +43,13 @@ const UploadImage = props => {
 
   const getSignedRequest = async file => {
     return axios.get(
-      `storage/sign-s3?fileName=${file.name}&fileType=${file.type}`, {
+      `storage/sign-s3?fileName=${file.name}&fileType=${file.type}`,
+      {
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem("userData")}`
-        }})
+          Authorization: `Bearer ${localStorage.getItem("userData")}`
+        }
+      }
+    );
   };
 
   return (
