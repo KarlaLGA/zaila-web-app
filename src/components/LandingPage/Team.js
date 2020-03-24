@@ -99,12 +99,28 @@ const Team = () => {
 
   return (
     <div className="team-members home-view" id="team">
+      <img
+        src="/assets/images/triangles.svg"
+        alt="border"
+        className="top-border"
+      />
       <h2 className="red-text">Our Team</h2>
+      <p>
+        Zaila is brought to you by 9 passionate and talented people. With three
+        designers who bring different perspectives to the style and 6 developers
+        with experience from different platforms, this team is dedicated to
+        bring a new experience as a reality.
+      </p>
       <div className="members">
         {teamMembers.map(member => (
           <TeamMember key={member.name} teamMember={member} />
         ))}
       </div>
+      <img
+        src="/assets/images/triangles.svg"
+        alt="border"
+        className="bottom-border"
+      />
     </div>
   );
 };

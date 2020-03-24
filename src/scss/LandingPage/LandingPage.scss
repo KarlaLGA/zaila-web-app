@@ -79,12 +79,10 @@
     .home-view,
     .login-view {
         text-align: center;
-        padding: 2rem;
-        padding-top: 7rem;
-
+        padding: 6rem 6rem 2rem 6rem;
 
         @media screen and (min-width:1000px) {
-            height: 90vh;
+            height: 95vh;
         }
     }
 
@@ -97,6 +95,7 @@
         padding: 1rem 2rem;
         border-bottom: 1px solid #000;
         background-color: #fff;
+        z-index: 3;
 
         .home-button {
             width: 60px;
@@ -115,6 +114,31 @@
         }
     }
 
+    .home-footer {
+        background-color: #276180;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0.5rem 2rem;
+
+        .home-button {
+            width: 45px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 0.75rem;
+        }
+
+        .navigation {
+            width: 20%;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
     .hero {
         text-align: center;
         width: 100%;
@@ -122,10 +146,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        padding: 2rem;
         box-sizing: border-box;
-        padding-top: 8rem !important;
-
 
         @media screen and (min-width:1000px) {
             flex-direction: row;
@@ -159,14 +180,22 @@
 
     #features {
 
+        h3 {
+            font-weight: normal;
+        }
+
         text-align: center;
         background-color: #fff;
 
+        img {
+            width: 80%;
+        }
+
 
         .container {
-            width: 60px;
-            height: 60px;
-            border: 2px solid #F79839;
+            width: 70px;
+            height: 70px;
+            border: 5px solid #F79839;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -174,11 +203,30 @@
             margin: auto;
 
             img {
-                width: 50px;
-                height: 50px;
-
+                width: 60px;
+                height: 60px;
                 padding: 0.3rem;
             }
+        }
+    }
+
+    .team-members {
+        position: relative;
+
+        @media screen and(min-width:1000px) {
+            height: 100vh;
+        }
+
+        .top-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .bottom-border {
+            position: absolute;
+            bottom: 0;
+            left: 0;
         }
     }
 
@@ -190,7 +238,7 @@
         align-items: center;
 
         @media screen and (min-width:1000px) {
-            height: 435px;
+            height: 450px;
             flex-wrap: wrap;
         }
 
@@ -400,7 +448,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh !important;
+        height: 93vh !important;
         width: 100%;
 
         .image,

@@ -5,6 +5,7 @@ import Features from "./Features";
 import Team from "./Team";
 import Contact from "./Contact";
 import Download from "./Download";
+import Footer from "./Footer";
 
 const LandingPage = () => {
   localStorage.removeItem("userData");
@@ -17,6 +18,7 @@ const LandingPage = () => {
       <Team />
       <Contact />
       <Download />
+      <Footer />
     </div>
   );
 };
