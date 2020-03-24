@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-scroll";
 import { NavLink, useLocation } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 const NavBar = () => {
   const { pathname } = useLocation();
@@ -10,52 +10,22 @@ const NavBar = () => {
   return (
     <div className="home-nav-bar">
       <div className="home-button">
-        <Link
-          activeClass="active"
-          to="hero"
-          spy={true}
-          smooth={true}
-          duration="500"
-        >
+        <Link smooth to="/#hero">
           <img src="/logo.svg" alt="Zaila" />
         </Link>
       </div>
 
       <div className="navigation">
-        <Link
-          activeClass="active"
-          to="features"
-          spy={true}
-          smooth={true}
-          duration="500"
-        >
+        <Link smooth to="/#features">
           Features
         </Link>
-        <Link
-          activeClass="active"
-          to="team"
-          spy={true}
-          smooth={true}
-          duration="500"
-        >
+        <Link smooth to="/#team">
           Team
         </Link>
-        <Link
-          activeClass="active"
-          to="contact"
-          spy={true}
-          smooth={true}
-          duration="500"
-        >
+        <Link smooth to="/#contact">
           Contact
         </Link>
-        <Link
-          activeClass="activa"
-          to="download"
-          spy={true}
-          smooth={true}
-          duration="500"
-        >
+        <Link smooth to="/#download">
           Download
         </Link>
       </div>

@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="hero home-view">
+    <div className="hero home-view" id="hero">
       <div className="welcome-message">
         <img src="/assets/images/Zaila.svg" alt="Zaila logo" />
         <h1>Hello!</h1>
