@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-scroll";
 import { NavLink, useLocation } from "react-router-dom";
 
 const NavBar = () => {
@@ -9,16 +10,54 @@ const NavBar = () => {
   return (
     <div className="home-nav-bar">
       <div className="home-button">
-        <NavLink to="/">
+        <Link
+          activeClass="active"
+          to="hero"
+          spy={true}
+          smooth={true}
+          duration="500"
+        >
           <img src="/logo.svg" alt="Zaila" />
-        </NavLink>
+        </Link>
       </div>
 
       <div className="navigation">
-        <NavLink to="#features">Features</NavLink>
-        <NavLink to="#team">Team</NavLink>
-        <NavLink to="#contact">Contact</NavLink>
-        <NavLink to="#download">Download</NavLink>
+        <Link
+          activeClass="active"
+          to="features"
+          spy={true}
+          smooth={true}
+          duration="500"
+        >
+          Features
+        </Link>
+        <Link
+          activeClass="active"
+          to="team"
+          spy={true}
+          smooth={true}
+          duration="500"
+        >
+          Team
+        </Link>
+        <Link
+          activeClass="active"
+          to="contact"
+          spy={true}
+          smooth={true}
+          duration="500"
+        >
+          Contact
+        </Link>
+        <Link
+          activeClass="activa"
+          to="download"
+          spy={true}
+          smooth={true}
+          duration="500"
+        >
+          Download
+        </Link>
       </div>
 
       <button>

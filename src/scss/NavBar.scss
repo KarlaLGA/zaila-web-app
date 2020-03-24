@@ -5,6 +5,13 @@
     a {
         text-decoration: none;
     }
+
+    a,
+    a:focus,
+    a:active,
+    a:visited {
+        color: rgb(61, 20, 18);
+    }
 }
 
 ul {
