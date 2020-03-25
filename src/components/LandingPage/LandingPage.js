@@ -13,12 +13,14 @@ const LandingPage = () => {
   return (
     <div className="home">
       <NavBar />
-      <Hero />
-      <Features />
-      <Team />
-      <Contact />
-      <Download />
-      <Footer />
+      <div className="body">
+        <Hero />
+        <Features />
+        <Team />
+        <Contact />
+        <Download />
+        <Footer />
+      </div>
     </div>
   );
 };

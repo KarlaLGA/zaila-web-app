@@ -55,7 +55,7 @@
 
     .download-buttons {
         width: 300px;
-        margin: auto;
+        margin: 0;
         margin-top: 2rem;
         display: flex;
         justify-content: space-between;
@@ -83,12 +83,35 @@
 
         @media screen and (min-width:1000px) {
             height: 95vh;
-            padding: 6rem 6rem 2rem 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
     }
 
     .home-nav-bar.mobile {
-        background-color: salmon;
+        background-color: white;
+        padding: 0.5rem 1rem;
+
+        .navigation {
+            width: 50%;
+            justify-content: flex-end;
+        }
+
+        .icon-button {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #F79839;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 1rem;
+
+            img {
+                width: 30px;
+            }
+        }
     }
 
     .home-nav-bar {
@@ -234,15 +257,22 @@
 
     .team-members {
         position: relative;
+        overflow: hidden;
 
         @media screen and(min-width:1000px) {
-            height: 100vh;
+            height: 100%;
+            padding: 6rem !important;
         }
 
         .top-border {
             position: absolute;
             top: 0;
+            width: 200%;
             left: 0;
+
+            @media screen and(min-width: 1000px) {
+                width: auto;
+            }
         }
 
         .bottom-border {
@@ -395,11 +425,14 @@
     }
 
     #download {
-        padding: 0;
+        padding-right: 0;
+        padding-left: 0;
+        padding-bottom: 0;
 
         @media screen and(min-width: 1000px) {
             display: flex;
             flex-direction: row-reverse;
+            padding: 0;
 
             .download-reference,
             .download-message {
@@ -422,12 +455,17 @@
             }
 
             .desktop-image {
-                width: 400px;
+                width: 300px;
+
+                @media screen and(min-width:1000px) {
+                    width: 400px;
+                }
+
             }
         }
 
         .download-message {
-            padding: 2rem 6rem;
+            padding: 2rem 0;
 
             @media screen and(min-width:1000px) {
                 padding: 0;

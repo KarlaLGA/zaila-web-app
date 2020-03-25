@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
 
+import BurgerMenu from "./BurgerMenu";
+
 const NavBar = () => {
   const { pathname } = useLocation();
 
@@ -18,27 +20,19 @@ const NavBar = () => {
         </div>
 
         <div className="navigation">
-          <Link smooth to="/#features">
-            Features
-          </Link>
-          <Link smooth to="/#team">
-            Team
-          </Link>
-          <Link smooth to="/#contact">
-            Contact
-          </Link>
-          <Link smooth to="/#download">
-            Download
-          </Link>
+          <BurgerMenu />
+          <div className="icon-button">
+            {pathname === "/" ? (
+              <NavLink to="/login">
+                <img src="/assets/icons/home.svg" alt="home icon" />
+              </NavLink>
+            ) : (
+              <NavLink to="/">
+                <img src="/assets/icons/user.svg" alt="user icon" />
+              </NavLink>
+            )}
+          </div>
         </div>
-
-        <button>
-          {pathname === "/" ? (
-            <NavLink to="/login">For Museum</NavLink>
-          ) : (
-            <NavLink to="/">For User</NavLink>
-          )}
-        </button>
       </div>
       <div
         className={
