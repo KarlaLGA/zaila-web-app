@@ -1,5 +1,7 @@
 const initState = {
-  userLogged: false
+  userLogged: false,
+
+  navBar: false
 };
 
 const userReducer = (state = initState, action) => {
@@ -14,6 +16,13 @@ const userReducer = (state = initState, action) => {
       return {
         ...state,
         userLogged: false
+      };
+
+    case "CHANGE_NAVBAR_STATE":
+      let currentNav = state.navBar;
+      return {
+        ...state,
+        navBar: !currentNav
       };
 
     default:
