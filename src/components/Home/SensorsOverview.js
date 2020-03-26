@@ -6,13 +6,10 @@ import SensorList from "./Overview/Sensor/SensorList";
 const SensorsOverview = props => {
   const exhibitions = props.exhibitions;
   const artworks = props.artworks;
-
-  console.log(exhibitions);
-  //console.log(artworks);
+  const bluetooth = props.bluetooth;
 
   const [sensorsConnected, setSensorsConnected] = useState([]);
   const [sensorsAvailable, setSensorsAvailable] = useState([]);
-  const [bluetooth, setBluetooth] = useState([]);
   const [sensorExhibition, setSensorExhibition] = useState([]);
 
   useEffect(() => {
@@ -21,7 +18,6 @@ const SensorsOverview = props => {
       artworksTotal: 0,
       exhibitionName: exhibition.name
     }));
-    console.log(exhibitionsAvailable);
 
     artworks.map(artwork => {
       exhibitionsAvailable.map(exhibition => {
@@ -37,8 +33,6 @@ const SensorsOverview = props => {
     );
     setSensorExhibition(exhibitionsWithArtworks);
   }, [artworks, exhibitions]);
-
-  console.log(sensorExhibition);
 
   useEffect(() => {
     get("sensor")
@@ -59,14 +53,6 @@ const SensorsOverview = props => {
         });
         setSensorsConnected(connected);
         setSensorsAvailable(available);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-
-    get("bluetooth")
-      .then(data => {
-        setBluetooth(data);
       })
       .catch(error => {
         console.log(error);
