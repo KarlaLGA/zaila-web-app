@@ -8,7 +8,30 @@ const ListTranslation = () => {
 
   const description = artworkDetails[0].description;
 
+  const descriptionInformation = {
+    image: "/assets/icons/english.png",
+    abbreviation: "EN"
+  };
+
   const translations = [];
+
+  const additionalInformation = [
+    {
+      languageCode: "zh-CN",
+      image: "chinese.png",
+      abbreviation: "CH"
+    },
+    {
+      languageCode: "fr-CA",
+      image: "french.png",
+      abbreviation: "FR"
+    },
+    {
+      languageCode: "es-ES",
+      image: "spanish.png",
+      abbreviation: "ES"
+    }
+  ];
 
   const dispatch = useDispatch();
 
@@ -21,10 +44,32 @@ const ListTranslation = () => {
     translations.push(artworkDetails[i]);
   }
 
+  const translationsList = translations.map(translation => {
+    let trans = translation;
+    additionalInformation.map(information => {
+      if (translation.languageCode === information.languageCode) {
+        trans = {
+          ...translation,
+          image: information.image,
+          abbreviation: information.abbreviation
+        };
+      }
+      return trans;
+    });
+    return trans;
+  });
+
   return (
     <div className="translations-list">
-      <label htmlFor="description">
-        Artifact Description
+      <div>
+        <div className="options-detail">
+          <label htmlFor="description">Artifact Description</label>
+          <div className="icon">
+            <img src={descriptionInformation.image} alt="language icon" />
+            <p>{descriptionInformation.abbreviation}</p>
+          </div>
+        </div>
+
         <textarea
           value={description ? description : ""}
           name="description"
@@ -34,8 +79,9 @@ const ListTranslation = () => {
           className="input"
           onChange={handleDescription}
         ></textarea>
-      </label>
-      {translations.map((translation, index) => (
+      </div>
+
+      {translationsList.map((translation, index) => (
         <Translation key={index} translation={translation} />
       ))}
     </div>

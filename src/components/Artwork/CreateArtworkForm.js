@@ -65,8 +65,6 @@ const CreateArtworkForm = () => {
     setQrCode(true);
   };
 
-  console.log(artwork);
-
   return (
     <div className="artwork-form form single-view">
       <div className="general-information">
