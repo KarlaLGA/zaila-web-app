@@ -9,8 +9,6 @@ const initState = {
   translationEs: "",
   translationCh: "",
 
-  artworkList: [],
-
   edit: false
 };
 
@@ -91,12 +89,6 @@ const artworkReducer = (state = initState, action) => {
       return {
         ...state,
         artworkDetails: newDetailsTrans
-      };
-
-    case "SET_ARTWORK_LIST":
-      return {
-        ...state,
-        artworkList: action.payload
       };
 
     case "SET_SELECTED_ARTWORK":

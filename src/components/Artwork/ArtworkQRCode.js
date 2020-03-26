@@ -20,7 +20,9 @@ const ArtworkQRCode = props => {
 
   return (
     <div className="download-button">
-      <button onClick={handleCodeDownload}>Download QR Code</button>
+      <button onClick={handleCodeDownload} className="button">
+        Download QR Code
+      </button>
 
       <QRCode
         value={sensorId}
