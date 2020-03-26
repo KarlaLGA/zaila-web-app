@@ -7,6 +7,7 @@ const SensorsOverview = props => {
   const exhibitions = props.exhibitions;
   const artworks = props.artworks;
   const bluetooth = props.bluetooth;
+  console.log(bluetooth);
 
   const [sensorsConnected, setSensorsConnected] = useState([]);
   const [sensorsAvailable, setSensorsAvailable] = useState([]);
@@ -64,9 +65,9 @@ const SensorsOverview = props => {
       <h2>Sensors</h2>
 
       <div className="total">
-        <p>
+        {/* <p>
           Bluetooth sensors: <span className="number">{bluetooth.length}</span>
-        </p>
+        </p> */}
         <p>
           NFC sensors connected:{" "}
           <span className="number">{sensorsConnected.length}</span>
