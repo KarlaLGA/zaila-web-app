@@ -8,7 +8,6 @@ textarea {
     .input {
         border-radius: 5px;
         border: 1px solid #E3E3E3;
-        width: 80%;
     }
 
     textarea {
@@ -118,9 +117,14 @@ textarea {
     }
 
     .detail {
-        width: auto;
+        width: 80%;
         height: 4rem;
         margin-bottom: 1rem;
+    }
+
+    .description {
+        width: 80%;
+        margin-top: 4rem;
     }
 
     .general-information {
@@ -142,6 +146,12 @@ textarea {
             }
         }
 
+    }
+
+    .additional-information {
+        .image {
+            width: 80%;
+        }
     }
 
 
@@ -191,7 +201,6 @@ textarea {
     .upload {
 
         position: relative;
-        width: 80%;
 
         .image.empty {
             border: 2px dashed #bababa;

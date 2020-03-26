@@ -123,7 +123,7 @@ const EditExhibitionForm = props => {
               <div className="category caption" key={category.categoryId}>
                 <img
                   alt={`category ${category.categoryName}`}
-                  src={category.imageURL}
+                  src={category.image}
                   className={
                     categoryId === category.categoryId
                       ? "category-icon selected"
