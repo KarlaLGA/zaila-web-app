@@ -154,24 +154,6 @@ const SingleArtwork = props => {
                     <></>
                   )}
                 </div>
-                {/* <select
-                  name="languages"
-                  id="languages"
-                  onChange={e => handleDescription(e)}
-                >
-                  <option value="en-US" className="language english">
-                    English
-                  </option>
-                  <option value="fr-CA" className="language french">
-                    French
-                  </option>
-                  <option value="es-ES" className="language spanish">
-                    Spanish
-                  </option>
-                  <option value="zh-CN" className="language chinese">
-                    Chinese
-                  </option>
-                </select> */}
               </div>
 
               <p>{selectedDescription}</p>

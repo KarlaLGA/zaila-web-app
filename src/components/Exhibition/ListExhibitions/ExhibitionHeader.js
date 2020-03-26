@@ -6,39 +6,56 @@ const ExhibitionHeader = () => {
 
   const filterSelected = useSelector(state => state.exhibition.filterSelected);
 
-  const filters = [
-    {
-      status: "current"
-    },
-    {
-      status: "future"
-    },
-    {
-      status: "previous"
-    }
-  ];
-
   return (
     <div className="section-header-exhibition">
       <div className="filters">
-        {filters.map(filter => (
+        <div className="prioritized-exhibitions">
           <div
             onClick={() =>
               dispatch({
                 type: "SET_EXHIBITION_FILTER",
-                payload: filter.status
+                payload: "current"
               })
             }
-            key={filter.status}
             className={
-              filterSelected === filter.status
+              filterSelected === "current"
                 ? "filter-title selected"
                 : "filter-title"
             }
           >
-            <h2>{filter.status}</h2>
+            <h2>Current</h2>
           </div>
-        ))}
+          <div
+            onClick={() =>
+              dispatch({
+                type: "SET_EXHIBITION_FILTER",
+                payload: "future"
+              })
+            }
+            className={
+              filterSelected === "future"
+                ? "filter-title selected"
+                : "filter-title"
+            }
+          >
+            <h2>Future</h2>
+          </div>
+        </div>
+        <div
+          onClick={() =>
+            dispatch({
+              type: "SET_EXHIBITION_FILTER",
+              payload: "previous"
+            })
+          }
+          className={
+            filterSelected === "previous"
+              ? "filter-title selected"
+              : "filter-title"
+          }
+        >
+          <h2>Previous</h2>
+        </div>
       </div>
     </div>
   );

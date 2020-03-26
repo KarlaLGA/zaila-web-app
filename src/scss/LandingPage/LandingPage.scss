@@ -36,7 +36,7 @@
     }
 
     .desktop {
-        display: none;
+        display: none !important;
     }
 
     @media screen and (min-width:1000px) {
@@ -45,7 +45,7 @@
         }
 
         .desktop {
-            display: flex;
+            display: flex !important;
         }
     }
 
@@ -55,7 +55,7 @@
 
     .download-buttons {
         width: 300px;
-        margin: auto;
+        margin: 0;
         margin-top: 2rem;
         display: flex;
         justify-content: space-between;
@@ -79,12 +79,38 @@
     .home-view,
     .login-view {
         text-align: center;
-        padding: 2rem;
-        padding-top: 7rem;
-
+        padding: 2rem 6rem;
 
         @media screen and (min-width:1000px) {
-            height: 90vh;
+            height: 95vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    .home-nav-bar.mobile {
+        background-color: white;
+        padding: 0.5rem 1rem;
+
+        .navigation {
+            width: 50%;
+            justify-content: flex-end;
+        }
+
+        .icon-button {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #F79839;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 1rem;
+
+            img {
+                width: 30px;
+            }
         }
     }
 
@@ -95,8 +121,10 @@
         position: fixed;
         width: 100%;
         padding: 1rem 2rem;
-        border-bottom: 1px solid #000;
         background-color: #fff;
+        z-index: 3;
+
+        transition: all 0.2s ease-in-out;
 
         .home-button {
             width: 60px;
@@ -105,12 +133,54 @@
         a {
             text-decoration: none;
             color: #88163B;
+            cursor: pointer;
         }
 
         .navigation {
             width: 400px;
             display: flex;
             justify-content: space-between;
+            opacity: 1;
+
+            transition: all 0.2s ease-in-out;
+        }
+    }
+
+    .home-nav-bar.simplified {
+        background-color: #FFF8F2;
+        border-bottom: none;
+
+        .navigation {
+            opacity: 0;
+        }
+    }
+
+    .home-footer {
+        background-color: #276180;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0.5rem 2rem;
+
+        .home-button {
+            width: 45px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 0.75rem;
+        }
+
+        .navigation {
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+
+            @media screen and(min-width: 1000px) {
+                width: 20%;
+            }
         }
     }
 
@@ -121,10 +191,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        padding: 2rem;
         box-sizing: border-box;
-        padding-top: 8rem !important;
-
 
         @media screen and (min-width:1000px) {
             flex-direction: row;
@@ -158,14 +225,22 @@
 
     #features {
 
+        h3 {
+            font-weight: normal;
+        }
+
         text-align: center;
         background-color: #fff;
 
+        img {
+            width: 80%;
+        }
+
 
         .container {
-            width: 60px;
-            height: 60px;
-            border: 2px solid #F79839;
+            width: 70px;
+            height: 70px;
+            border: 5px solid #F79839;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -173,11 +248,37 @@
             margin: auto;
 
             img {
-                width: 50px;
-                height: 50px;
-
+                width: 60px;
+                height: 60px;
                 padding: 0.3rem;
             }
+        }
+    }
+
+    .team-members {
+        position: relative;
+        overflow: hidden;
+
+        @media screen and(min-width:1000px) {
+            height: 100%;
+            padding: 6rem !important;
+        }
+
+        .top-border {
+            position: absolute;
+            top: 0;
+            width: 200%;
+            left: 0;
+
+            @media screen and(min-width: 1000px) {
+                width: auto;
+            }
+        }
+
+        .bottom-border {
+            position: absolute;
+            bottom: 0;
+            left: 0;
         }
     }
 
@@ -189,7 +290,7 @@
         align-items: center;
 
         @media screen and (min-width:1000px) {
-            height: 435px;
+            height: 450px;
             flex-wrap: wrap;
         }
 
@@ -324,10 +425,14 @@
     }
 
     #download {
-        padding: 0;
+        padding-right: 0;
+        padding-left: 0;
+        padding-bottom: 0;
 
         @media screen and(min-width: 1000px) {
             display: flex;
+            flex-direction: row-reverse;
+            padding: 0;
 
             .download-reference,
             .download-message {
@@ -342,14 +447,29 @@
 
         .download-reference {
             padding-top: 4rem;
+            padding-bottom: 2rem;
             background-color: #fff;
 
+            @media screen and(min-width:1000px) {
+                padding-bottom: 0;
+            }
+
             .desktop-image {
-                width: 400px;
+                width: 300px;
+
+                @media screen and(min-width:1000px) {
+                    width: 400px;
+                }
+
             }
         }
 
         .download-message {
+            padding: 2rem 0;
+
+            @media screen and(min-width:1000px) {
+                padding: 0;
+            }
 
             img {
                 width: 250px;
@@ -399,7 +519,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh !important;
+        height: 93vh !important;
         width: 100%;
 
         .image,

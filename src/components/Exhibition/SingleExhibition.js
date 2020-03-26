@@ -53,7 +53,7 @@ const SingleExhibition = props => {
                 {categories.map(category => (
                   <div className="category caption" key={category.categoryId}>
                     <img
-                      src={category.imageURL}
+                      src={category.image}
                       alt={`category ${category.categoryName}`}
                       className={
                         singleExhibition.exhibition.exhibition_category
