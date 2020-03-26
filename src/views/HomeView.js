@@ -15,7 +15,18 @@ export default function HomeView() {
   const [artists, setArtists] = useState([]);
   const [artworks, setArtworks] = useState([]);
 
+  //sensors
+  const [bluetooth, setBluetooth] = useState([]);
+
   useEffect(() => {
+    get("bluetooth")
+      .then(data => {
+        setBluetooth(data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
     get("exhibition")
       .then(data => {
         let exhibitionFormat = data.map(dataSingle => {
@@ -88,7 +99,11 @@ export default function HomeView() {
       <div className="overview-list">
         <ExhibitionsOverview exhibitions={exhibitions} />
         <ArtworksOverview total={total} artists={artists} />
-        <SensorsOverview exhibitions={exhibitionsName} artworks={artworks} />
+        <SensorsOverview
+          exhibitions={exhibitionsName}
+          artworks={artworks}
+          bluetooth={bluetooth}
+        />
       </div>
     </div>
   );

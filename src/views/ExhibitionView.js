@@ -12,10 +12,31 @@ const ExhibitionView = () => {
   let { path } = useRouteMatch();
   const dispatch = useDispatch();
 
+  let categories = [
+    {
+      categoryId: 1,
+      categoryName: "Artwork",
+      image: "/assets/icons/exhibitionArtwork.svg"
+    },
+    {
+      categoryId: 2,
+      categoryName: "Photography",
+      image: "/assets/icons/exhibitionPhotography.svg"
+    },
+    {
+      categoryId: 3,
+      categoryName: "Nature",
+      image: "/assets/icons/exhibitionNature.svg"
+    },
+    {
+      categoryId: 4,
+      categoryName: "Astronomy",
+      image: "/assets/icons/exhibitionAstronomy.svg"
+    }
+  ];
+
   useEffect(() => {
-    get("exhibition/category").then(data => {
-      dispatch({ type: "SET_CATEGORIES", payload: data });
-    });
+    dispatch({ type: "SET_CATEGORIES", payload: categories });
   });
 
   return (

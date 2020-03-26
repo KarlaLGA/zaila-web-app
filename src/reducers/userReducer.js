@@ -1,5 +1,9 @@
 const initState = {
-  userLogged: false
+  userLogged: false,
+
+  navBar: false,
+
+  burgerMenu: false
 };
 
 const userReducer = (state = initState, action) => {
@@ -15,6 +19,27 @@ const userReducer = (state = initState, action) => {
         ...state,
         userLogged: false
       };
+
+    case "CHANGE_NAVBAR_STATE":
+      let currentNav = state.navBar;
+      return {
+        ...state,
+        navBar: !currentNav
+      };
+
+    case "BURGER": {
+      return {
+        ...state,
+        burgerMenu: !state.burgerMenu
+      };
+    }
+
+    case "CLOSE_BURGER": {
+      return {
+        ...state,
+        burgerMenu: true
+      };
+    }
 
     default:
       return state;

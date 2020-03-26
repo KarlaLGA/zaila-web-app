@@ -4,7 +4,10 @@ import { useDispatch } from "react-redux";
 const Translation = props => {
   const dispatch = useDispatch();
 
-  let { description, languageCode } = props.translation;
+  console.log(props);
+
+  let { description, languageCode, abbreviation } = props.translation;
+  let image = `/assets/icons/${props.translation.image}`;
 
   const handleNewTranslation = e => {
     let inputDescription = e.target.value;
@@ -17,8 +20,10 @@ const Translation = props => {
   return (
     <div>
       <div className="options-detail">
-        <label htmlFor="description">Artifact Description</label>
-        <p>{languageCode}</p>
+        <div className="icon">
+          <img src={image} alt="language icon" />
+          <p>{abbreviation}</p>
+        </div>
       </div>
 
       <textarea

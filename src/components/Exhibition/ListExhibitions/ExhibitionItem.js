@@ -8,7 +8,7 @@ const ExhibitionItem = props => {
     <div className="list-item">
       <div className="exhibition-item">
         <div className="image">
-          <img src={imageURL} alt="exhibition" style={{ width: "200px" }} />
+          <img src={imageURL} alt="exhibition" />
         </div>
 
         <div className="information">

@@ -61,7 +61,11 @@ const Translate = props => {
       });
   };
 
-  return <button onClick={handleTranslation}>Translate</button>;
+  return (
+    <button onClick={handleTranslation} className="button">
+      Translate
+    </button>
+  );
 };
 
 export default Translate;
