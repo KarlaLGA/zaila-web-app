@@ -14,7 +14,7 @@ const ListOf = () => {
       <ListArtwork />
 
       <Link to="/dashboard/artifacts/create" className="add">
-        <img src="/icons/add.svg" alt="add icon" />
+        <img src="/assets/icons/add.svg" alt="add icon" />
         Add
       </Link>
     </div>

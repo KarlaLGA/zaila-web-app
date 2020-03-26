@@ -13,7 +13,7 @@ const ArtworkItem = props => {
   return (
     <div className="artwork-item">
       <div className="image">
-        <img src={imageURL} alt="artifact" style={{ width: "200px" }} />
+        <img src={imageURL} alt="artifact" />
       </div>
 
       <div className="information">
