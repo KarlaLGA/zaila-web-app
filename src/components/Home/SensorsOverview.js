@@ -7,6 +7,7 @@ const SensorsOverview = props => {
   const exhibitions = props.exhibitions;
   const artworks = props.artworks;
   const bluetooth = props.bluetooth;
+  console.log(bluetooth);
 
   const [sensorsConnected, setSensorsConnected] = useState([]);
   const [sensorsAvailable, setSensorsAvailable] = useState([]);

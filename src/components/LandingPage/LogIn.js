@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import crypto from "crypto";
 
 const LogIn = () => {
   const history = useHistory();
@@ -40,6 +41,14 @@ const LogIn = () => {
       formValidates = false;
     }
 
+    // CHANGE PASSWORD TO HASH
+    let output = crypto
+      .createHash("sha256")
+      .update(submitPassword)
+      .digest("hex");
+
+    submitPassword = output;
+
     const submitLogIn = {
       email: submitUsername,
       password: submitPassword
@@ -47,7 +56,7 @@ const LogIn = () => {
 
     if (formValidates) {
       axios
-        .post("https://zaila-backend.herokuapp.com/auth/login", submitLogIn, {
+        .post("https://zaila-back-end.herokuapp.com/auth/login", submitLogIn, {
           headers: {
             "Access-Control-Allow-Origin": "*"
           }
