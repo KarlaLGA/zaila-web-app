@@ -16,6 +16,26 @@ const Team = () => {
       images: "/assets/images/Team/Karla.JPG"
     },
     {
+      name: "Sunny Xue",
+      role: ["Full Stack Developer"],
+      socials: ["LinkedIn", "GitHub"],
+      link: [
+        "https://www.linkedin.com/in/sunnyxue/",
+        "https://github.com/Sunnysit"
+      ],
+      images: "/assets/images/Team/Sunny.JPG"
+    },
+    {
+      name: "Pratt Vaidya",
+      role: ["Full Stack Developer"],
+      socials: ["LinkedIn", "GitHub"],
+      link: [
+        "https://www.linkedin.com/in/prathameshvaidya/",
+        "https://github.com/prattrv"
+      ],
+      images: "/assets/images/Team/Pratt.JPG"
+    },
+    {
       name: "Luis Eduardo Consolo",
       role: ["Lead Designer /", "UI & UX Designer"],
       socials: ["LinkedIn", "Behance"],
@@ -56,26 +76,6 @@ const Team = () => {
       images: "/assets/images/Team/Rafael.JPG"
     },
     {
-      name: "Sunny Xue",
-      role: ["Full Stack Developer"],
-      socials: ["LinkedIn", "GitHub"],
-      link: [
-        "https://www.linkedin.com/in/sunnyxue/",
-        "https://github.com/Sunnysit"
-      ],
-      images: "/assets/images/Team/Sunny.JPG"
-    },
-    {
-      name: "Juan Tirado",
-      role: ["Back End Developer"],
-      socials: ["LinkedIn", "GitHub"],
-      link: [
-        "https://www.linkedin.com/in/juanfernandotirado/",
-        "https://github.com/juanfernandotirado"
-      ],
-      images: "/assets/images/Team/Juan.JPG"
-    },
-    {
       name: "Carolina Souza",
       role: ["Back End Developer"],
       socials: ["LinkedIn", "GitHub"],
@@ -86,14 +86,14 @@ const Team = () => {
       images: "/assets/images/Team/Carolina.JPG"
     },
     {
-      name: "Pratt Vaidya",
-      role: ["Full Stack Developer"],
+      name: "Juan Tirado",
+      role: ["Back End Developer"],
       socials: ["LinkedIn", "GitHub"],
       link: [
-        "https://www.linkedin.com/in/prathameshvaidya/",
-        "https://github.com/prattrv"
+        "https://www.linkedin.com/in/juanfernandotirado/",
+        "https://github.com/juanfernandotirado"
       ],
-      images: "/assets/images/Team/Pratt.JPG"
+      images: "/assets/images/Team/Juan.JPG"
     }
   ];
 

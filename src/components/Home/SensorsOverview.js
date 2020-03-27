@@ -65,9 +65,9 @@ const SensorsOverview = props => {
       <h2>Sensors</h2>
 
       <div className="total">
-        {/* <p>
+        <p>
           Bluetooth sensors: <span className="number">{bluetooth.length}</span>
-        </p> */}
+        </p>
         <p>
           NFC sensors connected:{" "}
           <span className="number">{sensorsConnected.length}</span>
