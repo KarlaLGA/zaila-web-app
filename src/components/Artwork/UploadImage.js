@@ -61,6 +61,7 @@ const UploadImage = props => {
       ) : (
         <div className="image empty"></div>
       )}
+      <label htmlFor="image"> + Upload Image</label>
       <input
         type="file"
         name="image"

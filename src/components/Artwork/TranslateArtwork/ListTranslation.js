@@ -61,7 +61,7 @@ const ListTranslation = () => {
 
   return (
     <div className="translations-list">
-      <div>
+      <div className="translation">
         <div className="options-detail">
           <label htmlFor="description">Artifact Description</label>
           <div className="icon">

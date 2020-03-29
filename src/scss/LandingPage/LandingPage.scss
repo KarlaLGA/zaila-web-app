@@ -1,12 +1,9 @@
-.home,
-.log-in {
+.home {
+
     a {
         color: black;
     }
-}
 
-.home,
-.log-in {
     * {
         box-sizing: border-box;
     }
@@ -76,8 +73,7 @@
         }
     }
 
-    .home-view,
-    .login-view {
+    .home-view {
         text-align: center;
         padding: 4.5rem 2.5rem 3rem 2.5rem;
 
@@ -193,9 +189,11 @@
         align-items: center;
         flex-direction: column;
         box-sizing: border-box;
+        padding-top: 8.5rem;
 
         @media screen and (min-width:1000px) {
             flex-direction: row;
+            padding: 5rem;
 
         }
 
@@ -480,89 +478,6 @@
                 font-weight: bold;
                 font-size: 1.5rem;
             }
-        }
-    }
-}
-
-.login-view {
-
-    @media screen and (min-width:1000px) {
-        .desktop {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-        }
-    }
-
-    .mobile {
-        padding-top: 4rem;
-
-        .image {
-            border-bottom: 1px solid #F79839;
-
-            img {
-                margin-left: -2rem;
-            }
-
-            p {
-                font-weight: normal;
-            }
-        }
-    }
-
-    p {
-        font-size: 1.125rem;
-        font-weight: bold;
-    }
-
-    @media screen and (min-width:1000px) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 93vh !important;
-        width: 100%;
-
-        .image,
-        .log-in-form {
-            width: 50%;
-        }
-    }
-
-
-
-    .image {
-
-        img {
-            width: 300px;
-        }
-    }
-
-    .log-in-form {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        flex-direction: column;
-
-        form {
-            padding-bottom: 3rem;
-            border-bottom: 1px solid #F79839;
-            width: 100%;
-            text-align: center;
-        }
-
-        label {
-            font-size: 1.25rem;
-        }
-
-        input {
-            border: 1.5px solid #F79839;
-            border-radius: 21px;
-            padding: 0.5rem 1rem;
-            width: 280px;
-            margin: auto;
-            margin-top: 0.2rem;
-            margin-bottom: 2rem;
         }
     }
 }
