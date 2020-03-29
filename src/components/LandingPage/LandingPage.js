@@ -1,11 +1,11 @@
 import React from "react";
 import Hero from "./Hero";
-import NavBar from "./NavBar";
+import NavBar from "./Navigation/NavBar";
 import Features from "./Features";
 import Team from "./Team";
 import Contact from "./Contact";
 import Download from "./Download";
-import Footer from "./Footer";
+import Footer from "./Navigation/Footer";
 
 const LandingPage = () => {
   localStorage.removeItem("userData");
