@@ -7,6 +7,7 @@ import ArtworksOverview from "components/Home/ArtworksOverview";
 import SensorsOverview from "components/Home/SensorsOverview";
 
 export default function HomeView() {
+  //exhibitions
   const [exhibitions, setExhibitions] = useState([]);
   const [exhibitionsName, setExhibitionsName] = useState([]);
 
@@ -16,12 +17,12 @@ export default function HomeView() {
   const [artworks, setArtworks] = useState([]);
 
   //sensors
-  const [bluetooth, setBluetooth] = useState([]);
+  const [bluetooth, setBluetooth] = useState(0);
 
   useEffect(() => {
     get("bluetooth")
       .then(data => {
-        setBluetooth(data);
+        setBluetooth(data.length);
       })
       .catch(error => {
         console.log(error);

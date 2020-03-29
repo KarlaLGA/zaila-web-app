@@ -1,0 +1,297 @@
+.log-in {
+    * {
+        box-sizing: border-box;
+    }
+
+    a {
+        color: black;
+    }
+
+    background: transparent linear-gradient(180deg, #FFDBBF33 0%, #FFA8BF33 100%) 0% 0% no-repeat padding-box;
+
+    h1,
+    h3,
+    label {
+        color: #88163B;
+    }
+
+    h2,
+    p {
+        color: #276180;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        font-weight: bold;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .desktop {
+        display: none !important;
+    }
+
+    @media screen and (min-width:1000px) {
+        .mobile {
+            display: none;
+        }
+
+        .desktop {
+            display: flex !important;
+        }
+    }
+
+    .red-text {
+        color: #88163B;
+    }
+
+    .download-buttons {
+        width: 300px;
+        margin: auto;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    button {
+        border: 1.5px solid #F79839;
+        border-radius: 21px;
+        width: 200px;
+        background: #FFF url("/assets/btn.png") center / 200px no-repeat;
+        background-position: -2px -3px;
+        padding: 0.5rem 0;
+        color: #88163B;
+        cursor: pointer;
+
+        a {
+            display: block;
+        }
+    }
+
+    .login-view {
+        text-align: center;
+        padding: 4.5rem 2.5rem 3rem 2.5rem;
+
+        @media screen and (min-width:1000px) {
+            height: 95vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5rem;
+        }
+
+        @media screen and (min-width:1000px) {
+            .desktop {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
+        }
+
+        .mobile {
+            padding-top: 4rem;
+
+            .image {
+                border-bottom: 1.5px solid #F79839;
+
+                p {
+                    font-weight: normal;
+                }
+            }
+        }
+
+        p {
+            font-size: 1.125rem;
+            font-weight: bold;
+        }
+
+        @media screen and (min-width:1000px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 93vh !important;
+            width: 100%;
+
+            .image,
+            .log-in-form {
+                width: 50%;
+            }
+        }
+
+
+
+        .image {
+
+            img {
+                width: 300px;
+            }
+        }
+
+        .log-in-form {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+
+            form {
+                padding-bottom: 3rem;
+                border-bottom: 1px solid #F79839;
+                width: 100%;
+                text-align: center;
+            }
+
+            label {
+                font-size: 1.25rem;
+            }
+
+            input {
+                border: 1.5px solid #F79839;
+                border-radius: 21px;
+                padding: 0.5rem 1rem;
+                width: 280px;
+                margin: auto;
+                margin-top: 0.2rem;
+                margin-bottom: 2rem;
+            }
+        }
+    }
+
+    .home-nav-bar.mobile {
+        background-color: white;
+        padding: 0.5rem 1rem;
+
+        .navigation {
+            width: 50%;
+            justify-content: flex-end;
+        }
+
+        .icon-button {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #F79839;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 1rem;
+
+            img {
+                width: 30px;
+            }
+        }
+    }
+
+    .home-nav-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        padding: 1rem 2rem;
+        background-color: #fff;
+        z-index: 3;
+
+        transition: all 0.2s ease-in-out;
+
+        .home-button {
+            width: 60px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #88163B;
+            cursor: pointer;
+        }
+
+        .navigation {
+            width: 400px;
+            display: flex;
+            justify-content: space-between;
+            opacity: 1;
+
+            transition: all 0.2s ease-in-out;
+        }
+    }
+
+    .home-nav-bar.simplified {
+        background-color: #FFF8F2;
+        border-bottom: none;
+
+        .navigation {
+            opacity: 0;
+        }
+    }
+
+    .home-footer {
+        background-color: #276180;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0.5rem 2rem;
+
+        .home-button {
+            width: 45px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 0.75rem;
+        }
+
+        .navigation {
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+
+            @media screen and(min-width: 1000px) {
+                width: 20%;
+            }
+        }
+    }
+
+    .hero {
+        text-align: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        box-sizing: border-box;
+
+        @media screen and (min-width:1000px) {
+            flex-direction: row;
+
+        }
+
+        .welcome-message {
+
+            @media screen and (min-width:1000px) {
+                width: 50%;
+            }
+
+            img {
+                width: 300px;
+            }
+        }
+
+        .app-description {
+
+            .description {
+                padding-bottom: 2rem;
+                border-bottom: 1.5px solid #F79839;
+            }
+
+
+            @media screen and (min-width:1000px) {
+                width: 50%;
+            }
+        }
+    }
+}

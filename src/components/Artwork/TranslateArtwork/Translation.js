@@ -18,7 +18,7 @@ const Translation = props => {
   };
 
   return (
-    <div>
+    <div className="translation">
       <div className="options-detail">
         <div className="icon">
           <img src={image} alt="language icon" />
