@@ -67,7 +67,7 @@ const Team = () => {
     },
     {
       name: "Rafael Montenegro",
-      role: ["Full Stack Developer"],
+      role: ["Android Developer"],
       socials: ["LinkedIn", "GitHub"],
       link: [
         "https://www.linkedin.com/in/rafaelmonte",

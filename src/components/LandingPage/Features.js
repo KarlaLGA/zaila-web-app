@@ -44,10 +44,10 @@ const Features = () => {
 
         <div className="feature">
           <div className="container">
-            <img src="/assets/images/Quest.svg" alt="quest feature" />
+            <img src="/assets/gamification.svg" alt="quest feature" />
           </div>
 
-          <h3>Interactive Quests</h3>
+          <h3>Gamification</h3>
           <p>
             Tap on the artifacts or scan the QR codes, to win rewards & increase
             your level to win quests!
@@ -101,10 +101,10 @@ const Features = () => {
 
           <div className="feature">
             <div className="container">
-              <img src="/assets/images/Quest.svg" alt="quest feature" />
+              <img src="/assets/icons/gamification.svg" alt="quest feature" />
             </div>
 
-            <h3>Interactive Quests</h3>
+            <h3>Gamification</h3>
             <p>
               Tap on the artifacts or scan the QR codes, to win rewards &
               increase your level to win quests!
