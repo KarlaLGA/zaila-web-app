@@ -15,9 +15,13 @@ const ListArtwork = () => {
   useEffect(() => {
     get("exhibition")
       .then(data => {
+        // filter status for current museum
+        const currentExhibitions = data.filter(
+          exhibition => exhibition.exhibition.museumId === 1
+        );
         console.log(data);
         // Add status of the exhibition comparing to the current day
-        const exhibitionsFilter = data.map(dataObject => {
+        const exhibitionsFilter = currentExhibitions.map(dataObject => {
           // Format date objects
           let startDate = new Moment(dataObject.exhibition.startDate);
           let endDate = new Moment(dataObject.exhibition.endDate);

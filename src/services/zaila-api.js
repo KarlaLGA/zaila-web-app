@@ -1,8 +1,9 @@
 import axios from "axios";
 
-const headers = { Authorization: `Bearer ${localStorage.getItem("userData")}` };
-
 const get = endpoint => {
+  const headers = {
+    Authorization: `Bearer ${localStorage.getItem("userData")}`
+  };
   return axios
     .get(endpoint, { headers: headers })
     .then(res => {
@@ -14,6 +15,9 @@ const get = endpoint => {
 };
 
 const create = (endpoint, data) => {
+  const headers = {
+    Authorization: `Bearer ${localStorage.getItem("userData")}`
+  };
   return axios
     .post(endpoint, data, { headers: headers })
     .then(res => {
@@ -25,6 +29,9 @@ const create = (endpoint, data) => {
 };
 
 const update = (endpoint, data) => {
+  const headers = {
+    Authorization: `Bearer ${localStorage.getItem("userData")}`
+  };
   return axios
     .put(endpoint, data, { headers: headers })
     .then(res => {

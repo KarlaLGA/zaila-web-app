@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 
-import { get } from "services/zaila-api";
-
 import ListOf from "views/screens/Exhibitions/ListOf";
 import CreateExhibition from "views/screens/Exhibitions/CreateExhibition";
 import Exhibition from "views/screens/Exhibitions/Exhibition";

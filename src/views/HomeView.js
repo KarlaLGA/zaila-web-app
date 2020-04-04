@@ -30,7 +30,10 @@ export default function HomeView() {
 
     get("exhibition")
       .then(data => {
-        let exhibitionFormat = data.map(dataSingle => {
+        let museumExhibitions = data.filter(
+          exhibition => exhibition.exhibition.museumId === 1
+        );
+        let exhibitionFormat = museumExhibitions.map(dataSingle => {
           let startDate = new Moment(dataSingle.exhibition.startDate);
           let endDate = new Moment(dataSingle.exhibition.endDate);
           let formatStart = startDate.format("MMM D, YYYY");
